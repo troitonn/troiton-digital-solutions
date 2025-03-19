@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <section 
       id="inicio" 
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden"
     >
       {/* Futuristic Grid Background */}
       <div className="absolute inset-0 -z-10">
@@ -28,19 +28,19 @@ const Hero = () => {
       <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
 
       <div className="container mx-auto px-4 z-10">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-20 opacity-0'}`}>
-            <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 text-troiton-400">
+        <div className="flex flex-col items-center text-center">
+          <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 text-troiton-400 mx-auto">
               <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
               Inovação em TI para sua empresa
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Soluções <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">tecnológicas</span> que impulsionam seu negócio
             </h1>
-            <p className="text-lg text-gray-400 mb-8 max-w-lg">
+            <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="#servicos" className="group relative bg-gradient-to-r from-troiton-600 to-troiton-500 text-white px-8 py-3 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-troiton-500/20 overflow-hidden">
                 <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
                 <span className="relative">Nossos Serviços</span>
@@ -51,7 +51,8 @@ const Hero = () => {
               </a>
             </div>
           </div>
-          <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`}>
+          
+          <div className={`mt-16 max-w-2xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} delay-300`}>
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-lg blur-sm opacity-30"></div>
               <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-1">

@@ -27,10 +27,11 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center group">
-          <span className="text-2xl font-bold">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-troiton-400 to-white">TROITON</span>
-            <span className="text-troiton-500">PROJECTS</span>
-          </span>
+          <img 
+            src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png" 
+            alt="Troiton Projects Logo" 
+            className="h-10 mr-2"
+          />
         </a>
         
         {/* Desktop Navigation */}
