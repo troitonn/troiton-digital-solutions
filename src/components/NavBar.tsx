@@ -21,32 +21,46 @@ const NavBar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
         isScrolled 
-          ? "bg-white bg-opacity-80 shadow-md backdrop-blur-md py-2" 
+          ? "bg-black/80 backdrop-blur-md border-b border-troiton-800/50 py-2" 
           : "bg-transparent py-4"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="flex items-center">
-          <span className="text-2xl font-bold text-troiton-700">
-            TROITON<span className="text-troiton-500">PROJECTS</span>
+        <a href="#" className="flex items-center group">
+          <span className="text-2xl font-bold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-troiton-400 to-white">TROITON</span>
+            <span className="text-troiton-500">PROJECTS</span>
           </span>
         </a>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-8">
-          <a href="#inicio" className="text-gray-800 hover:text-troiton-500 font-medium transition-colors">Início</a>
-          <a href="#servicos" className="text-gray-800 hover:text-troiton-500 font-medium transition-colors">Serviços</a>
-          <a href="#sobre" className="text-gray-800 hover:text-troiton-500 font-medium transition-colors">Sobre</a>
-          <a href="#contato" className="text-gray-800 hover:text-troiton-500 font-medium transition-colors">Contato</a>
+          <a href="#inicio" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+            Início
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#servicos" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+            Serviços
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#sobre" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+            Sobre
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#contato" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+            Contato
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </a>
         </div>
         
-        <button className="hidden md:block bg-troiton-600 hover:bg-troiton-700 text-white px-6 py-2 rounded-md font-medium transition-colors btn-animation">
-          Fale Conosco
+        <button className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-md font-medium transition-colors relative group overflow-hidden">
+          <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
+          <span className="relative">Fale Conosco</span>
         </button>
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-gray-800"
+          className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -56,40 +70,40 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div 
         className={cn(
-          "fixed inset-0 bg-white z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
           <a 
             href="#inicio" 
-            className="w-full text-center py-3 border-b border-gray-100 text-gray-800 hover:text-troiton-500"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Início
           </a>
           <a 
             href="#servicos" 
-            className="w-full text-center py-3 border-b border-gray-100 text-gray-800 hover:text-troiton-500"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Serviços
           </a>
           <a 
             href="#sobre" 
-            className="w-full text-center py-3 border-b border-gray-100 text-gray-800 hover:text-troiton-500"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Sobre
           </a>
           <a 
             href="#contato" 
-            className="w-full text-center py-3 border-b border-gray-100 text-gray-800 hover:text-troiton-500"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             Contato
           </a>
-          <button className="bg-troiton-600 hover:bg-troiton-700 text-white px-6 py-3 rounded-md font-medium w-full transition-colors">
+          <button className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors">
             Fale Conosco
           </button>
         </div>

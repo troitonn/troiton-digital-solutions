@@ -1,7 +1,7 @@
 
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, AlertTriangle } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
@@ -14,25 +14,43 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="text-center max-w-md">
-        <div className="mb-8 text-troiton-500 flex justify-center">
-          <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 8V12L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-            <path d="M5.63605 18.364C2.12132 14.8492 2.12132 9.15076 5.63605 5.63604C9.15076 2.12132 14.8492 2.12132 18.364 5.63604C21.8787 9.15076 21.8787 14.8492 18.364 18.364C14.8492 21.8787 9.15076 21.8787 5.63605 18.364Z" stroke="currentColor" strokeWidth="2" />
-          </svg>
+    <div className="min-h-screen flex items-center justify-center bg-black px-4 relative overflow-hidden">
+      {/* Futuristic Background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
+      </div>
+      
+      {/* Animated Orbs */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-troiton-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
+      <div className="absolute bottom-40 left-20 w-80 h-80 bg-red-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+
+      <div className="text-center max-w-md relative">
+        <div className="mb-8 text-red-500 flex justify-center">
+          <div className="relative">
+            <div className="absolute -inset-0.5 rounded-full bg-red-500 opacity-20 blur-sm"></div>
+            <div className="bg-black/50 border border-red-500/30 rounded-full p-6 relative">
+              <AlertTriangle size={60} className="animate-pulse" />
+            </div>
+          </div>
         </div>
-        <h1 className="text-5xl font-bold mb-4 text-gray-800">404</h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Oops! A página que você está procurando não foi encontrada.
-        </p>
-        <a 
-          href="/" 
-          className="inline-flex items-center bg-troiton-600 hover:bg-troiton-700 text-white px-6 py-3 rounded-md font-medium transition-colors"
-        >
-          <ArrowLeft className="mr-2 h-5 w-5" />
-          Voltar para a página inicial
-        </a>
+        
+        <div className="relative">
+          <div className="absolute -inset-1 bg-gradient-to-r from-troiton-500 to-red-500 rounded-lg blur-sm opacity-30"></div>
+          <div className="relative bg-black/80 backdrop-blur-sm border border-white/10 p-8 rounded-lg">
+            <h1 className="text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-red-400">404</h1>
+            <p className="text-xl text-gray-300 mb-8">
+              Oops! A página que você está procurando não foi encontrada.
+            </p>
+            <a 
+              href="/" 
+              className="group relative bg-gradient-to-r from-troiton-600 to-troiton-500 text-white px-6 py-3 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-troiton-500/20 overflow-hidden"
+            >
+              <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
+              <ArrowLeft className="mr-2 h-5 w-5 transition-transform group-hover:-translate-x-1" />
+              <span className="relative">Voltar para a página inicial</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
