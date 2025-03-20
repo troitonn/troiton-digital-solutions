@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { Server, Shield, Headset, BarChart, Lightbulb, Code } from 'lucide-react';
+import { Server, Shield, BarChart, Lightbulb, Code } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
 const serviceCategories = [
@@ -29,17 +29,6 @@ const serviceCategories = [
   },
   {
     id: 3,
-    title: "ITSM e Service Desk",
-    icon: <Headset className="h-10 w-10 text-white" />,
-    description: "Oferecemos suporte técnico profissional e implementamos soluções de gerenciamento de serviços de TI.",
-    items: [
-      "Implantação e otimização de Zoho Desk e Zoho Projects",
-      "Estruturação de atendimento e suporte técnico empresarial"
-    ],
-    color: "from-red-500/90 to-pink-600/90"
-  },
-  {
-    id: 4,
     title: "Análise e Integração de Dados",
     icon: <BarChart className="h-10 w-10 text-white" />,
     description: "Transformamos seus dados em insights acionáveis para tomada de decisões estratégicas.",
@@ -51,7 +40,7 @@ const serviceCategories = [
     color: "from-emerald-500/90 to-teal-600/90"
   },
   {
-    id: 5,
+    id: 4,
     title: "Consultoria em Tecnologia e Digitalização",
     icon: <Lightbulb className="h-10 w-10 text-white" />,
     description: "Auxiliamos empresas na transformação digital com soluções personalizadas.",
@@ -63,7 +52,7 @@ const serviceCategories = [
     color: "from-amber-500/90 to-yellow-600/90"
   },
   {
-    id: 6,
+    id: 5,
     title: "Desenvolvimento e Implementação de Soluções",
     icon: <Code className="h-10 w-10 text-white" />,
     description: "Desenvolvemos e implementamos soluções tecnológicas conforme as necessidades do seu negócio.",
@@ -247,8 +236,9 @@ const Services = () => {
         </div>
       </div>
       
-      {/* Add keyframe animation for slow pulsing */}
-      <style jsx>{`
+      {/* Fix the Style tag TypeScript error by using a regular style element instead of style jsx */}
+      <style>
+        {`
         @keyframes pulse-slow {
           0%, 100% {
             opacity: 0.5;
@@ -262,7 +252,8 @@ const Services = () => {
         .animate-pulse-slow {
           animation: pulse-slow 8s infinite;
         }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
