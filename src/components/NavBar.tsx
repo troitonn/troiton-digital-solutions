@@ -30,12 +30,12 @@ const NavBar = () => {
           <img 
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png" 
             alt="Troiton Projects Logo" 
-            className="h-16 mr-2" // Increased from h-10 to h-16
+            className="h-16 mr-2"
           />
         </a>
         
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
+        {/* Desktop Navigation - INCREASED SPACING HERE */}
+        <div className="hidden md:flex space-x-12">
           <a href="#inicio" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
             Início
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
