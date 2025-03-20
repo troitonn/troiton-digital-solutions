@@ -1,5 +1,5 @@
 
-import { ArrowRight, Code, Database, Layers } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
@@ -35,7 +35,7 @@ const Hero = () => {
               Inovação em TI para sua empresa
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Soluções <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">tecnológicas</span> que impulsionam seu negócio
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Projetos tecnológicos</span> que impulsionam seu negócio
             </h1>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
@@ -55,49 +55,36 @@ const Hero = () => {
           <div className={`mt-16 max-w-2xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} delay-300`}>
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-lg blur-sm opacity-30"></div>
-              <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-lg p-1">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-t-lg"></div>
-                <div className="flex items-center px-4 py-2 border-b border-white/10">
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              <div className="relative glass-card rounded-xl p-8 border border-troiton-500/20">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="flex flex-col items-center p-4 bg-troiton-900/50 rounded-lg border border-troiton-700/30 transition-all duration-300 hover:border-troiton-500/50 hover:bg-troiton-800/30">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-troiton-500 to-blue-500 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Gestão de Projetos</h3>
+                    <p className="text-gray-400 text-center">Implementamos projetos tecnológicos com metodologias ágeis</p>
                   </div>
-                  <div className="flex-1 text-center text-xs text-gray-400">terminal@troiton:~</div>
-                </div>
-                <div className="p-4 font-mono text-sm">
-                  <div className="flex items-start mb-2">
-                    <span className="text-troiton-500 mr-2">$</span>
-                    <span className="text-gray-300">initialize_project</span>
+                  
+                  <div className="flex flex-col items-center p-4 bg-troiton-900/50 rounded-lg border border-troiton-700/30 transition-all duration-300 hover:border-troiton-500/50 hover:bg-troiton-800/30">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-troiton-500 to-blue-500 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Segurança Digital</h3>
+                    <p className="text-gray-400 text-center">Protegemos seus dados com soluções avançadas de segurança</p>
                   </div>
-                  <div className="flex items-start mb-2">
-                    <span className="text-gray-400 ml-4">Loading modules...</span>
-                  </div>
-                  <div className="flex items-start mb-2">
-                    <span className="text-gray-400 ml-4 flex items-center">
-                      <Code className="w-4 h-4 mr-2 text-blue-400" />
-                      <span>Development</span>
-                      <span className="ml-2 text-troiton-400">✓</span>
-                    </span>
-                  </div>
-                  <div className="flex items-start mb-2">
-                    <span className="text-gray-400 ml-4 flex items-center">
-                      <Database className="w-4 h-4 mr-2 text-purple-400" />
-                      <span>Infrastructure</span>
-                      <span className="ml-2 text-troiton-400">✓</span>
-                    </span>
-                  </div>
-                  <div className="flex items-start mb-2">
-                    <span className="text-gray-400 ml-4 flex items-center">
-                      <Layers className="w-4 h-4 mr-2 text-yellow-400" />
-                      <span>Integration</span>
-                      <span className="ml-2 text-troiton-400">✓</span>
-                    </span>
-                  </div>
-                  <div className="flex items-start">
-                    <span className="text-troiton-500 mr-2">$</span>
-                    <span className="text-gray-300">launch --mode=production</span>
-                    <span className="ml-2 animate-pulse">_</span>
+                  
+                  <div className="flex flex-col items-center p-4 bg-troiton-900/50 rounded-lg border border-troiton-700/30 transition-all duration-300 hover:border-troiton-500/50 hover:bg-troiton-800/30">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-troiton-500 to-blue-500 flex items-center justify-center mb-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-2">Desenvolvimento</h3>
+                    <p className="text-gray-400 text-center">Criamos soluções customizadas para seu negócio</p>
                   </div>
                 </div>
               </div>
