@@ -7,6 +7,7 @@ import About from '@/components/About';
 import CTA from '@/components/CTA';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const Index = () => {
   // Smooth scrolling for anchor links
@@ -43,6 +44,7 @@ const Index = () => {
       <CTA />
       <Contact />
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
