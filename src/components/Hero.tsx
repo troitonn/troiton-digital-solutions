@@ -1,11 +1,15 @@
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+  
+  return (
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Futuristic Grid Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
@@ -84,6 +88,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

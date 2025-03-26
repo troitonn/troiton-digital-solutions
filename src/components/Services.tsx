@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { Server, Shield, BarChart, Lightbulb, Code } from 'lucide-react';
 import { cn } from "@/lib/utils";
