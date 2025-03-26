@@ -1,11 +1,7 @@
-
 import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  return (
-    <footer className="bg-gray-900 text-white pt-16 pb-8">
+  return <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
@@ -55,8 +51,8 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4">Contato</h4>
             <ul className="space-y-3 text-gray-400">
               <li>São Paulo, SP - Brasil</li>
-              <li>contato@troitonprojects.com.br</li>
-              <li>+55 (11) 98765-4321</li>
+              <li>projects@troiton.com.br</li>
+              <li>+55 (11) 95823-1139</li>
             </ul>
           </div>
         </div>
@@ -73,8 +69,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
