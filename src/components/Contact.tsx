@@ -1,38 +1,29 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
-
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entries[0].target);
-        }
-      },
-      {
-        threshold: 0.1,
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true);
+        observer.unobserve(entries[0].target);
       }
-    );
-
+    }, {
+      threshold: 0.1
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Here you would typically handle the form submission
@@ -41,13 +32,7 @@ const Contact = () => {
     setEmail('');
     setMessage('');
   };
-
-  return (
-    <section 
-      id="contato" 
-      ref={sectionRef}
-      className="py-20 bg-gray-50"
-    >
+  return <section id="contato" ref={sectionRef} className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block bg-troiton-100 text-troiton-800 px-4 py-1 rounded-full text-sm font-medium mb-4">
@@ -61,11 +46,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div 
-          className={`grid md:grid-cols-2 gap-12 max-w-5xl mx-auto transition-all duration-1000 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
-          }`}
-        >
+        <div className={`grid md:grid-cols-2 gap-12 max-w-5xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
           <div className="bg-white rounded-xl shadow-lg p-8">
             <h3 className="text-2xl font-bold mb-6">Envie uma mensagem</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -73,48 +54,21 @@ const Contact = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Nome completo
                 </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500"
-                  placeholder="Seu nome"
-                  required
-                />
+                <input type="text" id="name" value={name} onChange={e => setName(e.target.value)} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500" placeholder="Seu nome" required />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500"
-                  placeholder="seu.email@exemplo.com"
-                  required
-                />
+                <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500" placeholder="seu.email@exemplo.com" required />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Mensagem
                 </label>
-                <textarea
-                  id="message"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500"
-                  placeholder="Como podemos ajudar você?"
-                  required
-                />
+                <textarea id="message" value={message} onChange={e => setMessage(e.target.value)} rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500" placeholder="Como podemos ajudar você?" required />
               </div>
-              <button
-                type="submit"
-                className="w-full bg-troiton-600 hover:bg-troiton-700 text-white font-medium py-3 rounded-md transition-colors flex items-center justify-center btn-animation"
-              >
+              <button type="submit" className="w-full bg-troiton-600 hover:bg-troiton-700 text-white font-medium py-3 rounded-md transition-colors flex items-center justify-center btn-animation">
                 Enviar mensagem
                 <Send className="ml-2 h-5 w-5" />
               </button>
@@ -141,7 +95,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium">Email</h4>
-                    <p className="opacity-80">contato@troitonprojects.com.br</p>
+                    <p className="opacity-80">projects@troiton.com.br</p>
                   </div>
                 </div>
                 
@@ -151,7 +105,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium">Telefone</h4>
-                    <p className="opacity-80">+55 (11) 98765-4321</p>
+                    <p className="opacity-80">+55 (11) 95823-1139</p>
                   </div>
                 </div>
                 
@@ -161,7 +115,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium">Localização</h4>
-                    <p className="opacity-80">São Paulo, SP - Brasil</p>
+                    <p className="opacity-80">Rua Werner Von Siemens, 111 - Lapa de Baixo - São Paulo, SP - Brasil</p>
                   </div>
                 </div>
               </div>
@@ -169,8 +123,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Contact;
