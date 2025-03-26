@@ -20,7 +20,7 @@ const WhatsAppButton = () => {
   }, []);
   
   const handleWhatsAppClick = () => {
-    window.open('https://wa.me/+5511000000000?text=Olá!%20Estou%20interessado%20em%20seus%20serviços.', '_blank');
+    window.open('https://wa.me/+5511943614110?text=Olá!%20Estou%20interessado%20em%20seus%20serviços.', '_blank');
   };
   
   return (
