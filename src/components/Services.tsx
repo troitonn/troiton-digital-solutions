@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from 'react';
-import { Server, Shield, BarChart, Lightbulb, Code, MessageCircle } from 'lucide-react';
+import { Server, Shield, BarChart, Lightbulb, Code } from 'lucide-react';
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 
@@ -231,7 +231,8 @@ const Services = () => {
         </div>
       </div>
       
-      <style jsx>{`
+      <style>
+        {`
         @keyframes pulse-slow {
           0%, 100% {
             opacity: 0.5;
@@ -245,7 +246,8 @@ const Services = () => {
         .animate-pulse-slow {
           animation: pulse-slow 8s infinite;
         }
-      `}</style>
+        `}
+      </style>
     </section>
   );
 };
