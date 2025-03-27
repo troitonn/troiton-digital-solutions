@@ -38,7 +38,7 @@ const Contact = () => {
 
     try {
       // Initialize EmailJS with your User ID
-      emailjs.init("YOUR_USER_ID");
+      emailjs.init("65sOxGajhHrZ-wjoa");
 
       const templateParams = {
         to_email: "alexsandro.braga@troiton.com.br",
@@ -48,8 +48,8 @@ const Contact = () => {
       };
 
       await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        "service_h2ylt8s", // Replace with your EmailJS service ID
+        "template_ocgfrph", // Replace with your EmailJS template ID
         templateParams
       );
 
