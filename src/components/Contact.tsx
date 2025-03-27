@@ -1,11 +1,18 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import emailjs from 'emailjs-com';
+import { useToast } from "@/hooks/use-toast";
+
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [isVisible, setIsVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { toast } = useToast();
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
@@ -24,14 +31,50 @@ const Contact = () => {
       }
     };
   }, []);
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
-    alert(`Obrigado ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`);
-    setName('');
-    setEmail('');
-    setMessage('');
+    setIsSubmitting(true);
+
+    try {
+      // Initialize EmailJS with your User ID
+      emailjs.init("YOUR_USER_ID");
+
+      const templateParams = {
+        to_email: "alexsandro.braga@troiton.com.br",
+        from_name: name,
+        from_email: email,
+        message: message,
+      };
+
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+        templateParams
+      );
+
+      toast({
+        title: "Mensagem enviada!",
+        description: `Obrigado ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`,
+        variant: "default",
+      });
+
+      // Reset form fields
+      setName('');
+      setEmail('');
+      setMessage('');
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: "Erro ao enviar mensagem",
+        description: "Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
   return <section id="contato" ref={sectionRef} className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
@@ -68,8 +111,12 @@ const Contact = () => {
                 </label>
                 <textarea id="message" value={message} onChange={e => setMessage(e.target.value)} rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500" placeholder="Como podemos ajudar você?" required />
               </div>
-              <button type="submit" className="w-full bg-troiton-600 hover:bg-troiton-700 text-white font-medium py-3 rounded-md transition-colors flex items-center justify-center btn-animation">
-                Enviar mensagem
+              <button 
+                type="submit" 
+                className="w-full bg-troiton-600 hover:bg-troiton-700 text-white font-medium py-3 rounded-md transition-colors flex items-center justify-center btn-animation"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
                 <Send className="ml-2 h-5 w-5" />
               </button>
             </form>
@@ -125,4 +172,5 @@ const Contact = () => {
       </div>
     </section>;
 };
+
 export default Contact;
