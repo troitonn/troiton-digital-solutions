@@ -1,4 +1,3 @@
-
 import { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
@@ -6,7 +5,6 @@ import { useToast } from "@/hooks/use-toast";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-
 const Contact = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,8 +13,9 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-  const { toast } = useToast();
-
+  const {
+    toast
+  } = useToast();
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
@@ -35,44 +34,37 @@ const Contact = () => {
       }
     };
   }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!name || !email || !message) {
       toast({
         title: "Campos obrigatórios",
         description: "Por favor, preencha todos os campos do formulário.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-    
     setIsSubmitting(true);
-
     try {
       // Log the form data for debugging
-      console.log("Sending email with data:", { 
-        from_name: name, 
-        from_email: email, 
+      console.log("Sending email with data:", {
+        from_name: name,
+        from_email: email,
         message: message,
-        to_email: 'alexsandro.braga@troiton.com.br' 
+        to_email: 'alexsandro.braga@troiton.com.br'
       });
-
       if (formRef.current) {
-        const result = await emailjs.sendForm(
-          'service_h2ylt8s', // Your EmailJS service ID
-          'template_ocgfrph', // Your EmailJS template ID
-          formRef.current,
-          'W9vYe_nC6SZAQpXuJ' // Your EmailJS public key
+        const result = await emailjs.sendForm('service_h2ylt8s',
+        // Your EmailJS service ID
+        'template_ocgfrph',
+        // Your EmailJS template ID
+        formRef.current, 'W9vYe_nC6SZAQpXuJ' // Your EmailJS public key
         );
-
         console.log('Email successfully sent!', result.text);
-        
         toast({
           title: "Mensagem enviada!",
           description: `Obrigado ${name}! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.`,
-          variant: "default",
+          variant: "default"
         });
 
         // Reset form fields
@@ -85,20 +77,19 @@ const Contact = () => {
       toast({
         title: "Erro ao enviar mensagem",
         description: "Houve um problema ao enviar sua mensagem. Por favor, tente novamente mais tarde.",
-        variant: "destructive",
+        variant: "destructive"
       });
     } finally {
       setIsSubmitting(false);
     }
   };
-
   return <section id="contato" ref={sectionRef} className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <span className="inline-block bg-troiton-100 text-troiton-800 px-4 py-1 rounded-full text-sm font-medium mb-4">
             Contato
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-950">
             Vamos conversar sobre seu projeto
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -114,53 +105,22 @@ const Contact = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Nome completo
                 </label>
-                <Input 
-                  type="text" 
-                  id="name" 
-                  name="from_name" 
-                  value={name} 
-                  onChange={e => setName(e.target.value)} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" 
-                  placeholder="Seu nome" 
-                  required 
-                />
+                <Input type="text" id="name" name="from_name" value={name} onChange={e => setName(e.target.value)} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" placeholder="Seu nome" required />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
-                <Input 
-                  type="email" 
-                  id="email" 
-                  name="from_email" 
-                  value={email} 
-                  onChange={e => setEmail(e.target.value)} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" 
-                  placeholder="seu.email@exemplo.com" 
-                  required 
-                />
+                <Input type="email" id="email" name="from_email" value={email} onChange={e => setEmail(e.target.value)} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" placeholder="seu.email@exemplo.com" required />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Mensagem
                 </label>
-                <Textarea 
-                  id="message" 
-                  name="message" 
-                  value={message} 
-                  onChange={e => setMessage(e.target.value)} 
-                  rows={4} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" 
-                  placeholder="Como podemos ajudar você?" 
-                  required 
-                />
+                <Textarea id="message" name="message" value={message} onChange={e => setMessage(e.target.value)} rows={4} className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" placeholder="Como podemos ajudar você?" required />
               </div>
               <input type="hidden" name="to_email" value="alexsandro.braga@troiton.com.br" />
-              <Button 
-                type="submit" 
-                className="w-full bg-troiton-600 hover:bg-troiton-700 text-white font-medium py-3 rounded-md transition-colors flex items-center justify-center btn-animation"
-                disabled={isSubmitting}
-              >
+              <Button type="submit" className="w-full bg-troiton-600 hover:bg-troiton-700 text-white font-medium py-3 rounded-md transition-colors flex items-center justify-center btn-animation" disabled={isSubmitting}>
                 {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
                 <Send className="ml-2 h-5 w-5" />
               </Button>
@@ -217,5 +177,4 @@ const Contact = () => {
       </div>
     </section>;
 };
-
 export default Contact;
