@@ -4,6 +4,8 @@ import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -112,13 +114,13 @@ const Contact = () => {
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                   Nome completo
                 </label>
-                <input 
+                <Input 
                   type="text" 
                   id="name" 
                   name="from_name" 
                   value={name} 
                   onChange={e => setName(e.target.value)} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-black" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" 
                   placeholder="Seu nome" 
                   required 
                 />
@@ -127,13 +129,13 @@ const Contact = () => {
                 <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
-                <input 
+                <Input 
                   type="email" 
                   id="email" 
                   name="from_email" 
                   value={email} 
                   onChange={e => setEmail(e.target.value)} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-black" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" 
                   placeholder="seu.email@exemplo.com" 
                   required 
                 />
@@ -142,13 +144,13 @@ const Contact = () => {
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Mensagem
                 </label>
-                <textarea 
+                <Textarea 
                   id="message" 
                   name="message" 
                   value={message} 
                   onChange={e => setMessage(e.target.value)} 
                   rows={4} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-black" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500 text-gray-800" 
                   placeholder="Como podemos ajudar você?" 
                   required 
                 />
