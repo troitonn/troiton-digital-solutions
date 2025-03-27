@@ -76,7 +76,7 @@ const Hero = () => {
                       </svg>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Migração</h3>
-                    <p className="text-gray-400 text-center">Implementamos soluções customizadas para seu negócio</p>
+                    <p className="text-gray-400 text-center">Implementação e migração sob medida para impulsionar a eficiência do seu negócio.</p>
                   </div>
                 </div>
               </div>
