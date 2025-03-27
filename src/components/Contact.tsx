@@ -1,7 +1,9 @@
+
 import { useState, useRef, useEffect } from 'react';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { useToast } from "@/hooks/use-toast";
+import { Button } from '@/components/ui/button';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -34,9 +36,27 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!name || !email || !message) {
+      toast({
+        title: "Campos obrigatórios",
+        description: "Por favor, preencha todos os campos do formulário.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
     setIsSubmitting(true);
 
     try {
+      // Log the form data for debugging
+      console.log("Sending email with data:", { 
+        from_name: name, 
+        from_email: email, 
+        message: message,
+        to_email: 'alexsandro.braga@troiton.com.br' 
+      });
+
       if (formRef.current) {
         const result = await emailjs.sendForm(
           'service_h2ylt8s', // Your EmailJS service ID
@@ -134,14 +154,14 @@ const Contact = () => {
                 />
               </div>
               <input type="hidden" name="to_email" value="alexsandro.braga@troiton.com.br" />
-              <button 
+              <Button 
                 type="submit" 
                 className="w-full bg-troiton-600 hover:bg-troiton-700 text-white font-medium py-3 rounded-md transition-colors flex items-center justify-center btn-animation"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar mensagem'}
                 <Send className="ml-2 h-5 w-5" />
-              </button>
+              </Button>
             </form>
           </div>
 
