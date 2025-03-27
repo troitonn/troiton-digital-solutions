@@ -118,7 +118,7 @@ const Contact = () => {
                   name="from_name" 
                   value={name} 
                   onChange={e => setName(e.target.value)} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-900" 
                   placeholder="Seu nome" 
                   required 
                 />
@@ -133,7 +133,7 @@ const Contact = () => {
                   name="from_email" 
                   value={email} 
                   onChange={e => setEmail(e.target.value)} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-900" 
                   placeholder="seu.email@exemplo.com" 
                   required 
                 />
@@ -148,7 +148,7 @@ const Contact = () => {
                   value={message} 
                   onChange={e => setMessage(e.target.value)} 
                   rows={4} 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-500" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-troiton-500 focus:border-troiton-900" 
                   placeholder="Como podemos ajudar você?" 
                   required 
                 />
