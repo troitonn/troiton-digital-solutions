@@ -2,10 +2,13 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomepage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,32 +29,47 @@ const NavBar = () => {
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="flex items-center group">
+        <Link to="/" className="flex items-center group">
           <img 
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png" 
             alt="Troiton Projects Logo" 
             className="h-16 mr-2"
           />
-        </a>
+        </Link>
         
         {/* Desktop Navigation - INCREASED SPACING HERE */}
         <div className="hidden md:flex space-x-12">
-          <a href="#inicio" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
-            Início
+          {isHomepage ? (
+            <>
+              <a href="#inicio" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+                Início
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#servicos" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+                Serviços
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+              </a>
+              <a href="#sobre" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+                Sobre
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+              </a>
+            </>
+          ) : (
+            <Link to="/" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+              Início
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+            </Link>
+          )}
+          <Link to="/tecnologias" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+            Tecnologias
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </a>
-          <a href="#servicos" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
-            Serviços
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </a>
-          <a href="#sobre" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
-            Sobre
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </a>
-          <a href="#contato" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
-            Contato
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </a>
+          </Link>
+          {isHomepage && (
+            <a href="#contato" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+              Contato
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+            </a>
+          )}
         </div>
         
         <button className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-md font-medium transition-colors relative group overflow-hidden">
@@ -76,34 +94,55 @@ const NavBar = () => {
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
-          <a 
-            href="#inicio" 
+          {isHomepage ? (
+            <>
+              <a 
+                href="#inicio" 
+                className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Início
+              </a>
+              <a 
+                href="#servicos" 
+                className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Serviços
+              </a>
+              <a 
+                href="#sobre" 
+                className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Sobre
+              </a>
+            </>
+          ) : (
+            <Link 
+              to="/"
+              className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Início
+            </Link>
+          )}
+          <Link 
+            to="/tecnologias"
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Início
-          </a>
-          <a 
-            href="#servicos" 
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Serviços
-          </a>
-          <a 
-            href="#sobre" 
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Sobre
-          </a>
-          <a 
-            href="#contato" 
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Contato
-          </a>
+            Tecnologias
+          </Link>
+          {isHomepage && (
+            <a 
+              href="#contato" 
+              className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contato
+            </a>
+          )}
           <button className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors">
             Fale Conosco
           </button>
