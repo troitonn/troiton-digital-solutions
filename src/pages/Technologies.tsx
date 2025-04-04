@@ -6,10 +6,13 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import { technologyCategories } from '@/data/technologies';
 import { TechnologySection } from '@/components/TechnologySection';
 import { Button } from '@/components/ui/button';
+import { ArrowDown, ChevronDown, Database, Globe, Lock, Server, Code, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Technologies = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
+  const contactSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsHeaderVisible(true);
@@ -36,10 +39,20 @@ const Technologies = () => {
     return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
+  const scrollToContact = () => {
+    // Using the Link to homepage, then scroll to contact
+    window.location.href = '/#contato';
+  };
+
+  // Filter categories to only show ones with visible technologies
+  const visibleCategories = technologyCategories.filter(category => 
+    category.technologies.some(tech => tech.logo !== "/placeholder.svg")
+  );
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Background effects */}
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-troiton-900/20 via-black to-black -z-10"></div>
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-troiton-900/40 via-black to-black -z-10"></div>
       <div className="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMDI5MWMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIiAvPjwvc3ZnPg==')] opacity-10 -z-10"></div>
       
       <NavBar />
@@ -52,48 +65,105 @@ const Technologies = () => {
         }`}
       >
         {/* Animated background elements */}
-        <div className="absolute top-40 left-10 w-72 h-72 bg-blue-500/10 rounded-full filter blur-3xl animate-pulse-slow opacity-50 -z-10"></div>
+        <div className="absolute top-40 left-10 w-72 h-72 bg-troiton-500/10 rounded-full filter blur-3xl animate-pulse-slow opacity-50 -z-10"></div>
         <div className="absolute bottom-0 right-10 w-80 h-80 bg-purple-500/10 rounded-full filter blur-3xl animate-pulse-slow opacity-50 -z-10"></div>
         
         <div className="container mx-auto text-center max-w-4xl">
           <span className="inline-block px-5 py-1.5 rounded-full text-sm font-semibold mb-4 bg-gradient-to-r from-troiton-500/20 to-blue-500/20 text-troiton-400 border border-troiton-500/30">
-            Tecnologias
+            Soluções Tecnológicas
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-            Experiência com Diversas Plataformas de Mercado
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient-to-r from-white via-gray-100 to-gray-300">
+            Experiência com Tecnologias Líderes de Mercado
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
-            Atuamos com um ecossistema completo de plataformas e tecnologias líderes de mercado. Nossa equipe domina ferramentas de gestão, nuvem, colaboração, segurança, automação e desenvolvimento, garantindo soluções integradas, eficientes e personalizadas.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+            Trabalhamos com um ecossistema completo de plataformas e tecnologias modernas para oferecer as melhores soluções para o seu negócio.
           </p>
-          <div className="flex justify-center gap-4">
+          <div className="flex justify-center gap-4 flex-col sm:flex-row">
             <Button
-              className="bg-troiton-600 hover:bg-troiton-700 text-white px-8 py-6 rounded-full flex items-center justify-center h-auto text-lg"
-              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-6 rounded-full flex items-center justify-center h-auto text-lg"
+              onClick={scrollToContact}
             >
               Fale com nossa equipe
+            </Button>
+            <Button
+              className="bg-transparent border border-troiton-500/50 hover:bg-troiton-900/30 text-white px-8 py-6 rounded-full flex items-center justify-center h-auto text-lg mt-4 sm:mt-0"
+              variant="outline"
+              onClick={() => {
+                const techSection = document.getElementById('tech-categories');
+                techSection?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Ver tecnologias <ArrowDown className="ml-2 h-5 w-5" />
             </Button>
           </div>
         </div>
       </div>
       
-      {/* Technology categories */}
-      <div className="container mx-auto px-4 py-16">
-        {technologyCategories.map((category) => (
+      {/* Technology icons */}
+      <div className="container mx-auto px-4 py-16 relative">
+        <div className="flex justify-center flex-wrap gap-8 mb-16">
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-troiton-700/20">
+              <Database className="h-8 w-8 text-troiton-300" />
+            </div>
+            <span className="text-troiton-100 font-medium">ERP</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-troiton-700/20">
+              <Server className="h-8 w-8 text-troiton-300" />
+            </div>
+            <span className="text-troiton-100 font-medium">Infraestrutura</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-troiton-700/20">
+              <Globe className="h-8 w-8 text-troiton-300" />
+            </div>
+            <span className="text-troiton-100 font-medium">Cloud</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-troiton-700/20">
+              <Lock className="h-8 w-8 text-troiton-300" />
+            </div>
+            <span className="text-troiton-100 font-medium">Segurança</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-troiton-700/20">
+              <Code className="h-8 w-8 text-troiton-300" />
+            </div>
+            <span className="text-troiton-100 font-medium">Desenvolvimento</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-troiton-700/20">
+              <Zap className="h-8 w-8 text-troiton-300" />
+            </div>
+            <span className="text-troiton-100 font-medium">Automação</span>
+          </div>
+        </div>
+        
+        {/* Tech categories divider */}
+        <div id="tech-categories" className="relative py-8">
+          <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500/50 to-transparent"></div>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-white via-troiton-100 to-white bg-clip-text text-transparent">Nosso Ecossistema Tecnológico</h2>
+          <p className="text-gray-400 text-center max-w-3xl mx-auto mb-12">Conheça as plataformas e soluções que utilizamos para criar ambientes tecnológicos robustos, seguros e eficientes.</p>
+        </div>
+
+        {/* Technology categories */}
+        {visibleCategories.map((category) => (
           <TechnologySection key={category.id} category={category} />
         ))}
         
         {/* Call to action */}
         <div className="mt-20 text-center">
           <div className="max-w-3xl mx-auto bg-gradient-to-br from-troiton-800/80 to-troiton-900/80 p-10 rounded-3xl border border-troiton-700/50 backdrop-blur-lg">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Precisa de soluções tecnológicas para sua empresa?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Precisando de soluções tecnológicas?</h3>
             <p className="text-gray-300 mb-8">
-              Nossa equipe está pronta para ajudá-lo a escolher as melhores ferramentas e implementá-las de forma eficiente para impulsionar seu negócio.
+              Nossa equipe está pronta para ajudá-lo a escolher e implementar as melhores ferramentas para impulsionar seu negócio.
             </p>
             <Button
-              className="bg-white hover:bg-gray-200 text-troiton-800 px-8 py-6 rounded-full flex items-center justify-center h-auto text-lg mx-auto"
-              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-troiton-800 px-8 py-6 rounded-full flex items-center justify-center h-auto text-lg mx-auto"
+              onClick={scrollToContact}
             >
-              Entre em contato
+              Entre em contato agora
             </Button>
           </div>
         </div>
