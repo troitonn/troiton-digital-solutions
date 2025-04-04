@@ -3,16 +3,15 @@ import { useEffect, useState, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { technologyCategories } from '@/data/technologies';
+import { allTechnologies } from '@/data/technologies';
 import { TechnologySection } from '@/components/TechnologySection';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ChevronDown, Database, Globe, Lock, Server, Code, Zap } from 'lucide-react';
+import { ArrowDown, Database, Globe, Lock, Server, Code, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Technologies = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
-  const contactSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsHeaderVisible(true);
@@ -40,14 +39,8 @@ const Technologies = () => {
   }, []);
 
   const scrollToContact = () => {
-    // Using the Link to homepage, then scroll to contact
     window.location.href = '/#contato';
   };
-
-  // Filter categories to only show ones with visible technologies
-  const visibleCategories = technologyCategories.filter(category => 
-    category.technologies.some(tech => tech.logo !== "/placeholder.svg")
-  );
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -72,7 +65,7 @@ const Technologies = () => {
           <span className="inline-block px-5 py-1.5 rounded-full text-sm font-semibold mb-4 bg-gradient-to-r from-troiton-500/20 to-blue-500/20 text-troiton-400 border border-troiton-500/30">
             Soluções Tecnológicas
           </span>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gradient-to-r from-white via-gray-100 to-gray-300">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
             Experiência com Tecnologias Líderes de Mercado
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
@@ -89,7 +82,7 @@ const Technologies = () => {
               className="bg-transparent border border-troiton-500/50 hover:bg-troiton-900/30 text-white px-8 py-6 rounded-full flex items-center justify-center h-auto text-lg mt-4 sm:mt-0"
               variant="outline"
               onClick={() => {
-                const techSection = document.getElementById('tech-categories');
+                const techSection = document.getElementById('tech-showcase');
                 techSection?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
@@ -140,17 +133,15 @@ const Technologies = () => {
           </div>
         </div>
         
-        {/* Tech categories divider */}
-        <div id="tech-categories" className="relative py-8">
+        {/* Tech showcase divider */}
+        <div id="tech-showcase" className="relative py-8">
           <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500/50 to-transparent"></div>
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-white via-troiton-100 to-white bg-clip-text text-transparent">Nosso Ecossistema Tecnológico</h2>
           <p className="text-gray-400 text-center max-w-3xl mx-auto mb-12">Conheça as plataformas e soluções que utilizamos para criar ambientes tecnológicos robustos, seguros e eficientes.</p>
         </div>
 
-        {/* Technology categories */}
-        {visibleCategories.map((category) => (
-          <TechnologySection key={category.id} category={category} />
-        ))}
+        {/* Technology showcase - all logos in one section */}
+        <TechnologySection technologies={allTechnologies} />
         
         {/* Call to action */}
         <div className="mt-20 text-center">
