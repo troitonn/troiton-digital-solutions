@@ -1,4 +1,3 @@
-
 export interface Technology {
   name: string;
   logo: string;
@@ -52,7 +51,6 @@ export const allTechnologies: Technology[] = [
   { name: "Microsoft 365", logo: "/lovable-uploads/b672025c-c14f-411e-a72e-375bf5e8905c.png" },
   { name: "Google", logo: "/lovable-uploads/93dc45cf-6aff-493d-8d67-1372060aa9a2.png" },
   { name: "Google Cloud", logo: "/lovable-uploads/fc00fcb5-15de-4ac2-8c11-0010876c42b9.png" },
-  { name: "Cloudflare", logo: "/lovable-uploads/b9aa4db3-6f0d-42c5-989e-b206e0517677.png" },
 ];
 
 export const technologyCategories: TechnologyCategory[] = [
