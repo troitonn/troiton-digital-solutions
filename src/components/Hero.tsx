@@ -26,7 +26,7 @@ const Hero = () => {
               <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
               Inovação em TI para sua empresa
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl mb-6 leading-tight font-bold mx-[220px] lg:text-5xl">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Projetos tecnológicos</span> que impulsionam seu negócio
             </h1>
             <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
