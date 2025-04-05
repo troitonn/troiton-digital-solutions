@@ -14,7 +14,7 @@ export const allTechnologies: Technology[] = [
   // Removed icon 2 and 3 (AWS and Google Cloud) as they were duplicated
   // Removed 4th icon (Microsoft 365)
   // Removed 5th icon (Acronis)
-  { name: "Google Drive", logo: "/lovable-uploads/75265e63-edd7-4f8a-8cc1-ebffde112ef3.png" },
+  { name: "Google Drive", logo: "/lovable-uploads/555265e63-edd7-4f8a-8cc1-ebffde112ef3.png" },
   // Removed 7th icon (Zoho One)
   { name: "Jira", logo: "/lovable-uploads/e0a1ab00-eb31-4024-9180-7dca29532d4f.png" },
   { name: "Power BI", logo: "/lovable-uploads/75265e63-edd7-4f8a-8cc1-ebffde112ef3.png" },
