@@ -12,7 +12,7 @@ export const TechnologyCard = ({ logo, className }: TechnologyCardProps) => {
       "flex items-center justify-center p-8 bg-gradient-to-br from-troiton-900/80 to-black/80 backdrop-blur-lg rounded-xl border border-troiton-800/30 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-troiton-600/50",
       className
     )}>
-      <div className="h-20 w-20 md:h-24 md:w-24 lg:h-28 lg:w-28 flex items-center justify-center relative">
+      <div className="h-16 w-16 md:h-16 md:w-16 lg:h-20 lg:w-20 flex items-center justify-center relative">
         <div className="absolute inset-0 bg-white/5 rounded-full blur-md"></div>
         <img 
           src={logo} 
