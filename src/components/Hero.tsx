@@ -26,19 +26,19 @@ const Hero = () => {
               <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
               Inovação em TI para sua empresa
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight mx-[240px]">
+            <h1 className="text-4xl md:text-5xl mb-6 leading-tight font-bold mx-[220px] lg:text-6xl">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Projetos tecnológicos</span> que impulsionam seu negócio
             </h1>
-            <p className="text-gray-400 mb-8 max-w-2xl text-center font-medium text-base mx-[200px]">
+            <p className="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="#servicos" className="group relative bg-gradient-to-r from-troiton-600 to-troiton-500 text-white px-8 py-3 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-troiton-500/20 overflow-hidden mx-[200px]">
+              <a href="#servicos" className="group relative bg-gradient-to-r from-troiton-600 to-troiton-500 text-white px-8 py-3 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-troiton-500/20 overflow-hidden">
                 <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
                 <span className="relative">Nossos Serviços</span>
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
-              <a href="#contato" className="group relative border border-troiton-500/50 hover:border-troiton-400 text-troiton-400 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:bg-troiton-900/30 py-[12px] px-0 mx-[200px]">
+              <a href="#contato" className="group relative border border-troiton-500/50 hover:border-troiton-400 text-troiton-400 px-8 py-3 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:bg-troiton-900/30">
                 <span className="relative">Fale Conosco</span>
               </a>
             </div>
@@ -47,7 +47,7 @@ const Hero = () => {
           <div className={`mt-16 max-w-2xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} delay-300`}>
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-lg blur-sm opacity-30"></div>
-              <div className="relative glass-card rounded-xl p-8 border border-troiton-500/20 mx-0">
+              <div className="relative glass-card rounded-xl p-8 border border-troiton-500/20">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   <div className="flex flex-col items-center p-4 bg-troiton-900/50 rounded-lg border border-troiton-700/30 transition-all duration-300 hover:border-troiton-500/50 hover:bg-troiton-800/30">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-troiton-500 to-blue-500 flex items-center justify-center mb-4">
