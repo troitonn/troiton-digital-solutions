@@ -12,8 +12,7 @@ export interface TechnologyCategory {
 
 export const allTechnologies: Technology[] = [
   // Removed 1st icon (SGBR)
-  { name: "AWS", logo: "/lovable-uploads/55c83889-d425-4a18-bc18-79a5602c2404.png" },
-  { name: "Google Cloud", logo: "/lovable-uploads/e0a1ab00-eb31-4024-9180-7dca29532d4f.png" },
+  // Removed icon 2 and 3 (AWS and Google Cloud) as they were duplicated
   // Removed 4th icon (Microsoft 365)
   // Removed 5th icon (Acronis)
   { name: "Google Drive", logo: "/lovable-uploads/75265e63-edd7-4f8a-8cc1-ebffde112ef3.png" },
@@ -36,6 +35,24 @@ export const allTechnologies: Technology[] = [
   { name: "Ubiquiti", logo: "/lovable-uploads/b4c1fd29-d8db-40a8-990e-5cfc48931821.png" },
   { name: "Tiny", logo: "/lovable-uploads/282c53cc-23af-426d-8153-64b890043872.png" },
   { name: "Nodejs", logo: "/lovable-uploads/6767dd27-6270-4570-81df-94061e44210a.png" },
+  // Adding the new technology logos
+  { name: "GitHub", logo: "/lovable-uploads/e0bdf00c-8f68-44e0-aa89-0662b059daa5.png" },
+  { name: "OpenVPN", logo: "/lovable-uploads/8c43c99b-799a-48b0-a9f9-e7870444bf91.png" },
+  { name: "Bitdefender", logo: "/lovable-uploads/e7c1d380-7b28-42f3-aea7-7835309c5462.png" },
+  { name: "Nginx", logo: "/lovable-uploads/cd2d1a60-e200-404f-b677-2ee7f836e584.png" },
+  { name: "AzureDevOps", logo: "/lovable-uploads/becf6c4e-4263-4cf3-9ee0-bf7a30c73b48.png" },
+  { name: "Kubernetes", logo: "/lovable-uploads/bd8d295e-7c6b-4698-b020-4a2980ad09f4.png" },
+  { name: "Zoho Assist", logo: "/lovable-uploads/afdb623f-5517-441a-a452-06302831df27.png" },
+  { name: "Sendgrid", logo: "/lovable-uploads/0a317704-6b5f-4930-a788-e9e8f2e192c2.png" },
+  { name: "Asana", logo: "/lovable-uploads/5899f857-7f90-4f0c-85fb-c4201ca62874.png" },
+  { name: "VMware", logo: "/lovable-uploads/a59f6550-e85d-4eb1-8e15-a59793fabf73.png" },
+  { name: "Davinci", logo: "/lovable-uploads/e06f9bcb-1830-4c0c-abab-0cd230803392.png" },
+  { name: "Power BI", logo: "/lovable-uploads/62541b5d-6f28-453f-bf9e-19bb5d81d7ab.png" },
+  { name: "SharePoint", logo: "/lovable-uploads/37dc06d6-22f1-4128-963f-4a8137e88d2d.png" },
+  { name: "Microsoft 365", logo: "/lovable-uploads/b672025c-c14f-411e-a72e-375bf5e8905c.png" },
+  { name: "Google", logo: "/lovable-uploads/93dc45cf-6aff-493d-8d67-1372060aa9a2.png" },
+  { name: "Google Cloud", logo: "/lovable-uploads/fc00fcb5-15de-4ac2-8c11-0010876c42b9.png" },
+  { name: "Cloudflare", logo: "/lovable-uploads/b9aa4db3-6f0d-42c5-989e-b206e0517677.png" },
 ];
 
 export const technologyCategories: TechnologyCategory[] = [

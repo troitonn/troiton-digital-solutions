@@ -36,7 +36,7 @@ export const TechnologySection = ({ technologies }: TechnologySectionProps) => {
     <div ref={sectionRef} className="mb-16">
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-troiton-600/20 to-transparent opacity-30 rounded-2xl blur-xl -z-10"></div>
-        <div className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6 p-4 rounded-2xl transition-all duration-1000 ${
+        <div className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-8 p-6 rounded-2xl transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
         }`}>
           {technologies.map((tech, index) => (
