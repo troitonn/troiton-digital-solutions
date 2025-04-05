@@ -5,7 +5,7 @@ const Hero = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden">
+  return <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-[64px] overflow-hidden">
       {/* Futuristic Grid Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
