@@ -20,12 +20,12 @@ export const allTechnologies: Technology[] = [
   // Removed 7th icon (Zoho One)
   { name: "Jira", logo: "/lovable-uploads/e0a1ab00-eb31-4024-9180-7dca29532d4f.png" },
   { name: "Power BI", logo: "/lovable-uploads/75265e63-edd7-4f8a-8cc1-ebffde112ef3.png" },
+  // Removed icon 11 (SharePoint)
   { name: "Acronis", logo: "/lovable-uploads/10f91e21-c491-47f1-9efc-098240288821.png" },
   { name: "Acron Logo", logo: "/lovable-uploads/50dc8cc8-a733-4c55-8621-9f69624f7e5e.png" },
   { name: "Bitrix24", logo: "/lovable-uploads/a2215204-07b9-4447-aaf9-7f397d90fb57.png" },
   { name: "C++", logo: "/lovable-uploads/01f6f6de-47d9-4cd3-848d-52cd88a16978.png" },
   { name: "Dolibarr", logo: "/lovable-uploads/012a1b9a-d013-4505-8e64-ef3694ebbd9e.png" },
-  { name: "SharePoint", logo: "/lovable-uploads/148502c0-6fe4-4e22-a6a5-9bcadfc621a3.png" },
   { name: "Google Workspace", logo: "/lovable-uploads/8d3b2d8c-b9e2-4242-9810-f9175bf075a3.png" },
   // Removed 15th icon (Imobzi)
   { name: "Loupen", logo: "/lovable-uploads/4304f4c4-5ff9-44e1-ac12-9c9805a77926.png" },
