@@ -1,3 +1,4 @@
+
 export interface Technology {
   name: string;
   logo: string;
@@ -10,13 +11,13 @@ export interface TechnologyCategory {
 }
 
 export const allTechnologies: Technology[] = [
-  { name: "SGBR", logo: "/lovable-uploads/671119a9-5256-42a1-8af9-e2f4ed1ba90a.png" },
+  // Removed 1st icon (SGBR)
   { name: "AWS", logo: "/lovable-uploads/55c83889-d425-4a18-bc18-79a5602c2404.png" },
   { name: "Google Cloud", logo: "/lovable-uploads/e0a1ab00-eb31-4024-9180-7dca29532d4f.png" },
-  { name: "Microsoft 365", logo: "/lovable-uploads/b9aa4db3-6f0d-42c5-989e-b206e0517677.png" },
-  { name: "Acronis", logo: "/lovable-uploads/1856a44a-a940-40cc-aeb7-a08a736c50cb.png" },
+  // Removed 4th icon (Microsoft 365)
+  // Removed 5th icon (Acronis)
   { name: "Google Drive", logo: "/lovable-uploads/75265e63-edd7-4f8a-8cc1-ebffde112ef3.png" },
-  { name: "Zoho One", logo: "/lovable-uploads/121f760b-1ed1-4856-92dc-7f302e192ca6.png" },
+  // Removed 7th icon (Zoho One)
   { name: "Jira", logo: "/lovable-uploads/e0a1ab00-eb31-4024-9180-7dca29532d4f.png" },
   { name: "Power BI", logo: "/lovable-uploads/75265e63-edd7-4f8a-8cc1-ebffde112ef3.png" },
   { name: "Acronis", logo: "/lovable-uploads/10f91e21-c491-47f1-9efc-098240288821.png" },
@@ -26,7 +27,7 @@ export const allTechnologies: Technology[] = [
   { name: "Dolibarr", logo: "/lovable-uploads/012a1b9a-d013-4505-8e64-ef3694ebbd9e.png" },
   { name: "SharePoint", logo: "/lovable-uploads/148502c0-6fe4-4e22-a6a5-9bcadfc621a3.png" },
   { name: "Google Workspace", logo: "/lovable-uploads/8d3b2d8c-b9e2-4242-9810-f9175bf075a3.png" },
-  { name: "Imobzi", logo: "/lovable-uploads/c75ef17d-ea0c-4b98-a3db-9f9ec21c2539.png" },
+  // Removed 15th icon (Imobzi)
   { name: "Loupen", logo: "/lovable-uploads/4304f4c4-5ff9-44e1-ac12-9c9805a77926.png" },
   { name: "Milvus", logo: "/lovable-uploads/ffad071d-ee47-414a-b289-095a662f7f61.png" },
   { name: "Omie", logo: "/lovable-uploads/136748c8-b915-4e26-b105-6f66662f5270.png" },
