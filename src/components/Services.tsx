@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from 'react';
 import { Server, Shield, BarChart, Lightbulb, Code } from 'lucide-react';
 import { cn } from "@/lib/utils";
@@ -98,6 +99,14 @@ const Services = () => {
     };
   }, []);
 
+  // Function to scroll to contact section
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contato');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section
       id="servicos"
@@ -195,7 +204,7 @@ const Services = () => {
                       <Button
                         className="w-full bg-white/15 hover:bg-white/25 backdrop-blur-lg border border-white/25 text-white shadow-md"
                         variant="outline"
-                        onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+                        onClick={() => scrollToContact()}
                       >
                         Saiba mais
                         <svg className="ml-1.5 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -214,10 +223,13 @@ const Services = () => {
           </div>
         </div>
         
-        {/* Enhanced CTA section */}
+        {/* Enhanced CTA section with fixed click handler */}
         <div className="mt-20 text-center">
           <div className="inline-block transition-all duration-300 hover:scale-105">
-            <a href="#contato" className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-10 py-4 rounded-full font-medium relative group overflow-hidden shadow-xl">
+            <button 
+              onClick={scrollToContact}
+              className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-10 py-4 rounded-full font-medium relative group overflow-hidden shadow-xl"
+            >
               <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-80 group-hover:h-80 opacity-10"></span>
               <span className="relative inline-flex items-center text-lg">
                 Ver todos os serviços
@@ -225,7 +237,7 @@ const Services = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
-            </a>
+            </button>
           </div>
         </div>
       </div>
