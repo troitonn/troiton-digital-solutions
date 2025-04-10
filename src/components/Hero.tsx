@@ -29,7 +29,7 @@ const Hero = () => {
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-[80px] md:text-5xl">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Projetos tecnológicos</span> que impulsionam seu negócio
             </h1>
-            <p className="text-gray-400 mb-8 max-w-2xl text-center font-medium text-base mx-[200px]">
+            <p className="text-gray-400 mb-8 max-w-2xl text-center font-medium text-base mx-[240px]">
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
             </p>
             
