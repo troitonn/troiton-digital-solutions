@@ -8,7 +8,6 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const isHomepage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,8 +18,23 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navigateToContact = () => {
-    window.location.href = '/#contato';
+  // Close mobile menu when changing routes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
+  const scrollToSection = (sectionId: string) => {
+    setIsMobileMenuOpen(false);
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    } else if (location.pathname !== '/') {
+      // If we're not on the homepage, navigate to homepage first
+      window.location.href = `/#${sectionId}`;
+    }
   };
 
   return (
@@ -41,39 +55,64 @@ const NavBar = () => {
           />
         </Link>
         
-        {/* Desktop Navigation - INCREASED SPACING HERE */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-12">
-          <Link to="/" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+          <Link 
+            to="/" 
+            className={cn(
+              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group",
+              location.pathname === "/" && "text-troiton-400"
+            )}
+          >
             Início
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+            <span className={cn(
+              "absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all",
+              location.pathname === "/" ? "w-full" : "w-0 group-hover:w-full"
+            )}></span>
           </Link>
-          <Link to="/#servicos" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+          
+          <button 
+            onClick={() => scrollToSection('servicos')}
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group"
+          >
             Serviços
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link to="/#sobre" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+          </button>
+          
+          <button 
+            onClick={() => scrollToSection('sobre')}
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group"
+          >
             Sobre
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </Link>
-          <Link to="/tecnologias" className={cn(
-            "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group",
-            location.pathname === "/tecnologias" && "text-troiton-400"
-          )}>
+          </button>
+          
+          <Link 
+            to="/tecnologias" 
+            className={cn(
+              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group",
+              location.pathname === "/tecnologias" && "text-troiton-400"
+            )}
+          >
             Tecnologias
             <span className={cn(
               "absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all",
               location.pathname === "/tecnologias" ? "w-full" : "w-0 group-hover:w-full"
             )}></span>
           </Link>
-          <Link to="/#contato" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group">
+          
+          <button 
+            onClick={() => scrollToSection('contato')}
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group"
+          >
             Contato
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </Link>
+          </button>
         </div>
         
         <button 
           className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-md font-medium transition-colors relative group overflow-hidden"
-          onClick={navigateToContact}
+          onClick={() => scrollToSection('contato')}
         >
           <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
           <span className="relative">Fale Conosco</span>
@@ -103,20 +142,18 @@ const NavBar = () => {
           >
             Início
           </Link>
-          <Link 
-            to="/#servicos"
+          <button 
+            onClick={() => scrollToSection('servicos')}
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
-            onClick={() => setIsMobileMenuOpen(false)}
           >
             Serviços
-          </Link>
-          <Link 
-            to="/#sobre"
+          </button>
+          <button 
+            onClick={() => scrollToSection('sobre')}
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
-            onClick={() => setIsMobileMenuOpen(false)}
           >
             Sobre
-          </Link>
+          </button>
           <Link 
             to="/tecnologias"
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
@@ -124,19 +161,15 @@ const NavBar = () => {
           >
             Tecnologias
           </Link>
-          <Link 
-            to="/#contato"
+          <button 
+            onClick={() => scrollToSection('contato')}
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
-            onClick={() => setIsMobileMenuOpen(false)}
           >
             Contato
-          </Link>
+          </button>
           <button 
             className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              navigateToContact();
-            }}
+            onClick={() => scrollToSection('contato')}
           >
             Fale Conosco
           </button>
