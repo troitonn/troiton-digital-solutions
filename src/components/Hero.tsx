@@ -32,16 +32,7 @@ const Hero = () => {
             <p className="text-gray-400 mb-8 max-w-2xl text-center font-medium text-base mx-[200px]">
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center py-0 px-0 my-0 mx-0">
-              <a href="#servicos" className="group relative bg-gradient-to-r from-troiton-600 to-troiton-500 text-white px-8 py-3 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-troiton-500/20 overflow-hidden mx-[200px]">
-                <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-                <span className="relative">Nossos Serviços</span>
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a href="#contato" className="group relative border border-troiton-500/50 hover:border-troiton-400 text-troiton-400 rounded-md font-medium flex items-center justify-center transition-all duration-300 hover:bg-troiton-900/30 py-[12px] px-0 mx-[200px]">
-                <span className="relative">Fale Conosco</span>
-              </a>
-            </div>
+            
           </div>
           
           <div className={`mt-16 max-w-2xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} delay-300`}>
