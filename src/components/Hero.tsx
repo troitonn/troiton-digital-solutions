@@ -1,10 +1,14 @@
+
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
   return <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden">
       {/* Futuristic Grid Background */}
       <div className="absolute inset-0 -z-10">
@@ -26,10 +30,10 @@ const Hero = () => {
               <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
               Inovação em TI para sua empresa
             </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-[80px] md:text-5xl">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-auto max-w-4xl md:text-5xl">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Projetos tecnológicos</span> que impulsionam seu negócio
             </h1>
-            <p className="text-gray-400 mb-8 max-w-2xl text-center font-medium text-base mx-[240px]">
+            <p className="text-gray-400 mb-8 max-w-2xl text-center font-medium text-base mx-auto">
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
             </p>
             
@@ -77,4 +81,5 @@ const Hero = () => {
       </div>
     </section>;
 };
+
 export default Hero;
