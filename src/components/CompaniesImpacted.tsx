@@ -41,33 +41,6 @@ const CompaniesImpacted = () => {
     };
   }, []);
 
-  const companies = [
-    "EvoStack Tecnologia", 
-    "A.M.S. Negocios e intermediação", 
-    "Unica Soluções", 
-    "Rocco & Correia Advocacia"
-  ];
-
-  const stats = [{
-    icon: Building2,
-    number: "+50",
-    label: "Empresas Impactadas",
-    color: "text-troiton-400",
-    bgColor: "from-troiton-500/20 to-troiton-600/20"
-  }, {
-    icon: Award,
-    number: "+60",
-    label: "Projetos Entregues",
-    color: "text-purple-400",
-    bgColor: "from-purple-500/20 to-purple-600/20"
-  }, {
-    icon: TrendingUp,
-    number: "Business Inteligente",
-    label: "Mudança na visão de estratégias e utilização de dados",
-    color: "text-emerald-400",
-    bgColor: "from-emerald-500/20 to-emerald-600/20"
-  }];
-
   const testimonials = [{
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
     quote: "A Troiton Projects revolucionou nossa operação com soluções de IA que aumentaram nossa eficiência em 40%",
@@ -86,7 +59,7 @@ const CompaniesImpacted = () => {
   }];
 
   return (
-    <section ref={sectionRef} className="py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="py-16 relative overflow-hidden">
       {/* Background matching initial site design */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
@@ -102,7 +75,7 @@ const CompaniesImpacted = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
-        <div className={`text-center mb-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+        <div className={`text-center mb-12 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
           <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 text-troiton-400 mx-auto">
             <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
             Pontos de impacto
@@ -114,7 +87,7 @@ const CompaniesImpacted = () => {
               {count}+ empresas
             </span>
             <br />
-            <span className="text-white">impactadas </span>
+            <span className="text-white">transformaram seus negócios</span>
           </h2>
           
           <p className="text-gray-400 mb-8 max-w-4xl text-center font-medium text-base mx-auto">
@@ -123,42 +96,8 @@ const CompaniesImpacted = () => {
           </p>
         </div>
 
-        {/* Enhanced Stats Grid */}
-        <div className={`grid grid-cols-2 md:grid-cols-4 gap-8 mb-20 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
-                <div className={`absolute inset-0 bg-gradient-to-br ${stat.bgColor} rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
-                <div className="relative">
-                  <stat.icon className={`w-16 h-16 mx-auto mb-6 ${stat.color} group-hover:scale-110 transition-transform`} />
-                  <div className="text-4xl md:text-5xl font-bold text-white mb-3">{stat.number}</div>
-                  <div className="text-gray-300 text-sm font-medium">{stat.label}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Companies Grid */}
-        <div className={`mb-20 transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-          <h3 className="text-3xl font-bold text-center text-white mb-12">
-            Algumas empresas que confiam em nossas soluções
-          </h3>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {companies.map((company, index) => (
-              <div key={index} className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                <div className="w-16 h-16 bg-gradient-to-br from-troiton-500/30 to-blue-500/30 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <Building2 className="w-8 h-8 text-troiton-400" />
-                </div>
-                <p className="text-white font-medium text-sm leading-tight">{company}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Testimonials Section */}
-        <div className={`transform transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+        <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
           <h3 className="text-3xl font-bold text-center text-white mb-12">
             O que nossos clientes dizem
           </h3>
