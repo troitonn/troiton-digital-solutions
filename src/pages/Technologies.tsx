@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from 'react';
 import NavBar from '@/components/NavBar';
 import Footer from '@/components/Footer';
@@ -8,14 +7,12 @@ import { TechnologySection } from '@/components/TechnologySection';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Database, Globe, Lock, Server, Code, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
 const Technologies = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     setIsHeaderVisible(true);
-    
+
     // Smooth scrolling for anchor links
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -26,24 +23,21 @@ const Technologies = () => {
           const element = document.getElementById(id);
           if (element) {
             window.scrollTo({
-              top: element.offsetTop - 80, // Account for fixed header
+              top: element.offsetTop - 80,
+              // Account for fixed header
               behavior: 'smooth'
             });
           }
         }
       }
     };
-
     document.addEventListener('click', handleAnchorClick);
     return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
-
   const scrollToContact = () => {
     window.location.href = '/#contato';
   };
-
-  return (
-    <div className="min-h-screen bg-black text-white">
+  return <div className="min-h-screen bg-black text-white">
       {/* Background effects */}
       <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-troiton-900/40 via-black to-black -z-10"></div>
       <div className="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMDI5MWMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIiAvPjwvc3ZnPg==')] opacity-10 -z-10"></div>
@@ -51,18 +45,13 @@ const Technologies = () => {
       <NavBar />
       
       {/* Hero section for Technologies page */}
-      <div
-        ref={headerRef}
-        className={`py-28 px-4 relative overflow-hidden transition-all duration-1000 ${
-          isHeaderVisible ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
+      <div ref={headerRef} className={`py-28 px-4 relative overflow-hidden transition-all duration-1000 ${isHeaderVisible ? 'opacity-100' : 'opacity-0'}`}>
         {/* Animated background elements - adding the same effects as in Home */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-troiton-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
         <div className="absolute top-40 -left-20 w-80 h-80 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
         
-        <div className="container mx-auto text-center max-w-4xl">
+        <div className="container mx-auto text-center max-w-4xl my-[20px]">
           <span className="inline-block px-5 py-1.5 rounded-full text-sm font-semibold mb-4 bg-gradient-to-r from-troiton-500/20 to-blue-500/20 text-troiton-400 border border-troiton-500/30">
             Soluções Tecnológicas
           </span>
@@ -73,20 +62,15 @@ const Technologies = () => {
             Trabalhamos com um ecossistema completo de plataformas e tecnologias modernas para oferecer as melhores soluções para o seu negócio.
           </p>
           <div className="flex justify-center gap-4 flex-col sm:flex-row">
-            <Button
-              className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-full flex items-center justify-center h-auto text-base"
-              onClick={scrollToContact}
-            >
+            <Button className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-full flex items-center justify-center h-auto text-base" onClick={scrollToContact}>
               Fale com nossa equipe
             </Button>
-            <Button
-              className="bg-transparent border border-troiton-500/50 hover:bg-troiton-900/30 text-white px-6 py-2 rounded-full flex items-center justify-center h-auto text-base mt-4 sm:mt-0"
-              variant="outline"
-              onClick={() => {
-                const techSection = document.getElementById('tech-showcase');
-                techSection?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
+            <Button className="bg-transparent border border-troiton-500/50 hover:bg-troiton-900/30 text-white px-6 py-2 rounded-full flex items-center justify-center h-auto text-base mt-4 sm:mt-0" variant="outline" onClick={() => {
+            const techSection = document.getElementById('tech-showcase');
+            techSection?.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }}>
               Ver tecnologias <ArrowDown className="ml-2 h-5 w-5" />
             </Button>
           </div>
@@ -151,10 +135,7 @@ const Technologies = () => {
             <p className="text-gray-300 mb-8">
               Nossa equipe está pronta para ajudá-lo a escolher e implementar as melhores ferramentas para impulsionar seu negócio.
             </p>
-            <Button
-              className="bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-troiton-800 px-6 py-2 rounded-full flex items-center justify-center h-auto text-base mx-auto"
-              onClick={scrollToContact}
-            >
+            <Button className="bg-gradient-to-r from-white to-gray-200 hover:from-gray-100 hover:to-white text-troiton-800 px-6 py-2 rounded-full flex items-center justify-center h-auto text-base mx-auto" onClick={scrollToContact}>
               Entre em contato agora
             </Button>
           </div>
@@ -163,8 +144,6 @@ const Technologies = () => {
       
       <Footer />
       <WhatsAppButton />
-    </div>
-  );
+    </div>;
 };
-
 export default Technologies;
