@@ -42,25 +42,25 @@ const NavBar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
         isScrolled 
-          ? "bg-black/80 backdrop-blur-md border-b border-troiton-800/50 py-2" 
-          : "bg-transparent py-4"
+          ? "bg-black/80 backdrop-blur-md border-b border-troiton-800/50 py-3" 
+          : "bg-transparent py-6"
       )}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
+      <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center group">
           <img 
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png" 
             alt="Troiton Projects Logo" 
-            className="h-16 mr-2"
+            className="h-14 mr-2"
           />
         </Link>
         
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-12">
+        {/* Desktop Navigation - Moved to right */}
+        <div className="hidden md:flex space-x-10 ml-auto mr-8">
           <Link 
             to="/" 
             className={cn(
-              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide",
+              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm",
               location.pathname === "/" && "text-troiton-400"
             )}
           >
@@ -73,15 +73,16 @@ const NavBar = () => {
           
           <button 
             onClick={() => scrollToSection('servicos')}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide"
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm flex flex-col items-start leading-tight"
           >
-            NEGÓCIOS E PRODUTOS
+            <span>NEGÓCIOS</span>
+            <span>E PRODUTOS</span>
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </button>
           
           <button 
             onClick={() => scrollToSection('sobre')}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide"
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm"
           >
             SOBRE
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
@@ -90,11 +91,12 @@ const NavBar = () => {
           <Link 
             to="/tecnologias" 
             className={cn(
-              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide",
+              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm flex flex-col items-start leading-tight",
               location.pathname === "/tecnologias" && "text-troiton-400"
             )}
           >
-            EFICIÊNCIA OPERACIONAL
+            <span>EFICIÊNCIA</span>
+            <span>OPERACIONAL</span>
             <span className={cn(
               "absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all",
               location.pathname === "/tecnologias" ? "w-full" : "w-0 group-hover:w-full"
@@ -103,7 +105,7 @@ const NavBar = () => {
           
           <button 
             onClick={() => scrollToSection('contato')}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide"
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm"
           >
             CONTATO
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
@@ -111,7 +113,7 @@ const NavBar = () => {
         </div>
         
         <button 
-          className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide"
+          className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm"
           onClick={() => scrollToSection('contato')}
         >
           <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
