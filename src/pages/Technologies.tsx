@@ -51,7 +51,7 @@ const Technologies = () => {
         <div className="absolute top-40 -left-20 w-80 h-80 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
         
-        <div className="container mx-auto text-center max-w-4xl my-[20px]">
+        <div className="container mx-auto text-center max-w-4xl my-[60px]">
           <span className="inline-block px-5 py-1.5 rounded-full text-sm font-semibold mb-4 bg-gradient-to-r from-troiton-500/20 to-blue-500/20 text-troiton-400 border border-troiton-500/30">
             Soluções Tecnológicas
           </span>
@@ -121,7 +121,7 @@ const Technologies = () => {
         {/* Tech showcase divider with updated text */}
         <div id="tech-showcase" className="relative py-8">
           <div className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500/50 to-transparent"></div>
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-white via-troiton-100 to-white bg-clip-text text-transparent">Tecnologias e Ecossistemas</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 bg-gradient-to-r from-white via-troiton-100 to-white bg-clip-text text-transparent my-[7px]">Tecnologias e Ecossistemas</h2>
           <p className="text-gray-400 text-center max-w-3xl mx-auto mb-12">Conheça as plataformas e soluções que temos experiêcias para ambientes tecnológicos.</p>
         </div>
 
