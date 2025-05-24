@@ -84,37 +84,37 @@ const CompaniesImpacted = () => {
       ref={sectionRef}
       className="py-32 relative overflow-hidden"
     >
-      {/* Enhanced floating background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-black to-slate-900"></div>
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497604401993-f2e922e5cb0a')] bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-black/90"></div>
+      {/* Background matching initial site design */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
+        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
       </div>
       
-      {/* Floating elements with improved animation */}
-      <div className="absolute top-20 left-20 w-4 h-4 bg-troiton-400/60 rounded-full animate-pulse opacity-80"></div>
-      <div className="absolute top-60 right-32 w-3 h-3 bg-blue-400/60 rounded-full animate-pulse animation-delay-2000 opacity-70"></div>
-      <div className="absolute bottom-40 left-1/3 w-5 h-5 bg-purple-400/60 rounded-full animate-pulse animation-delay-4000 opacity-60"></div>
-      <div className="absolute top-40 left-1/2 w-2 h-2 bg-emerald-400/60 rounded-full animate-pulse animation-delay-3000 opacity-90"></div>
+      {/* Animated Orbs like initial design */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-troiton-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
+      <div className="absolute top-40 -left-20 w-80 h-80 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header Section */}
         <div className={`text-center mb-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-          <div className="inline-flex items-center bg-gradient-to-r from-troiton-900/60 to-blue-900/60 border border-troiton-700/50 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium mb-8 text-troiton-300">
-            <Star className="w-5 h-5 mr-3 text-troiton-400" />
+          <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 text-troiton-400 mx-auto">
+            <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
             Resultados Comprovados
           </div>
           
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+          <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-auto max-w-4xl md:text-5xl">
             <span className="text-white">Mais de </span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 via-blue-400 to-purple-400 animate-gradient-animation bg-200%">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">
               {count}+ empresas
             </span>
             <br />
             <span className="text-white">já transformaram seus negócios</span>
           </h2>
           
-          <p className="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-gray-400 mb-8 max-w-4xl text-center font-medium text-base mx-auto">
             Empresas de diversos segmentos confiam na Troiton Projects para impulsionar sua transformação digital 
             e alcançar resultados extraordinários através de soluções tecnológicas inovadoras.
           </p>
@@ -136,7 +136,7 @@ const CompaniesImpacted = () => {
           ))}
         </div>
 
-        {/* Companies Grid with enhanced design */}
+        {/* Companies Grid */}
         <div className={`mb-20 transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
           <h3 className="text-3xl font-bold text-center text-white mb-12">
             Algumas empresas que confiam em nossas soluções

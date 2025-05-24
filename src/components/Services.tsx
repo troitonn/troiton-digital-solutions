@@ -124,7 +124,7 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="inline-block px-5 py-1.5 rounded-full text-sm font-semibold mb-4 bg-gradient-to-r from-troiton-500/20 to-blue-500/20 text-troiton-400 border border-troiton-500/30">
-            Nossos Serviços
+            NEGÓCIOS E PRODUTOS
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Soluções completas para sua empresa
@@ -134,9 +134,9 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Improved services grid with max-width and better centering */}
+        {/* Centered services grid */}
         <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl">
             {serviceCategories.map((service, index) => (
               <div 
                 key={service.id}

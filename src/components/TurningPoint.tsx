@@ -38,45 +38,42 @@ const TurningPoint = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-32 relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-black"
+      className="py-32 relative overflow-hidden"
     >
-      {/* Enhanced Background with multiple layers */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1518770660439-4636190af475')] bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-black/80"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-troiton-900/10 to-transparent"></div>
+      {/* Background matching Hero section style */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
+        <div className="absolute inset-0 bg-black/80"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
       </div>
-      
-      {/* Floating particles with enhanced animations */}
-      <div className="absolute top-20 left-10 w-3 h-3 bg-troiton-400 rounded-full animate-pulse opacity-60"></div>
-      <div className="absolute top-40 right-20 w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-2000 opacity-80"></div>
-      <div className="absolute bottom-40 left-1/4 w-4 h-4 bg-purple-400 rounded-full animate-pulse animation-delay-4000 opacity-50"></div>
-      <div className="absolute top-60 right-1/3 w-2 h-2 bg-emerald-400 rounded-full animate-pulse animation-delay-3000 opacity-70"></div>
+
+      {/* Animated Orbs like Hero section */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-troiton-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
+      <div className="absolute top-40 -left-20 w-80 h-80 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+      <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left Content */}
+        <div className="text-center">
           <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="inline-flex items-center bg-gradient-to-r from-troiton-900/60 to-blue-900/60 border border-troiton-700/50 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium mb-8 text-troiton-300">
-              <Lightbulb className="w-5 h-5 mr-3 text-troiton-400" />
+            <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 text-troiton-400 mx-auto">
+              <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
               Inovação & Transformação
             </div>
             
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight">
+            <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-auto max-w-4xl md:text-5xl">
               <span className="text-white">Cada solução é um</span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 via-blue-400 to-purple-400 animate-gradient-animation bg-200%">
-                ponto de virada
-              </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">ponto de virada</span>
             </h2>
             
-            <p className="text-xl text-gray-300 mb-12 max-w-2xl leading-relaxed">
-              Tudo começa com um ponto de virada. Na Troiton Projects, 
+            <p className="text-gray-400 mb-8 max-w-4xl text-center font-medium text-base mx-auto">
+              Tudo começa with um ponto de virada. Na Troiton Projects, 
               transformamos desafios empresariais em oportunidades de crescimento 
               através de soluções tecnológicas inovadoras e estratégias digitais eficazes.
             </p>
 
-            <div className={`transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+            <div className={`mt-8 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
               <Button
                 onClick={scrollToContact}
                 size="lg"
@@ -90,31 +87,10 @@ const TurningPoint = () => {
               </Button>
             </div>
           </div>
-
-          {/* Right Image */}
-          <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-troiton-500/20 to-blue-500/20 rounded-3xl transform rotate-3 scale-105 blur-xl"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
-                alt="Equipe tecnológica trabalhando em soluções inovadoras"
-                className="relative w-full h-[500px] object-cover rounded-3xl shadow-2xl border border-white/10"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-3xl"></div>
-              
-              {/* Floating badge */}
-              <div className="absolute -bottom-6 -left-6 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-white mb-1">95%</div>
-                  <div className="text-sm text-gray-300">Taxa de Sucesso</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Features Grid */}
-        <div className={`grid md:grid-cols-3 gap-8 mt-20 transform transition-all duration-1000 delay-900 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+        <div className={`grid md:grid-cols-3 gap-8 mt-20 transform transition-all duration-1000 delay-600 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
           <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
             <Target className="w-14 h-14 text-troiton-400 mx-auto mb-6 group-hover:scale-110 transition-transform" />
             <h3 className="text-xl font-bold text-white mb-4 text-center">Foco no Resultado</h3>
