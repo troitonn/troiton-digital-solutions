@@ -1,5 +1,5 @@
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const Hero = () => {
@@ -52,12 +52,50 @@ const Hero = () => {
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
             </p>
             
+            {/* Technology icons */}
+            <div className="flex justify-center flex-wrap gap-6 mt-8">
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
+                  <Database className="h-6 w-6 text-troiton-300" />
+                </div>
+                <span className="text-troiton-100 font-medium text-xs">ERP</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
+                  <Server className="h-6 w-6 text-troiton-300" />
+                </div>
+                <span className="text-troiton-100 font-medium text-xs">Infraestrutura</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
+                  <Globe className="h-6 w-6 text-troiton-300" />
+                </div>
+                <span className="text-troiton-100 font-medium text-xs">Cloud</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
+                  <Lock className="h-6 w-6 text-troiton-300" />
+                </div>
+                <span className="text-troiton-100 font-medium text-xs">Segurança</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
+                  <Code className="h-6 w-6 text-troiton-300" />
+                </div>
+                <span className="text-troiton-100 font-medium text-xs">Desenvolvimento</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
+                  <Zap className="h-6 w-6 text-troiton-300" />
+                </div>
+                <span className="text-troiton-100 font-medium text-xs">Automação</span>
+              </div>
+            </div>
           </div>
           
           <div className={`mt-16 max-w-2xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} delay-300`}>
             <div className="relative">
               <div className="absolute -inset-0.5 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-lg blur-sm opacity-30"></div>
-              
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import CookieConsent from '@/components/CookieConsent';
 
 const Index = () => {
-  // Smooth scrolling for anchor links
+  // Enhanced smooth scrolling for anchor links
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
@@ -23,8 +23,13 @@ const Index = () => {
         if (id) {
           const element = document.getElementById(id);
           if (element) {
+            // Enhanced smooth scrolling with easing
+            const headerOffset = 80;
+            const elementPosition = element.offsetTop;
+            const offsetPosition = elementPosition - headerOffset;
+
             window.scrollTo({
-              top: element.offsetTop - 80, // Account for fixed header
+              top: offsetPosition,
               behavior: 'smooth'
             });
           }
@@ -33,7 +38,14 @@ const Index = () => {
     };
 
     document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
+    
+    // Improve scroll performance
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+      document.documentElement.style.scrollBehavior = 'auto';
+    };
   }, []);
 
   return (
@@ -42,12 +54,24 @@ const Index = () => {
       <div className="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMDI5MWMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIiAvPjwvc3ZnPg==')] opacity-10 -z-10"></div>
       <NavBar />
       <Hero />
-      <TurningPoint />
-      <CompaniesImpacted />
-      <Services />
-      <About />
-      <CTA />
-      <Contact />
+      <div className="-mt-16">
+        <TurningPoint />
+      </div>
+      <div className="-mt-8">
+        <CompaniesImpacted />
+      </div>
+      <div className="-mt-8">
+        <Services />
+      </div>
+      <div className="-mt-8">
+        <About />
+      </div>
+      <div className="-mt-8">
+        <CTA />
+      </div>
+      <div className="-mt-8">
+        <Contact />
+      </div>
       <Footer />
       <WhatsAppButton />
       <CookieConsent />
