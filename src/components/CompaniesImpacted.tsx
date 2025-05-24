@@ -35,42 +35,8 @@ const CompaniesImpacted = () => {
       }
     };
   }, []);
-  const companies = ["EvoStack Tecnologia", "A.M.S. Negocios e intermediação", "Unica Soluções", "Rocco & Correia Advocacia"];
-  const stats = [{
-    icon: Building2,
-    number: "+50",
-    label: "Empresas Impactadas",
-    color: "text-troiton-400",
-    bgColor: "from-troiton-500/20 to-troiton-600/20"
-  }, {
-    icon: Award,
-    number: "+60",
-    label: "Projetos Entregues",
-    color: "text-purple-400",
-    bgColor: "from-purple-500/20 to-purple-600/20"
-  }, {
-    icon: TrendingUp,
-    number: "Bussiness Inteligente",
-    label: "Mudança na visão de estrategias e utilização de dados",
-    color: "text-emerald-400",
-    bgColor: "from-emerald-500/20 to-emerald-600/20"
   }];
-  const testimonials = [{
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    quote: "A Troiton Projects revolucionou nossa operação com soluções de IA que aumentaram nossa eficiência em 40%",
-    author: "CEO, TechCorp Solutions",
-    company: "TechCorp Solutions"
-  }, {
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-    quote: "Implementação perfeita de sistemas que transformaram nossa gestão empresarial completamente",
-    author: "CTO, Inovação Digital",
-    company: "Inovação Digital Ltda"
-  }, {
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
-    quote: "Automação inteligente que nos colocou à frente da concorrência no mercado digital",
-    author: "Diretor de TI, SmartBusiness",
-    company: "SmartBusiness Corp"
-  }];
+
   return <section ref={sectionRef} className="py-32 relative overflow-hidden">
       {/* Background matching initial site design */}
       <div className="absolute inset-0 -z-10">
