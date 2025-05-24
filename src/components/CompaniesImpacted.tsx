@@ -35,7 +35,7 @@ const CompaniesImpacted = () => {
       }
     };
   }, []);
-  const companies = ["TechCorp Solutions", "Inovação Digital Ltda", "Sistemas Avançados S/A", "DataFlow Tecnologia", "SmartBusiness Corp", "CloudTech Solutions", "Automação Empresarial", "Gestão Inteligente Ltda", "ProcessPro Systems", "DigitalFlow Corp", "TechInnovate Solutions", "SmartSystems Brasil", "AI Solutions Group", "NextGen Technologies", "Innovation Hub Corp", "Digital Transform Ltd", "Future Systems Inc", "Tech Excellence SA"];
+  const companies = ["EvoStack Tecnologia", "A.M.S. Negocios e intermediação", "Unica Soluções", "Rocco & Correia Advocacia"];
   const stats = [{
     icon: Building2,
     number: "+50",
@@ -43,21 +43,15 @@ const CompaniesImpacted = () => {
     color: "text-troiton-400",
     bgColor: "from-troiton-500/20 to-troiton-600/20"
   }, {
-    icon: Users,
-    number: "+200",
-    label: "Profissionais Capacitados",
-    color: "text-blue-400",
-    bgColor: "from-blue-500/20 to-blue-600/20"
-  }, {
     icon: Award,
-    number: "+100",
+    number: "+60",
     label: "Projetos Entregues",
     color: "text-purple-400",
     bgColor: "from-purple-500/20 to-purple-600/20"
   }, {
     icon: TrendingUp,
-    number: "95%",
-    label: "Taxa de Sucesso",
+    number: "Bussiness Inteligente",
+    label: "Mudança na visão de estrategias e utilização de dados",
     color: "text-emerald-400",
     bgColor: "from-emerald-500/20 to-emerald-600/20"
   }];
@@ -96,7 +90,7 @@ const CompaniesImpacted = () => {
         <div className={`text-center mb-20 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
           <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 text-troiton-400 mx-auto">
             <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
-            Resultados Comprovados
+            Pontos de impacto
           </div>
           
           <h2 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-auto max-w-4xl md:text-5xl">
