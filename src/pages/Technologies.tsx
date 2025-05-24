@@ -130,7 +130,7 @@ const Technologies = () => {
         
         {/* Call to action */}
         <div className="mt-20 text-center">
-          <div className="max-w-3xl mx-auto bg-gradient-to-br from-troiton-800/80 to-troiton-900/80 p-10 rounded-3xl border border-troiton-700/50 backdrop-blur-lg">
+          <div className="max-w-3xl mx-auto bg-gradient-to-br from-troiton-800/80 to-troiton-900/80 p-10 rounded-3xl border border-troiton-700/50 backdrop-blur-lg my-[40px]">
             <h3 className="text-2xl md:text-3xl font-bold mb-4">Precisando de soluções tecnológicas?</h3>
             <p className="text-gray-300 mb-8">
               Nossa equipe está pronta para ajudá-lo a escolher e implementar as melhores ferramentas para impulsionar seu negócio.
