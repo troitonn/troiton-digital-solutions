@@ -1,45 +1,35 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Zap, Target, TrendingUp, Lightbulb } from 'lucide-react';
 import { Button } from './ui/button';
-
 const TurningPoint = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true);
+      }
+    }, {
+      threshold: 0.1
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
   const scrollToContact = () => {
     const contactSection = document.getElementById('contato');
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section
-      ref={sectionRef}
-      className="py-32 relative overflow-hidden"
-    >
+  return <section ref={sectionRef} className="py-32 relative overflow-hidden">
       {/* Background matching Hero section style */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
@@ -74,11 +64,7 @@ const TurningPoint = () => {
             </p>
 
             <div className={`mt-8 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-10 py-5 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300"
-              >
+              <Button onClick={scrollToContact} size="lg" className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-10 py-5 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300">
                 <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-80 group-hover:h-80 opacity-10"></span>
                 <span className="relative inline-flex items-center">
                   Inicie sua transformação
@@ -99,8 +85,8 @@ const TurningPoint = () => {
           
           <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
             <Zap className="w-14 h-14 text-blue-400 mx-auto mb-6 group-hover:scale-110 transition-transform" />
-            <h3 className="text-xl font-bold text-white mb-4 text-center">Inovação Constante</h3>
-            <p className="text-gray-300 text-center leading-relaxed">Utilizamos as mais avançadas tecnologias para manter sua empresa sempre à frente da concorrência.</p>
+            <h3 className="text-xl font-bold text-white mb-4 text-center">Inovação &amp; Cybersecurity</h3>
+            <p className="text-gray-300 text-center leading-relaxed">Utilizamos tecnologia para manter sua empresa sempre à frente da concorrência.</p>
           </div>
           
           <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
@@ -110,8 +96,6 @@ const TurningPoint = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default TurningPoint;
