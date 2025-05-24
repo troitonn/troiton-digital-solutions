@@ -65,22 +65,8 @@ const About = () => {
             </p>
             
             <div className="grid grid-cols-2 gap-6">
-              <div className="bg-black/40 border border-troiton-800/50 p-6 rounded-lg relative group hover:bg-troiton-900/20 transition-colors">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-troiton-500 rounded-t-lg"></div>
-                <div className="flex items-center space-x-2 mb-2">
-                  <CircuitBoard className="text-troiton-400" size={20} />
-                  <div className="text-troiton-400 font-bold text-3xl">+50</div>
-                </div>
-                <p className="text-gray-400">Projetos concluídos com sucesso</p>
-              </div>
-              <div className="bg-black/40 border border-troiton-800/50 p-6 rounded-lg relative group hover:bg-troiton-900/20 transition-colors">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-blue-500 rounded-t-lg"></div>
-                <div className="flex items-center space-x-2 mb-2">
-                  <Server className="text-blue-400" size={20} />
-                  <div className="text-blue-400 font-bold text-3xl">+10</div>
-                </div>
-                <p className="text-gray-400">Clientes satisfeitos</p>
-              </div>
+              
+              
             </div>
           </div>
         </div>
