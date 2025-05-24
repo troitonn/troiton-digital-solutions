@@ -60,11 +60,11 @@ const NavBar = () => {
           <Link 
             to="/" 
             className={cn(
-              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group",
+              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide",
               location.pathname === "/" && "text-troiton-400"
             )}
           >
-            Início
+            INÍCIO
             <span className={cn(
               "absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all",
               location.pathname === "/" ? "w-full" : "w-0 group-hover:w-full"
@@ -73,28 +73,28 @@ const NavBar = () => {
           
           <button 
             onClick={() => scrollToSection('servicos')}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group"
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide"
           >
-            Serviços
+            NEGÓCIOS E PRODUTOS
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </button>
           
           <button 
             onClick={() => scrollToSection('sobre')}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group"
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide"
           >
-            Sobre
+            SOBRE
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </button>
           
           <Link 
             to="/tecnologias" 
             className={cn(
-              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group",
+              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide",
               location.pathname === "/tecnologias" && "text-troiton-400"
             )}
           >
-            Tecnologias
+            EFICIÊNCIA OPERACIONAL
             <span className={cn(
               "absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all",
               location.pathname === "/tecnologias" ? "w-full" : "w-0 group-hover:w-full"
@@ -103,19 +103,19 @@ const NavBar = () => {
           
           <button 
             onClick={() => scrollToSection('contato')}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group"
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide"
           >
-            Contato
+            CONTATO
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </button>
         </div>
         
         <button 
-          className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-md font-medium transition-colors relative group overflow-hidden"
+          className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-2 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide"
           onClick={() => scrollToSection('contato')}
         >
           <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-          <span className="relative">Fale Conosco</span>
+          <span className="relative">FALE CONOSCO</span>
         </button>
         
         {/* Mobile Menu Button */}
@@ -137,41 +137,41 @@ const NavBar = () => {
         <div className="flex flex-col space-y-6 items-center text-lg">
           <Link 
             to="/"
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Início
+            INÍCIO
           </Link>
           <button 
             onClick={() => scrollToSection('servicos')}
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
           >
-            Serviços
+            NEGÓCIOS E PRODUTOS
           </button>
           <button 
             onClick={() => scrollToSection('sobre')}
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
           >
-            Sobre
+            SOBRE
           </button>
           <Link 
             to="/tecnologias"
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Tecnologias
+            EFICIÊNCIA OPERACIONAL
           </Link>
           <button 
             onClick={() => scrollToSection('contato')}
-            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400"
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
           >
-            Contato
+            CONTATO
           </button>
           <button 
-            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors"
+            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors uppercase tracking-wide"
             onClick={() => scrollToSection('contato')}
           >
-            Fale Conosco
+            FALE CONOSCO
           </button>
         </div>
       </div>

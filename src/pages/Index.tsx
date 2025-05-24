@@ -2,12 +2,15 @@
 import { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
+import TurningPoint from '@/components/TurningPoint';
+import CompaniesImpacted from '@/components/CompaniesImpacted';
 import Services from '@/components/Services';
 import About from '@/components/About';
 import CTA from '@/components/CTA';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import CookieConsent from '@/components/CookieConsent';
 
 const Index = () => {
   // Smooth scrolling for anchor links
@@ -39,12 +42,15 @@ const Index = () => {
       <div className="fixed inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJncmlkIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPjxwYXRoIGQ9Ik0gNDAgMCBMIDAgMCAwIDQwIiBmaWxsPSJub25lIiBzdHJva2U9IiMxMDI5MWMiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIiAvPjwvc3ZnPg==')] opacity-10 -z-10"></div>
       <NavBar />
       <Hero />
+      <TurningPoint />
+      <CompaniesImpacted />
       <Services />
       <About />
       <CTA />
       <Contact />
       <Footer />
       <WhatsAppButton />
+      <CookieConsent />
     </div>
   );
 };

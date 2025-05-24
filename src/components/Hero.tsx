@@ -1,17 +1,36 @@
+
 import { ArrowRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     setIsVisible(true);
   }, []);
-  return <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden">
+
+  return (
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden">
       {/* Futuristic Grid Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
         <div className="absolute inset-0 bg-black/80"></div>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
+      </div>
+
+      {/* Corporate Background Images */}
+      <div className="absolute inset-0 -z-10">
+        <img 
+          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
+          alt="Tecnologia e programação"
+          className="absolute top-0 right-0 w-1/3 h-1/2 object-cover opacity-5"
+        />
+        <img 
+          src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
+          alt="Circuitos tecnológicos"
+          className="absolute bottom-0 left-0 w-1/3 h-1/2 object-cover opacity-5"
+        />
       </div>
 
       {/* Animated Orbs */}
@@ -29,7 +48,7 @@ const Hero = () => {
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-auto max-w-4xl md:text-5xl">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Projetos tecnológicos</span> que impulsionam seu negócio
             </h1>
-            <p className="text-gray-400 mb-8 max-w-2xl text-center font-medium text-base mx-auto">
+            <p className="text-gray-400 mb-8 max-w-4xl text-center font-medium text-base mx-auto">
               A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
             </p>
             
@@ -43,6 +62,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;

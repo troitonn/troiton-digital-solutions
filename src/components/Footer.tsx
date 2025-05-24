@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  return <footer className="bg-gray-900 text-white pt-16 pb-8">
+  return (
+    <footer className="bg-gray-900 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
@@ -29,7 +30,7 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Serviços</h4>
+            <h4 className="text-lg font-semibold mb-4 uppercase tracking-wide">NEGÓCIOS E PRODUTOS</h4>
             <ul className="space-y-3">
               <li><a href="#" className="text-gray-400 hover:text-troiton-400 transition-colors">Implantação de Projetos</a></li>
               <li><a href="#" className="text-gray-400 hover:text-troiton-400 transition-colors">Segurança da Informação</a></li>
@@ -40,18 +41,18 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Links Rápidos</h4>
+            <h4 className="text-lg font-semibold mb-4 uppercase tracking-wide">LINKS RÁPIDOS</h4>
             <ul className="space-y-3">
               <li><Link to="/" className="text-gray-400 hover:text-troiton-400 transition-colors">Início</Link></li>
-              <li><Link to="/#servicos" className="text-gray-400 hover:text-troiton-400 transition-colors">Serviços</Link></li>
+              <li><Link to="/#servicos" className="text-gray-400 hover:text-troiton-400 transition-colors">Negócios e Produtos</Link></li>
               <li><Link to="/#sobre" className="text-gray-400 hover:text-troiton-400 transition-colors">Sobre Nós</Link></li>
-              <li><Link to="/tecnologias" className="text-gray-400 hover:text-troiton-400 transition-colors">Tecnologias</Link></li>
+              <li><Link to="/tecnologias" className="text-gray-400 hover:text-troiton-400 transition-colors">Eficiência Operacional</Link></li>
               <li><Link to="/#contato" className="text-gray-400 hover:text-troiton-400 transition-colors">Contato</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Contato</h4>
+            <h4 className="text-lg font-semibold mb-4 uppercase tracking-wide">CONTATO</h4>
             <ul className="space-y-3 text-gray-400">
               <li>São Paulo, SP - Brasil</li>
               <li>projects@troiton.com.br</li>
@@ -72,7 +73,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>;
+    </footer>
+  );
 };
 
 export default Footer;
