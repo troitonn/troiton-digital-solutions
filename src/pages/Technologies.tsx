@@ -78,7 +78,7 @@ const Technologies = () => {
       </div>
       
       {/* Technology icons */}
-      <div className="container mx-auto px-4 py-16 relative">
+      <div className="container mx-auto px-4 relative my-0 py-0">
         <div className="flex justify-center flex-wrap gap-8 mb-16">
           <div className="flex flex-col items-center">
             <div className="w-16 h-16 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-3 shadow-lg shadow-troiton-700/20">
