@@ -58,7 +58,7 @@ const TurningPoint = () => {
             </h2>
             
             <p className="text-gray-400 mb-8 max-w-4xl text-center font-medium text-base mx-auto">
-              Tudo começa with um ponto de virada. Na Troiton Projects, 
+              Tudo começa com um ponto de virada. Na Troiton Projects, 
               transformamos desafios empresariais em oportunidades de crescimento 
               através de soluções tecnológicas inovadoras e estratégias digitais eficazes.
             </p>
