@@ -51,6 +51,11 @@ const CompaniesImpacted = () => {
     quote: "Profissional dedicado e comprometido. Entende a necessidade do cliente de forma clara e objetiva. A entrega superou minhas expectativas em todos os projetos que foram desenvolvidos. Super recomendo.",
     author: "Veruska Ferreirinha",
     company: "Management Partner - Unica Solucoes"
+  }, {
+    image: "/lovable-uploads/4c5ca2aa-f359-4eaa-8ec4-c721c1a6edd6.png",
+    quote: "Alexsandro é um rapaz dedicado e com facilidade de enxergar processos falhos em empresas que necessitam de escalabilidade. Seu trabalho com a Evostack tem sido de grande Valia e recomendamos ele para algumas empresas que precisam aumentar sua eficiência. Ele atua desde processos a gestão.",
+    author: "Leticia Fita",
+    company: "CEO - EVOSTACK"
   }];
 
   return (
@@ -97,7 +102,7 @@ const CompaniesImpacted = () => {
             O que nossos clientes dizem
           </h3>
           
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="group">
                 <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
