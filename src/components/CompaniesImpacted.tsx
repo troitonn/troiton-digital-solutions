@@ -42,20 +42,15 @@ const CompaniesImpacted = () => {
   }, []);
 
   const testimonials = [{
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
-    quote: "A Troiton Projects revolucionou nossa operação com soluções de IA que aumentaram nossa eficiência em 40%",
-    author: "CEO, TechCorp Solutions",
-    company: "TechCorp Solutions"
+    image: "/lovable-uploads/5bfc3cea-28a7-4dbe-ac86-88f8cc7af007.png",
+    quote: "Talento unico! Especialista atraves de seus servicos trouxe um grande ganho para AMS em processos interno! sem dizer site, apresentaçao da minha Cia. Qualidades sempre com uma combinaçao unica de um olho aguçado para direçao geral mercado e uma compreesao aguçada das necessidades expectativas especificas do cliente. Ele e super talentoso, energetico, disciplinado e divertido!!",
+    author: "Antonio Marcos",
+    company: "Socio Proprietario da AMS Negocios e intermediações LTDA"
   }, {
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
-    quote: "Implementação perfeita de sistemas que transformaram nossa gestão empresarial completamente",
-    author: "CTO, Inovação Digital",
-    company: "Inovação Digital Ltda"
-  }, {
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625",
-    quote: "Automação inteligente que nos colocou à frente da concorrência no mercado digital",
-    author: "Diretor de TI, SmartBusiness",
-    company: "SmartBusiness Corp"
+    image: "/lovable-uploads/5133ebe4-7afd-45aa-9617-8713e8d841dd.png",
+    quote: "Profissional dedicado e comprometido. Entende a necessidade do cliente de forma clara e objetiva. A entrega superou minhas expectativas em todos os projetos que foram desenvolvidos. Super recomendo.",
+    author: "Veruska Ferreirinha",
+    company: "Management Partner - Unica Solucoes"
   }];
 
   return (
@@ -102,7 +97,7 @@ const CompaniesImpacted = () => {
             O que nossos clientes dizem
           </h3>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="group">
                 <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
@@ -111,12 +106,7 @@ const CompaniesImpacted = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                   </div>
                   
-                  <div className="p-8">
-                    <div className="flex items-center mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
+                    <div className="p-8">
                     
                     <p className="text-white font-medium text-lg mb-6 leading-relaxed">
                       "{testimonial.quote}"

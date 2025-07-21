@@ -36,7 +36,7 @@ const About = () => {
               <div className="absolute -inset-0.5 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-lg blur opacity-30 group-hover:opacity-60 transition duration-1000"></div>
               <div className="relative bg-black border border-troiton-800/50 rounded-lg overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-troiton-500 to-blue-500"></div>
-                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Sobre a Troiton Projects" className="rounded-lg object-cover w-full max-w-lg opacity-70 hover:opacity-90 transition-opacity" loading="lazy" />
+                <img src="/lovable-uploads/01d96349-184d-48c7-859b-17685803a771.png" alt="Sobre a Troiton Projects" className="rounded-lg object-cover w-full max-w-lg opacity-70 hover:opacity-90 transition-opacity" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between">
                   <div className="flex items-center space-x-2">
