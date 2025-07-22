@@ -49,7 +49,7 @@ const Hero = () => {
           </div>
           
           {/* Main Heading - Mane.com Style */}
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold mb-8 leading-none tracking-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold mb-6 leading-none tracking-tight">
             <span className="block">INOVAÇÃO</span>
             <span className="block bg-gradient-to-r from-primary via-troiton-300 to-troiton-500 bg-clip-text text-transparent">
               ALÉM DO
@@ -58,7 +58,7 @@ const Hero = () => {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed font-light">
+          <p className="text-base md:text-lg text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed font-light">
             Desenhar, estruturar e implementar soluções tecnológicas que otimizam operações e garantem escalabilidade — com agilidade, inteligência e foco em governança.
           </p>
           
@@ -67,64 +67,64 @@ const Hero = () => {
             <Button 
               size="lg" 
               onClick={() => scrollToSection('contato')}
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-semibold text-lg group"
+              className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-full font-semibold text-base group"
             >
               Iniciar Transformação
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
             
             <Button 
               variant="outline" 
               size="lg"
               onClick={() => scrollToSection('servicos')}
-              className="border-2 border-white/20 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold text-lg backdrop-blur-sm"
+              className="border-2 border-white/20 bg-white/5 hover:bg-white/10 text-white px-6 py-3 rounded-full font-semibold text-base backdrop-blur-sm"
             >
               Nossos Serviços
             </Button>
           </div>
           
           {/* Technology Icons */}
-          <div className="flex flex-wrap justify-center gap-12 mb-8">
+          <div className="flex flex-wrap justify-center gap-8 mb-6">
             <div className="flex flex-col items-center group cursor-pointer">
-              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
-                <Database className="w-10 h-10 text-primary" />
+              <div className="w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Database className="w-7 h-7 text-primary" />
               </div>
-              <span className="text-sm text-gray-300 font-medium tracking-wide">ERP</span>
+              <span className="text-xs text-gray-300 font-medium tracking-wide">ERP</span>
             </div>
             
             <div className="flex flex-col items-center group cursor-pointer">
-              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
-                <Server className="w-10 h-10 text-primary" />
+              <div className="w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Server className="w-7 h-7 text-primary" />
               </div>
-              <span className="text-sm text-gray-300 font-medium tracking-wide">INFRAESTRUTURA</span>
+              <span className="text-xs text-gray-300 font-medium tracking-wide">INFRAESTRUTURA</span>
             </div>
             
             <div className="flex flex-col items-center group cursor-pointer">
-              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
-                <Globe className="w-10 h-10 text-primary" />
+              <div className="w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Globe className="w-7 h-7 text-primary" />
               </div>
-              <span className="text-sm text-gray-300 font-medium tracking-wide">CLOUD</span>
+              <span className="text-xs text-gray-300 font-medium tracking-wide">CLOUD</span>
             </div>
             
             <div className="flex flex-col items-center group cursor-pointer">
-              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
-                <Lock className="w-10 h-10 text-primary" />
+              <div className="w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Lock className="w-7 h-7 text-primary" />
               </div>
-              <span className="text-sm text-gray-300 font-medium tracking-wide">SEGURANÇA</span>
+              <span className="text-xs text-gray-300 font-medium tracking-wide">SEGURANÇA</span>
             </div>
             
             <div className="flex flex-col items-center group cursor-pointer">
-              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
-                <Code className="w-10 h-10 text-primary" />
+              <div className="w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Code className="w-7 h-7 text-primary" />
               </div>
-              <span className="text-sm text-gray-300 font-medium tracking-wide">DESENVOLVIMENTO</span>
+              <span className="text-xs text-gray-300 font-medium tracking-wide">DESENVOLVIMENTO</span>
             </div>
             
             <div className="flex flex-col items-center group cursor-pointer">
-              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
-                <Zap className="w-10 h-10 text-primary" />
+              <div className="w-16 h-16 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl flex items-center justify-center mb-3 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Zap className="w-7 h-7 text-primary" />
               </div>
-              <span className="text-sm text-gray-300 font-medium tracking-wide">AUTOMAÇÃO</span>
+              <span className="text-xs text-gray-300 font-medium tracking-wide">AUTOMAÇÃO</span>
             </div>
           </div>
         </div>
