@@ -1,6 +1,8 @@
 
-import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
+import { ArrowRight, Database, Server, Globe, Lock, Code, Zap, Sparkles } from 'lucide-react';
 import { useEffect, useState } from 'react';
+import { Button } from '@/components/ui/button';
+import auroraHero from '@/assets/aurora-hero.jpg';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -9,95 +11,129 @@ const Hero = () => {
     setIsVisible(true);
   }, []);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center pt-[100px] overflow-hidden">
-      {/* Futuristic Grid Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]"></div>
-        <div className="absolute inset-0 bg-black/80"></div>
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-troiton-500 to-transparent"></div>
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Aurora Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${auroraHero})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black"></div>
+      
+      {/* Animated Particles */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+        <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-troiton-400 rounded-full animate-pulse animation-delay-2000"></div>
+        <div className="absolute bottom-1/3 left-1/2 w-1.5 h-1.5 bg-troiton-300 rounded-full animate-pulse animation-delay-4000"></div>
+        <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-primary rounded-full animate-pulse"></div>
       </div>
 
-      {/* Corporate Background Images */}
-      <div className="absolute inset-0 -z-10">
-        <img 
-          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6" 
-          alt="Tecnologia e programação"
-          className="absolute top-0 right-0 w-1/3 h-1/2 object-cover opacity-5"
-        />
-        <img 
-          src="https://images.unsplash.com/photo-1518770660439-4636190af475" 
-          alt="Circuitos tecnológicos"
-          className="absolute bottom-0 left-0 w-1/3 h-1/2 object-cover opacity-5"
-        />
-      </div>
-
-      {/* Animated Orbs */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-troiton-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
-      <div className="absolute top-40 -left-20 w-80 h-80 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-      <div className="absolute bottom-40 right-20 w-80 h-80 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
-
-      <div className="container mx-auto px-4 z-10">
-        <div className="flex flex-col items-center text-center">
-          <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
-            <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 text-troiton-400 mx-auto">
-              <span className="w-2 h-2 bg-troiton-500 rounded-full mr-2 animate-pulse"></span>
-              Inovação em TI para sua empresa
-            </div>
-            <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-tight mx-auto max-w-4xl md:text-5xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Projetos tecnológicos</span> que impulsionam seu negócio
-            </h1>
-            <p className="text-gray-400 mb-8 max-w-4xl text-center font-medium text-base mx-auto">
-              A Troiton Projects oferece serviços completos de TI para transformar digitalmente sua empresa, desde implementação de sistemas até segurança e consultoria especializada.
-            </p>
-            
-            {/* Technology icons */}
-            <div className="flex justify-center flex-wrap gap-6 mt-8">
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
-                  <Database className="h-6 w-6 text-troiton-300" />
-                </div>
-                <span className="text-troiton-100 font-medium text-xs">ERP</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
-                  <Server className="h-6 w-6 text-troiton-300" />
-                </div>
-                <span className="text-troiton-100 font-medium text-xs">Infraestrutura</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
-                  <Globe className="h-6 w-6 text-troiton-300" />
-                </div>
-                <span className="text-troiton-100 font-medium text-xs">Cloud</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
-                  <Lock className="h-6 w-6 text-troiton-300" />
-                </div>
-                <span className="text-troiton-100 font-medium text-xs">Segurança</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
-                  <Code className="h-6 w-6 text-troiton-300" />
-                </div>
-                <span className="text-troiton-100 font-medium text-xs">Desenvolvimento</span>
-              </div>
-              <div className="flex flex-col items-center">
-                <div className="w-12 h-12 bg-gradient-to-br from-troiton-700 to-troiton-900 rounded-full flex items-center justify-center mb-2 shadow-lg shadow-troiton-700/20">
-                  <Zap className="h-6 w-6 text-troiton-300" />
-                </div>
-                <span className="text-troiton-100 font-medium text-xs">Automação</span>
-              </div>
-            </div>
+      <div className="relative container mx-auto px-6 text-center">
+        <div className={`transition-all duration-1000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+        }`}>
+          {/* Tag line with Sparkle */}
+          <div className="inline-flex items-center px-6 py-3 bg-primary/10 border border-primary/20 rounded-full mb-12 backdrop-blur-sm">
+            <Sparkles className="w-4 h-4 text-primary mr-2" />
+            <span className="text-primary font-medium tracking-wide">TRANSFORMAMOS O FUTURO DOS NEGÓCIOS</span>
           </div>
           
-          <div className={`mt-16 max-w-2xl mx-auto transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'} delay-300`}>
-            <div className="relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-lg blur-sm opacity-30"></div>
+          {/* Main Heading - Mane.com Style */}
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold mb-8 leading-none tracking-tight">
+            <span className="block">INOVAÇÃO</span>
+            <span className="block bg-gradient-to-r from-primary via-troiton-300 to-troiton-500 bg-clip-text text-transparent">
+              ALÉM DO
+            </span>
+            <span className="block">ESPERADO</span>
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-gray-300 mb-16 max-w-3xl mx-auto leading-relaxed font-light">
+            Desenhar, estruturar e implementar soluções tecnológicas que otimizam operações e garantem escalabilidade — com agilidade, inteligência e foco em governança.
+          </p>
+          
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+            <Button 
+              size="lg" 
+              onClick={() => scrollToSection('contato')}
+              className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-full font-semibold text-lg group"
+            >
+              Iniciar Transformação
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="lg"
+              onClick={() => scrollToSection('servicos')}
+              className="border-2 border-white/20 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-full font-semibold text-lg backdrop-blur-sm"
+            >
+              Nossos Serviços
+            </Button>
+          </div>
+          
+          {/* Technology Icons */}
+          <div className="flex flex-wrap justify-center gap-12 mb-8">
+            <div className="flex flex-col items-center group cursor-pointer">
+              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Database className="w-10 h-10 text-primary" />
+              </div>
+              <span className="text-sm text-gray-300 font-medium tracking-wide">ERP</span>
+            </div>
+            
+            <div className="flex flex-col items-center group cursor-pointer">
+              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Server className="w-10 h-10 text-primary" />
+              </div>
+              <span className="text-sm text-gray-300 font-medium tracking-wide">INFRAESTRUTURA</span>
+            </div>
+            
+            <div className="flex flex-col items-center group cursor-pointer">
+              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Globe className="w-10 h-10 text-primary" />
+              </div>
+              <span className="text-sm text-gray-300 font-medium tracking-wide">CLOUD</span>
+            </div>
+            
+            <div className="flex flex-col items-center group cursor-pointer">
+              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Lock className="w-10 h-10 text-primary" />
+              </div>
+              <span className="text-sm text-gray-300 font-medium tracking-wide">SEGURANÇA</span>
+            </div>
+            
+            <div className="flex flex-col items-center group cursor-pointer">
+              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Code className="w-10 h-10 text-primary" />
+              </div>
+              <span className="text-sm text-gray-300 font-medium tracking-wide">DESENVOLVIMENTO</span>
+            </div>
+            
+            <div className="flex flex-col items-center group cursor-pointer">
+              <div className="w-20 h-20 bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl flex items-center justify-center mb-4 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <Zap className="w-10 h-10 text-primary" />
+              </div>
+              <span className="text-sm text-gray-300 font-medium tracking-wide">AUTOMAÇÃO</span>
             </div>
           </div>
+        </div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>

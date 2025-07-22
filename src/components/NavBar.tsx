@@ -80,13 +80,19 @@ const NavBar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </button>
           
-          <button 
-            onClick={() => scrollToSection('sobre')}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm"
+          <Link 
+            to="/sobre"
+            className={cn(
+              "text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm",
+              location.pathname === "/sobre" && "text-troiton-400"
+            )}
           >
             SOBRE
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </button>
+            <span className={cn(
+              "absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all",
+              location.pathname === "/sobre" ? "w-full" : "w-0 group-hover:w-full"
+            )}></span>
+          </Link>
           
           <Link 
             to="/tecnologias" 
@@ -150,12 +156,13 @@ const NavBar = () => {
           >
             NEGÓCIOS E PRODUTOS
           </button>
-          <button 
-            onClick={() => scrollToSection('sobre')}
+          <Link 
+            to="/sobre"
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             SOBRE
-          </button>
+          </Link>
           <Link 
             to="/tecnologias"
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"

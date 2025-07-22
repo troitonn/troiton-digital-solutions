@@ -123,6 +123,7 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
 				display: ['Montserrat', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
 			},
 		}
 	},
