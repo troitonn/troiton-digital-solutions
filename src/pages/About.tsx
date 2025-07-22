@@ -6,7 +6,7 @@ import CookieConsent from '@/components/CookieConsent';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Award, Users, Target, Zap } from 'lucide-react';
 import auroraAbout from '@/assets/aurora-about.jpg';
-import ceoImage from '@/assets/ceo-alexsandro1.jpg';
+import ceoImage from '@/assets/ceo-alexsandro3.jpg';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
