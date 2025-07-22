@@ -1,6 +1,5 @@
 import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Button } from '@/components/ui/button';
 import auroraHero from '@/assets/aurora-hero.jpg';
 
 const Hero = () => {
@@ -22,12 +21,12 @@ const Hero = () => {
 
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Aurora Background */}
+      {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${auroraHero})` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
 
       {/* Animated Particles */}
       <div className="absolute inset-0 overflow-hidden">
@@ -37,11 +36,12 @@ const Hero = () => {
         <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-primary rounded-full animate-pulse"></div>
       </div>
 
-      <div className="relative container mx-auto px-6 text-center pt-32">
+      <div className="relative container mx-auto px-6 text-center pt-32 -mt-6">
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
-          {/* Tagline - sem estrela */}
+
+          {/* Tagline */}
           <div className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 backdrop-blur-sm">
             <span className="text-primary font-medium tracking-wide text-sm">
               TRANSFORMAMOS O FUTURO DOS NEGÓCIOS
@@ -62,7 +62,7 @@ const Hero = () => {
             Desenhar, estruturar e implementar soluções tecnológicas que otimizam operações e garantem escalabilidade — com agilidade, inteligência e foco em governança.
           </p>
 
-          {/* CTA Buttons - estilo Apple */}
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
             <button
               onClick={() => scrollToSection('contato')}
@@ -79,8 +79,8 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Technology Icons */}
-          <div className="flex flex-wrap justify-center gap-6 mb-10">
+          {/* Tech Icons */}
+          <div className="flex flex-wrap justify-center gap-6 mb-24">
             {[
               { icon: <Database className="w-6 h-6 text-primary" />, label: 'ERP' },
               { icon: <Server className="w-6 h-6 text-primary" />, label: 'INFRAESTRUTURA' },
@@ -97,10 +97,13 @@ const Hero = () => {
               </div>
             ))}
           </div>
+
+          {/* Extra Tagline Below (opcional) */}
+          <p className="text-xs text-white/60 mt-2 tracking-wider font-light uppercase">Inovação & Transformação</p>
         </div>
       </div>
 
-      {/* Scroll Indicator ajustado */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10 pointer-events-none">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
