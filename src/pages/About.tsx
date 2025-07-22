@@ -130,11 +130,11 @@ const About = () => {
 
                 <div className="space-y-6 text-gray-300 leading-relaxed">
                   <p>
-                    Liderada por <strong className="text-white">Alexsandro Ferreira de Oliveira</strong>, nosso CEO, a Troiton se posiciona como uma empresa de tecnologia com DNA em projetos, infraestrutura e transformação digital.
+                    Liderada por <strong className="text-white">Alexsandro Braga</strong>, nosso CEO, a Troiton se posiciona como uma empresa de tecnologia com DNA em projetos, infraestrutura e transformação digital.
                   </p>
 
                   <p>
-                    Com uma trajetória que começou com vendas ambulantes e evoluiu até assumir cargos de liderança em empresas de tecnologia, Alexsandro carrega uma <strong className="text-white">visão estratégica diferenciada</strong>: unir profundidade técnica com sensibilidade humana.
+                    Com uma trajetória que começou com vendas ambulantes e evoluiu até assumir cargos em empresas de tecnologia, Alexsandro carrega uma <strong className="text-white">visão estratégica diferenciada</strong>: unir profundidade técnica com sensibilidade humana.
                   </p>
 
                   <p>
