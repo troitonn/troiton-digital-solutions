@@ -21,9 +21,9 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen pt-32 flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Aurora Background */}
-      <div 
+      <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${auroraHero})` }}
       />
@@ -37,7 +37,7 @@ const Hero = () => {
         <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-primary rounded-full animate-pulse"></div>
       </div>
 
-      <div className="relative container mx-auto px-6 text-center">
+      <div className="relative container mx-auto px-6 text-center pt-32">
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
@@ -65,17 +65,17 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-            <Button 
-              size="sm" 
+            <Button
+              size="sm"
               onClick={() => scrollToSection('contato')}
               className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full font-semibold text-sm group"
             >
               Iniciar Transformação
               <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
-            <Button 
-              variant="outline" 
+
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => scrollToSection('servicos')}
               className="border-2 border-white/20 bg-white/5 hover:bg-white/10 text-white px-5 py-2 rounded-full font-semibold text-sm backdrop-blur-sm"
