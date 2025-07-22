@@ -1,4 +1,4 @@
-import { ArrowRight, Database, Server, Globe, Lock, Code, Zap, Sparkles } from 'lucide-react';
+import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import auroraHero from '@/assets/aurora-hero.jpg';
@@ -41,9 +41,8 @@ const Hero = () => {
         <div className={`transition-all duration-1000 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
-          {/* Tag line */}
+          {/* Tagline - sem estrela */}
           <div className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 backdrop-blur-sm">
-            <Sparkles className="w-4 h-4 text-primary mr-2" />
             <span className="text-primary font-medium tracking-wide text-sm">
               TRANSFORMAMOS O FUTURO DOS NEGÓCIOS
             </span>
@@ -63,29 +62,25 @@ const Hero = () => {
             Desenhar, estruturar e implementar soluções tecnológicas que otimizam operações e garantem escalabilidade — com agilidade, inteligência e foco em governança.
           </p>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - estilo Apple */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
-            <Button
-              size="sm"
+            <button
               onClick={() => scrollToSection('contato')}
-              className="bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded-full font-semibold text-sm group"
+              className="bg-white text-black hover:bg-gray-100 transition-all duration-200 px-6 py-2 rounded-lg text-sm font-medium"
             >
-              Iniciar Transformação
-              <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+              Iniciar Transformação <ArrowRight className="inline-block ml-2 w-4 h-4" />
+            </button>
 
-            <Button
-              variant="outline"
-              size="sm"
+            <button
               onClick={() => scrollToSection('servicos')}
-              className="border-2 border-white/20 bg-white/5 hover:bg-white/10 text-white px-5 py-2 rounded-full font-semibold text-sm backdrop-blur-sm"
+              className="border border-white/40 text-white hover:bg-white/10 transition-all duration-200 px-6 py-2 rounded-lg text-sm font-medium"
             >
               Nossos Serviços
-            </Button>
+            </button>
           </div>
 
           {/* Technology Icons */}
-          <div className="flex flex-wrap justify-center gap-6 mb-4">
+          <div className="flex flex-wrap justify-center gap-6 mb-10">
             {[
               { icon: <Database className="w-6 h-6 text-primary" />, label: 'ERP' },
               { icon: <Server className="w-6 h-6 text-primary" />, label: 'INFRAESTRUTURA' },
@@ -105,8 +100,8 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      {/* Scroll Indicator ajustado */}
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10 pointer-events-none">
         <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
         </div>
