@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 
 const data = {
   "Eficiência Operacional": [
@@ -62,7 +61,11 @@ export default function MegaMenuCards({ category }) {
   return (
     <div className="bg-white shadow-lg rounded-lg grid grid-cols-3 gap-4 p-6 text-black">
       {items.map((item, index) => (
-        <Link key={index} href={item.href} className="hover:shadow-md rounded-xl overflow-hidden bg-gray-50">
+        <a
+          key={index}
+          href={item.href}
+          className="hover:shadow-md rounded-xl overflow-hidden bg-gray-50"
+        >
           <div>
             <img
               src={item.image}
@@ -74,7 +77,7 @@ export default function MegaMenuCards({ category }) {
               <p className="text-sm text-gray-600">{item.description}</p>
             </div>
           </div>
-        </Link>
+        </a>
       ))}
     </div>
   );
