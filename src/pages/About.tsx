@@ -126,7 +126,7 @@ const About = () => {
                   Alexsandro Braga
                 </h2>
 
-                <div className="text-xl text-primary mb-8">CEO & Fundador</div>
+                <div className="text-xl text-primary mb-8">CEO</div>
 
                 <div className="space-y-6 text-gray-300 leading-relaxed">
                   <p>
