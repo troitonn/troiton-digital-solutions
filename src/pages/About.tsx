@@ -138,7 +138,7 @@ const About = () => {
                   </p>
 
                   <p>
-                    Formado em <strong className="text-white">Defesa Cibernética</strong>, certificado por instituições como IBM, Cisco e Acronis, e com atuação direta em setores como factorings, advocacias, imobiliárias e contabilidades, Alexsandro aplica sua expertise diariamente em projetos que envolvem desde ITSM e ERPs até segurança cibernética e integração de dados.
+                    Formado em <strong className="text-white">Defesa Cibernética</strong>, certificado por instituições como IBM, USP, Cisco e Acronis, e com atuação direta em setores como factorings, Fintechs, advocacias, imobiliárias e contabilidades, Alexsandro aplica sua expertise diariamente em projetos que envolvem desde ITSM e ERPs até segurança cibernética e integração de dados.
                   </p>
                 </div>
               </div>
