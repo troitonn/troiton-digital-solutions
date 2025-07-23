@@ -1,6 +1,6 @@
 import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import auroraHero from '@/assets/aurora-hero.jpg';
+import troitonAuroraVideo from '@/assets/TroitonAurora.mp4';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -21,11 +21,19 @@ const Hero = () => {
 
   return (
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${auroraHero})` }}
-      />
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={troitonAuroraVideo} type="video/mp4" />
+        Seu navegador não suporta vídeos em HTML5.
+      </video>
+
+      {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
 
       {/* Animated Particles */}
@@ -36,11 +44,13 @@ const Hero = () => {
         <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-primary rounded-full animate-pulse"></div>
       </div>
 
+      {/* Content */}
       <div className="relative container mx-auto px-6 text-center pt-32 -mt-6">
-        <div className={`transition-all duration-1000 transform ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
-
+        <div
+          className={`transition-all duration-1000 transform ${
+            isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+          }`}
+        >
           {/* Tagline */}
           <div className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 backdrop-blur-sm">
             <span className="text-primary font-medium tracking-wide text-sm">
@@ -98,8 +108,10 @@ const Hero = () => {
             ))}
           </div>
 
-          {/* Extra Tagline Below (opcional) */}
-          <p className="text-xs text-white/60 mt-2 tracking-wider font-light uppercase">Inovação & Transformação</p>
+          {/* Extra Tagline Below */}
+          <p className="text-xs text-white/60 mt-2 tracking-wider font-light uppercase">
+            Inovação & Transformação
+          </p>
         </div>
       </div>
 
