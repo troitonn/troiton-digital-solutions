@@ -110,6 +110,14 @@ const NavBar = () => {
           </Link>
           
           <button 
+            onClick={() => scrollToSection('vagas')}
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm"
+          >
+            VAGAS
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </button>
+          
+          <button 
             onClick={() => scrollToSection('contato')}
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm"
           >
@@ -170,6 +178,12 @@ const NavBar = () => {
           >
             EFICIÊNCIA OPERACIONAL
           </Link>
+          <button 
+            onClick={() => scrollToSection('vagas')}
+            className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
+          >
+            VAGAS
+          </button>
           <button 
             onClick={() => scrollToSection('contato')}
             className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"

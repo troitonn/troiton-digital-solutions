@@ -6,6 +6,7 @@ import TurningPoint from '@/components/TurningPoint';
 import CompaniesImpacted from '@/components/CompaniesImpacted';
 import Services from '@/components/Services';
 import About from '@/components/About';
+import Careers from '@/components/Careers';
 import CTA from '@/components/CTA';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -65,6 +66,9 @@ const Index = () => {
       </div>
       <div className="-mt-8">
         <About />
+      </div>
+      <div className="-mt-8">
+        <Careers />
       </div>
       <div className="-mt-8">
         <CTA />
