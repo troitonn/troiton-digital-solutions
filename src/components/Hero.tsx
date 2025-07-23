@@ -1,33 +1,12 @@
 import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import troitonAuroraVideo from '@/assets/TroitonAurora.mp4';
-import fallbackImage from '@/assets/fallback-hero.jpg'; // imagem leve para poster
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [loadVideo, setLoadVideo] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setLoadVideo(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -35,32 +14,24 @@ const Hero = () => {
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 80,
-        behavior: 'smooth',
+        behavior: 'smooth'
       });
     }
   };
 
   return (
-    <section
-      ref={sectionRef}
-      id="inicio"
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-    >
-      {/* Background Video - carrega só se loadVideo for true */}
-      {loadVideo && (
-        <video
-          muted
-          playsInline
-          autoPlay
-          loop
-          preload="none"
-          poster={fallbackImage}
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src={troitonAuroraVideo} type="video/mp4" />
-          Seu navegador não suporta vídeos em HTML5.
-        </video>
-      )}
+    <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Video */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src={troitonAuroraVideo} type="video/mp4" />
+        Seu navegador não suporta vídeos em HTML5.
+      </video>
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
@@ -81,14 +52,14 @@ const Hero = () => {
           }`}
         >
           {/* Tagline */}
-          <div className="inline-flex items-center px-3 py-1.5 bg-white/10 border border-white/20 rounded-full mb-6 backdrop-blur-sm">
-            <span className="text-white font-medium tracking-wide text-xs uppercase">
-              Transformamos o Futuro dos Negócios
+          <div className="inline-flex items-center px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-6 backdrop-blur-sm">
+            <span className="text-primary font-medium tracking-wide text-sm uppercase">
+              TRANSFORMAMOS O FUTURO DOS NEGÓCIOS
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-4 leading-tight tracking-tight">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-serif font-bold mb-4 leading-tight tracking-tight">
             <span className="block">INOVAÇÃO</span>
             <span className="block bg-gradient-to-r from-primary via-troiton-300 to-troiton-500 bg-clip-text text-transparent">
               ALÉM DO
@@ -119,17 +90,17 @@ const Hero = () => {
           </div>
 
           {/* Tech Icons */}
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-16 sm:mb-24">
+          <div className="flex flex-wrap justify-center gap-6 mb-24">
             {[
-              { icon: <Database className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'ERP' },
-              { icon: <Server className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'INFRAESTRUTURA' },
-              { icon: <Globe className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'CLOUD' },
-              { icon: <Lock className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'SEGURANÇA' },
-              { icon: <Code className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'DESENVOLVIMENTO' },
-              { icon: <Zap className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'AUTOMAÇÃO' },
+              { icon: <Database className="w-6 h-6 text-primary" />, label: 'ERP' },
+              { icon: <Server className="w-6 h-6 text-primary" />, label: 'INFRAESTRUTURA' },
+              { icon: <Globe className="w-6 h-6 text-primary" />, label: 'CLOUD' },
+              { icon: <Lock className="w-6 h-6 text-primary" />, label: 'SEGURANÇA' },
+              { icon: <Code className="w-6 h-6 text-primary" />, label: 'DESENVOLVIMENTO' },
+              { icon: <Zap className="w-6 h-6 text-primary" />, label: 'AUTOMAÇÃO' }
             ].map(({ icon, label }, i) => (
               <div key={i} className="flex flex-col items-center group cursor-pointer">
-                <div className="w-10 h-10 sm:w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center mb-2 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
+                <div className="w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center mb-2 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
                   {icon}
                 </div>
                 <span className="text-xs text-gray-300 font-medium tracking-wide">{label}</span>
