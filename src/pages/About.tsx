@@ -149,9 +149,8 @@ const About = () => {
                   <img 
                     src={ceoImage}
                     alt="Alexsandro Braga - CEO da Troiton"
-                    className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl filter brightness-90 contrast-110 saturate-75"
+                    className="relative w-full max-w-md mx-auto rounded-3xl shadow-2xl"
                   />
-
                 </div>
               </div>
             </div>
