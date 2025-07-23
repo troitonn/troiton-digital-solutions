@@ -1,6 +1,7 @@
 import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import troitonAuroraVideo from '@/assets/TroitonAurora.mp4';
+import fallbackImage from '@/assets/fallback-hero.jpg'; // Coloque uma imagem leve aqui para poster
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,7 +15,7 @@ const Hero = () => {
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 80,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -23,11 +24,12 @@ const Hero = () => {
     <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Video */}
       <video
-        autoPlay
         muted
-        loop
         playsInline
+        autoPlay
+        loop
         preload="metadata"
+        poster={fallbackImage}
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src={troitonAuroraVideo} type="video/mp4" />
@@ -98,7 +100,7 @@ const Hero = () => {
               { icon: <Globe className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'CLOUD' },
               { icon: <Lock className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'SEGURANÇA' },
               { icon: <Code className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'DESENVOLVIMENTO' },
-              { icon: <Zap className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'AUTOMAÇÃO' }
+              { icon: <Zap className="w-4 h-4 sm:w-5 h-5 text-primary" />, label: 'AUTOMAÇÃO' },
             ].map(({ icon, label }, i) => (
               <div key={i} className="flex flex-col items-center group cursor-pointer">
                 <div className="w-10 h-10 sm:w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center mb-2 group-hover:bg-white/10 group-hover:scale-105 transition-all duration-300">
