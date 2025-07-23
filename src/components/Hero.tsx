@@ -1,13 +1,33 @@
 import { ArrowRight, Database, Server, Globe, Lock, Code, Zap } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import troitonAuroraVideo from '@/assets/TroitonAurora.mp4';
-import fallbackImage from '@/assets/fallback-hero.jpg'; // Coloque uma imagem leve aqui para poster
+import fallbackImage from '@/assets/fallback-hero.jpg'; // imagem leve para poster
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [loadVideo, setLoadVideo] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     setIsVisible(true);
+  }, []);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -21,20 +41,26 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video */}
-      <video
-        muted
-        playsInline
-        autoPlay
-        loop
-        preload="metadata"
-        poster={fallbackImage}
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src={troitonAuroraVideo} type="video/mp4" />
-        Seu navegador não suporta vídeos em HTML5.
-      </video>
+    <section
+      ref={sectionRef}
+      id="inicio"
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Background Video - carrega só se loadVideo for true */}
+      {loadVideo && (
+        <video
+          muted
+          playsInline
+          autoPlay
+          loop
+          preload="none"
+          poster={fallbackImage}
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={troitonAuroraVideo} type="video/mp4" />
+          Seu navegador não suporta vídeos em HTML5.
+        </video>
+      )}
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/60 to-black" />
