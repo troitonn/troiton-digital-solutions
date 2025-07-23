@@ -1,38 +1,32 @@
-// Navbar adaptado com dropdown estilo Klabin, mantendo sua estrutura
+// troiton-navbar.tsx
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
-const dropdownItems = [
-  {
-    title: 'NEGÓCIOS E PRODUTOS',
-    image: 'https://images.unsplash.com/photo-1581090700227-1e8a0c2988b9?fit=crop&w=600&q=80',
-    links: [
-      { name: 'Serviços', id: 'servicos' },
-      { name: 'Projetos Recentes', id: 'projetos' },
+const dropdownData = {
+  negocios: {
+    items: [
+      { title: 'Consultoria em Tecnologia', link: '/consultoria', img: 'https://images.unsplash.com/photo-1581090700227-1e8a1ebc87e3?auto=format&fit=crop&w=500&q=60' },
+      { title: 'Automação Industrial', link: '/automacao', img: 'https://images.unsplash.com/photo-1581090700117-0b18a8ba8e1f?auto=format&fit=crop&w=500&q=60' },
     ],
   },
-  {
-    title: 'EFICIÊNCIA OPERACIONAL',
-    image: 'https://images.unsplash.com/photo-1581092580497-74c3dcac5d3f?fit=crop&w=600&q=80',
-    links: [
-      { name: 'Tecnologias', path: '/tecnologias' },
-      { name: 'Processos', id: 'eficiencia' },
+  eficiencia: {
+    items: [
+      { title: 'Eficiência Energética', link: '/eficiencia-energetica', img: 'https://images.unsplash.com/photo-1616627989390-fd7f35a09b9a?auto=format&fit=crop&w=500&q=60' },
+      { title: 'Gestão de Projetos', link: '/gestao-projetos', img: 'https://images.unsplash.com/photo-1603354350317-6cc4b1037b78?auto=format&fit=crop&w=500&q=60' },
     ],
   },
-];
+};
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -51,6 +45,20 @@ const NavBar = () => {
     }
   };
 
+  const renderDropdown = (key: string) => {
+    const { items } = dropdownData[key];
+    return (
+      <div className="absolute top-full mt-2 left-0 bg-white shadow-lg rounded-md p-4 min-w-[400px] flex gap-4 z-40">
+        {items.map((item, idx) => (
+          <Link key={idx} to={item.link} className="flex flex-col hover:opacity-90">
+            <img src={item.img} alt={item.title} className="w-36 h-24 object-cover rounded-md mb-1" />
+            <span className="text-gray-800 text-sm font-medium">{item.title}</span>
+          </Link>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <nav className={cn(
       'fixed top-0 w-full z-50 transition-all duration-300 ease-in-out',
@@ -61,124 +69,55 @@ const NavBar = () => {
           <img src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png" alt="Troiton Projects Logo" className="h-14 mr-2" />
         </Link>
 
-        <div className="hidden md:flex space-x-10 ml-auto mr-8">
-          <Link to="/" className={cn('text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm', location.pathname === '/' && 'text-troiton-400')}>
-            INÍCIO
-            <span className={cn('absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all', location.pathname === '/' ? 'w-full' : 'w-0 group-hover:w-full')}></span>
-          </Link>
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-8 ml-auto mr-8 text-sm font-medium text-white uppercase tracking-wide relative">
+          <Link to="/" className={cn('group relative', location.pathname === '/' ? 'text-green-400' : 'text-white')}>INÍCIO</Link>
 
-          {dropdownItems.map((item, index) => (
-            <div
-              key={index}
-              className="relative group"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <button className="text-gray-300 hover:text-troiton-400 font-medium uppercase tracking-wide text-sm flex items-center gap-1">
-                {item.title} <ChevronDown size={14} />
-              </button>
-              {hoveredIndex === index && (
-                <div className="absolute top-10 left-0 bg-white text-black w-[600px] rounded shadow-lg p-4 grid grid-cols-2 gap-4 z-50">
-                  <div className="space-y-2">
-                    {item.links.map((link, idx) => (
-                      link.path ? (
-                        <Link
-                          key={idx}
-                          to={link.path}
-                          className="block text-sm hover:text-green-600"
-                        >
-                          {link.name}
-                        </Link>
-                      ) : (
-                        <button
-                          key={idx}
-                          onClick={() => scrollToSection(link.id)}
-                          className="block text-sm text-left hover:text-green-600"
-                        >
-                          {link.name}
-                        </button>
-                      )
-                    ))}
-                  </div>
-                  <img
-                    src={item.image}
-                    alt="submenu"
-                    className="w-full h-32 object-cover rounded"
-                  />
-                </div>
-              )}
-            </div>
-          ))}
+          <div className="relative" onMouseEnter={() => setOpenDropdown('negocios')} onMouseLeave={() => setOpenDropdown(null)}>
+            <button className="flex items-center gap-1 group relative">
+              NEGÓCIOS E PRODUTOS <ChevronDown size={16} />
+            </button>
+            {openDropdown === 'negocios' && renderDropdown('negocios')}
+          </div>
 
-          <Link to="/sobre" className={cn('text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm', location.pathname === '/sobre' && 'text-troiton-400')}>
-            SOBRE
-            <span className={cn('absolute -bottom-1 left-0 h-0.5 bg-troiton-500 transition-all', location.pathname === '/sobre' ? 'w-full' : 'w-0 group-hover:w-full')}></span>
-          </Link>
+          <div className="relative" onMouseEnter={() => setOpenDropdown('eficiencia')} onMouseLeave={() => setOpenDropdown(null)}>
+            <button className="flex items-center gap-1 group relative">
+              EFICIÊNCIA OPERACIONAL <ChevronDown size={16} />
+            </button>
+            {openDropdown === 'eficiencia' && renderDropdown('eficiencia')}
+          </div>
 
-          <button onClick={() => scrollToSection('vagas')} className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm">
-            OPORTUNIDADES PROFISSIONAIS
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </button>
+          <Link to="/sobre" className={cn('group relative', location.pathname === '/sobre' ? 'text-green-400' : 'text-white')}>SOBRE</Link>
 
-          <button onClick={() => scrollToSection('contato')} className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm">
-            CONTATO
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </button>
+          <button onClick={() => scrollToSection('vagas')} className="group relative text-white">OPORTUNIDADES PROFISSIONAIS</button>
+          <button onClick={() => scrollToSection('contato')} className="group relative text-white">CONTATO</button>
         </div>
 
-        <button className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm" onClick={() => scrollToSection('contato')}>
-          <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-          <span className="relative">FALE CONOSCO</span>
+        <button onClick={() => scrollToSection('contato')} className="hidden md:block bg-green-600 hover:bg-green-500 text-white px-6 py-2 rounded-md font-semibold text-sm uppercase">
+          FALE CONOSCO
         </button>
 
-        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}>
+        {/* Mobile toggle */}
+        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      <div className={cn('fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out', isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full')}>
-        <div className="flex flex-col space-y-6 items-center text-lg">
-          <Link to="/" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>
-            INÍCIO
-          </Link>
-          {dropdownItems.map((item, index) => (
-            <div key={index} className="w-full">
-              <p className="text-green-500 text-center font-bold mb-2">{item.title}</p>
-              {item.links.map((link, i) => (
-                link.path ? (
-                  <Link
-                    key={i}
-                    to={link.path}
-                    className="block py-1 text-sm text-center text-gray-300 hover:text-white"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ) : (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      scrollToSection(link.id);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="block py-1 text-sm w-full text-center text-gray-300 hover:text-white"
-                  >
-                    {link.name}
-                  </button>
-                )
-              ))}
-            </div>
-          ))}
-          <Link to="/sobre" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>
-            SOBRE
-          </Link>
-          <button onClick={() => { scrollToSection('vagas'); setIsMobileMenuOpen(false); }} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">
-            OPORTUNIDADES PROFISSIONAIS
-          </button>
-          <button onClick={() => { scrollToSection('contato'); setIsMobileMenuOpen(false); }} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">
-            CONTATO
-          </button>
-          <button className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors uppercase tracking-wide" onClick={() => { scrollToSection('contato'); setIsMobileMenuOpen(false); }}>
+      {/* Mobile Menu */}
+      <div className={cn(
+        'fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out',
+        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+      )}>
+        <div className="flex flex-col space-y-6 items-center text-lg text-white">
+          <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>INÍCIO</Link>
+          <Link to="/consultoria" onClick={() => setIsMobileMenuOpen(false)}>Consultoria em Tecnologia</Link>
+          <Link to="/automacao" onClick={() => setIsMobileMenuOpen(false)}>Automação Industrial</Link>
+          <Link to="/eficiencia-energetica" onClick={() => setIsMobileMenuOpen(false)}>Eficiência Energética</Link>
+          <Link to="/gestao-projetos" onClick={() => setIsMobileMenuOpen(false)}>Gestão de Projetos</Link>
+          <Link to="/sobre" onClick={() => setIsMobileMenuOpen(false)}>SOBRE</Link>
+          <button onClick={() => { scrollToSection('vagas'); setIsMobileMenuOpen(false); }}>OPORTUNIDADES</button>
+          <button onClick={() => { scrollToSection('contato'); setIsMobileMenuOpen(false); }}>CONTATO</button>
+          <button onClick={() => { scrollToSection('contato'); setIsMobileMenuOpen(false); }} className="bg-green-600 hover:bg-green-500 px-4 py-2 rounded-md font-semibold">
             FALE CONOSCO
           </button>
         </div>
