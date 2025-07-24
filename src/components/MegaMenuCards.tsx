@@ -1,6 +1,11 @@
-import indicadoresImg from "@/assets/dados-compressed.jpg";
-import tecnologiaImg from "@/assets/dados-optimized.jpg";
-import sustentabilidadeImg from "@/assets/plantas-que-crescem-no-solo.jpg";
+import indicadoresImg from "@/assets/indicadores-compressed.jpg";
+import performanceImg from "@/assets/performance-compressed.jpg";
+import consultoriaImg from "@/assets/consultoria-optimized.jpg";
+import segurancaImg from "@/assets/seguranca-optimized.jpg";
+import dadosImg from "@/assets/dados-optimized.jpg";
+import plantasImg from "@/assets/plantas-que-crescem-no-solo.jpg";
+import automacaoImg from "@/assets/administradores-de-sistemas-em-centros-de-dados-integrando-ferramentas-de-automacao-impulsionadas-por-ia.jpg";
+import representacaoUX from "@/assets/representacao-da-experiencia-utilizador-e-design-da-interface (1).jpg";
 
 const dropdownData = {
   "Eficiência Operacional": {
@@ -11,9 +16,10 @@ const dropdownData = {
     ],
     visuals: [
       { title: "Indicadores e KPIs", image: indicadoresImg, href: "/eficiencia/indicadores" },
-      { title: "Performance de Equipes", image: tecnologiaImg, href: "/eficiencia/performance" },
+      { title: "Performance de Equipes", image: performanceImg, href: "/eficiencia/performance" },
     ]
   },
+
   "Negócios e Produtos": {
     links: [
       { title: "Projetos e Implantação", href: "/produtos/projetos" },
@@ -21,28 +27,29 @@ const dropdownData = {
       { title: "Consultoria Estratégica", href: "/produtos/consultoria" },
     ],
     visuals: [
-      { title: "Consultoria Digital", image: sustentabilidadeImg, href: "/produtos/consultoria" },
-      { title: "Segurança e Infraestrutura", image: tecnologiaImg, href: "/produtos/seguranca" },
+      { title: "Consultoria Digital", image: consultoriaImg, href: "/produtos/consultoria" },
+      { title: "Segurança e Infraestrutura", image: segurancaImg, href: "/produtos/seguranca" },
     ]
   },
+
   "Tecnologia": {
     links: [
       { title: "Inteligência Artificial", href: "/tecnologia/ia" },
       { title: "Infraestrutura e Cloud", href: "/tecnologia/cloud" },
-      { title: "Soluções Sustentáveis", href: "/tecnologia/sustentavel" },
+      { title: "Power BI e Dashboards", href: "/tecnologia/powerbi" },
     ],
     visuals: [
-      { title: "IA e automação", image: tecnologiaImg, href: "/tecnologia/ia" },
-      { title: "Tecnologia Verde", image: sustentabilidadeImg, href: "/tecnologia/sustentavel" },
+      { title: "IA e Automação", image: automacaoImg, href: "/tecnologia/ia" },
+      { title: "Dashboards Automatizados", image: representacaoUX, href: "/tecnologia/powerbi" },
     ]
   }
 };
 
-export default function DropdownMenu({ category }) {
+export default function MegaMenuCards({ category }) {
   const { links = [], visuals = [] } = dropdownData[category] || {};
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-white p-6 rounded-xl shadow-xl w-full max-w-7xl mx-auto">
       {/* Textos à esquerda */}
       <div className="space-y-3">
         <h4 className="text-lg font-semibold text-green-900">Explore:</h4>
