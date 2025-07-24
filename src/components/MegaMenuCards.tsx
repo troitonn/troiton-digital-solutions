@@ -1,12 +1,12 @@
 import React from "react";
-import indicadoresImg from "@/assets/indicadores-optimized.jpg";
-import processosImg from "@/assets/processos-optimized.jpg";
-import performanceImg from "@/assets/performance-optimized.jpg";
-import projetosImg from "@/assets/projetos-optimized.jpg";
-import segurancaImg from "@/assets/seguranca-optimized.jpg";
-import dadosImg from "@/assets/dados-optimized.jpg";
-import consultoriaImg from "@/assets/consultoria-optimized.jpg";
-import desenvolvimentoImg from "@/assets/desenvolvimento-optimized.jpg";
+import indicadoresImg from "@/assets/indicadores-compressed.jpg";
+import processosImg from "@/assets/processos-compressed.jpg";
+import performanceImg from "@/assets/performance-compressed.jpg";
+import projetosImg from "@/assets/projetos-compressed.jpg";
+import segurancaImg from "@/assets/seguranca-compressed.jpg";
+import dadosImg from "@/assets/dados-compressed.jpg";
+import consultoriaImg from "@/assets/consultoria-compressed.jpg";
+import desenvolvimentoImg from "@/assets/desenvolvimento-compressed.jpg";
 
 const data = {
   "Eficiência Operacional": [
@@ -68,7 +68,7 @@ export default function MegaMenuCards({ category }) {
 
   return (
     <div className="bg-white shadow-xl rounded-xl p-4 md:p-6 text-black w-full overflow-hidden">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4">
         {items.map((item, index) => (
           <a
             key={index}
@@ -83,14 +83,14 @@ export default function MegaMenuCards({ category }) {
                 decoding="async"
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 style={{ 
-                  minHeight: '120px',
-                  backgroundColor: '#f3f4f6' 
+                  minHeight: '100px',
+                  backgroundColor: '#f3f4f6'
                 }}
               />
             </div>
-            <div className="p-3 md:p-4">
-              <h3 className="text-sm md:text-md font-bold mb-1 line-clamp-2">{item.title}</h3>
-              <p className="text-xs md:text-sm text-gray-600 line-clamp-3">{item.description}</p>
+            <div className="p-2 md:p-3">
+              <h3 className="text-xs md:text-sm font-bold mb-1 line-clamp-2 leading-tight">{item.title}</h3>
+              <p className="text-xs text-gray-600 line-clamp-2 leading-tight">{item.description}</p>
             </div>
           </a>
         ))}

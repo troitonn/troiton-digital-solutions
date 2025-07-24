@@ -72,7 +72,7 @@ const NavBar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
               </button>
               {activeDropdown === item.category && (
-                <div className="absolute left-1/2 transform -translate-x-1/2 top-full w-screen max-w-6xl bg-white text-black p-4 md:p-6 shadow-2xl rounded-xl z-50 border border-gray-200">
+                <div className="fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl bg-white text-black p-4 md:p-6 shadow-2xl rounded-xl z-[9999] border border-gray-200 mx-auto">
                   <MegaMenuCards category={item.category} />
                 </div>
               )}
