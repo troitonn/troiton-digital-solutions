@@ -33,8 +33,8 @@ const NavBar = () => {
   };
 
   const dropdownItems = [
-    { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "servicos" },
-    { label: "EFICIÊNCIA OPERACIONAL", category: "Eficiência Operacional", id: "tecnologias" }
+    { label: "SOLUÇÕES E PRODUTOS", category: "Negócios e Produtos", id: "servicos" },
+    { label: "TECNOLOGIAS", category: "Eficiência Operacional", id: "tecnologias" }
   ];
 
   return (
@@ -50,6 +50,8 @@ const NavBar = () => {
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png" 
             alt="Troiton Projects Logo" 
             className="h-14 mr-2"
+            loading="eager"
+            decoding="async"
           />
         </Link>
 
@@ -98,9 +100,9 @@ const NavBar = () => {
       <div className={cn("fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out", isMobileMenuOpen ? "translate-x-0" : "translate-x-full")}>
         <div className="flex flex-col space-y-6 items-center text-lg">
           <Link to="/" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>INÍCIO</Link>
-          <button onClick={() => scrollToSection('servicos')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">NEGÓCIOS E PRODUTOS</button>
+          <button onClick={() => scrollToSection('servicos')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">SOLUÇÕES E PRODUTOS</button>
           <Link to="/sobre" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>SOBRE</Link>
-          <Link to="/tecnologias" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>EFICIÊNCIA OPERACIONAL</Link>
+          <Link to="/tecnologias" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>TECNOLOGIAS</Link>
           <button onClick={() => scrollToSection('vagas')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">VAGAS</button>
           <button onClick={() => scrollToSection('contato')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">CONTATO</button>
           <button className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors uppercase tracking-wide" onClick={() => scrollToSection('contato')}>FALE CONOSCO</button>

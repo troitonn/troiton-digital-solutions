@@ -107,7 +107,13 @@ const CompaniesImpacted = () => {
               <div key={index} className="group">
                 <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
                   <div className="relative h-64">
-                    <img src={testimonial.image} alt={`Equipe da ${testimonial.company}`} className="w-full h-full object-cover" />
+                    <img 
+                      src={testimonial.image} 
+                      alt={`Equipe da ${testimonial.company}`} 
+                      className="w-full h-full object-cover" 
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                   </div>
                   

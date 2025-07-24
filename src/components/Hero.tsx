@@ -11,31 +11,26 @@ const Hero = () => {
 
   useEffect(() => {
     setIsVisible(true);
-  }, []);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setLoadVideo(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
+    // Preload video immediately for faster loading
+    setLoadVideo(true);
   }, []);
 
   useEffect(() => {
     if (loadVideo && videoRef.current) {
-      videoRef.current.play().catch(() => {
-        // iOS pode bloquear o autoplay, falha silenciosa
-      });
+      // Optimized video loading with better mobile support
+      const video = videoRef.current;
+      video.load(); // Force load
+      
+      const playPromise = video.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {
+          // iOS/mobile autoplay blocked - try muted autoplay
+          video.muted = true;
+          video.play().catch(() => {
+            // Silent fail for any remaining autoplay issues
+          });
+        });
+      }
     }
   }, [loadVideo]);
 
@@ -62,9 +57,10 @@ const Hero = () => {
           playsInline
           autoPlay
           loop
-          preload="auto"
+          preload="metadata"
           poster={fallbackImage}
           className="absolute inset-0 w-full h-full object-cover"
+          crossOrigin="anonymous"
         >
           <source src={troitonAuroraVideo} type="video/mp4" />
           Seu navegador não suporta vídeos em HTML5.
