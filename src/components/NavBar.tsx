@@ -33,8 +33,8 @@ const NavBar = () => {
   };
 
   const dropdownItems = [
-    { label: "SOLUÇÕES E PRODUTOS", category: "Negócios e Produtos", id: "servicos" },
-    { label: "TECNOLOGIAS", category: "Eficiência Operacional", id: "tecnologias" }
+    { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "servicos" },
+    { label: "OPERAÇÕES", category: "Eficiência Operacional", id: "tecnologias" }
   ];
 
   return (
@@ -72,7 +72,7 @@ const NavBar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
               </button>
               {activeDropdown === item.category && (
-                <div className="absolute left-0 top-full w-[950px] bg-[url('/assets/fundo-abstrato-verde.jpg')] bg-cover bg-no-repeat text-black p-6 shadow-lg rounded-xl">
+                <div className="absolute left-1/2 transform -translate-x-1/2 top-full w-screen max-w-6xl bg-white text-black p-4 md:p-6 shadow-2xl rounded-xl z-50 border border-gray-200">
                   <MegaMenuCards category={item.category} />
                 </div>
               )}
@@ -81,8 +81,7 @@ const NavBar = () => {
 
           <Link to="/sobre" className={cn("text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm", location.pathname === "/sobre" && "text-troiton-400")}>SOBRE</Link>
 
-          <button onClick={() => scrollToSection('vagas')} className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm">VAGAS</button>
-          <button onClick={() => scrollToSection('contato')} className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm">CONTATO</button>
+          <button onClick={() => scrollToSection('vagas')} className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm">#SEJATROITON+</button>
         </div>
 
         <button onClick={() => scrollToSection('contato')} className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm">
@@ -100,10 +99,10 @@ const NavBar = () => {
       <div className={cn("fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out", isMobileMenuOpen ? "translate-x-0" : "translate-x-full")}>
         <div className="flex flex-col space-y-6 items-center text-lg">
           <Link to="/" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>INÍCIO</Link>
-          <button onClick={() => scrollToSection('servicos')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">SOLUÇÕES E PRODUTOS</button>
+          <button onClick={() => scrollToSection('servicos')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">NEGÓCIOS E PRODUTOS</button>
           <Link to="/sobre" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>SOBRE</Link>
-          <Link to="/tecnologias" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>TECNOLOGIAS</Link>
-          <button onClick={() => scrollToSection('vagas')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">VAGAS</button>
+          <Link to="/tecnologias" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide" onClick={() => setIsMobileMenuOpen(false)}>OPERAÇÕES</Link>
+          <button onClick={() => scrollToSection('vagas')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">#SEJATROITON+</button>
           <button onClick={() => scrollToSection('contato')} className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">CONTATO</button>
           <button className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors uppercase tracking-wide" onClick={() => scrollToSection('contato')}>FALE CONOSCO</button>
         </div>

@@ -1,12 +1,12 @@
 import React from "react";
-import indicadoresImg from "@/assets/23084167882082.jpg";
-import processosImg from "@/assets/36748616061539.jpg";
-import performanceImg from "@/assets/plantas-que-crescem-no-solo.jpg";
-import projetosImg from "@/assets/representacao-da-experiencia-utilizador-e-design-da-interface (1).jpg";
-import segurancaImg from "@/assets/administradores-de-sistemas-em-centros-de-dados-integrando-ferramentas-de-automacao-impulsionadas-por-ia.jpg";
-import dadosImg from "@/assets/dados.jpg"; // Substituir por uma imagem não repetida
-import consultoriaImg from "@/assets/consultoria.jpg"; // Substituir se tiver
-import desenvolvimentoImg from "@/assets/desenvolvimento.jpg"; // Substituir se tiver
+import indicadoresImg from "@/assets/indicadores-optimized.jpg";
+import processosImg from "@/assets/processos-optimized.jpg";
+import performanceImg from "@/assets/performance-optimized.jpg";
+import projetosImg from "@/assets/projetos-optimized.jpg";
+import segurancaImg from "@/assets/seguranca-optimized.jpg";
+import dadosImg from "@/assets/dados-optimized.jpg";
+import consultoriaImg from "@/assets/consultoria-optimized.jpg";
+import desenvolvimentoImg from "@/assets/desenvolvimento-optimized.jpg";
 
 const data = {
   "Eficiência Operacional": [
@@ -67,27 +67,34 @@ export default function MegaMenuCards({ category }) {
   const items = data[category] || [];
 
   return (
-    <div className="bg-white shadow-xl rounded-xl p-6 text-black max-w-screen-xl w-full overflow-x-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
-      {items.map((item, index) => (
-        <a
-          key={index}
-          href={item.href}
-          className="hover:shadow-md rounded-xl bg-gray-50 overflow-hidden transition duration-200"
-        >
-          <div className="aspect-[4/3] w-full overflow-hidden">
-            <img
-              src={item.image}
-              alt={item.title}
-              loading="lazy"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="p-4">
-            <h3 className="text-md font-bold mb-1">{item.title}</h3>
-            <p className="text-sm text-gray-600">{item.description}</p>
-          </div>
-        </a>
-      ))}
+    <div className="bg-white shadow-xl rounded-xl p-4 md:p-6 text-black w-full overflow-hidden">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
+        {items.map((item, index) => (
+          <a
+            key={index}
+            href={item.href}
+            className="hover:shadow-lg rounded-lg bg-gray-50 overflow-hidden transition duration-200 transform hover:scale-105 block"
+          >
+            <div className="aspect-[4/3] w-full overflow-hidden">
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="eager"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                style={{ 
+                  minHeight: '120px',
+                  backgroundColor: '#f3f4f6' 
+                }}
+              />
+            </div>
+            <div className="p-3 md:p-4">
+              <h3 className="text-sm md:text-md font-bold mb-1 line-clamp-2">{item.title}</h3>
+              <p className="text-xs md:text-sm text-gray-600 line-clamp-3">{item.description}</p>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   );
 }

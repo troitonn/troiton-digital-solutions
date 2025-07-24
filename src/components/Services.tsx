@@ -124,7 +124,7 @@ const Services = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <span className="inline-block px-5 py-1.5 rounded-full text-sm font-semibold mb-4 bg-gradient-to-r from-troiton-500/20 to-blue-500/20 text-troiton-400 border border-troiton-500/30">
-            SOLUÇÕES E PRODUTOS
+            NEGÓCIOS E PRODUTOS
           </span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Soluções completas para sua empresa

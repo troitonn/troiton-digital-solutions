@@ -17,19 +17,32 @@ const Hero = () => {
 
   useEffect(() => {
     if (loadVideo && videoRef.current) {
-      // Optimized video loading with better mobile support
+      // Enhanced video loading with iOS Safari support
       const video = videoRef.current;
-      video.load(); // Force load
+      video.load();
       
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // iOS/mobile autoplay blocked - try muted autoplay
+      // Better iOS Safari autoplay support
+      const playVideo = async () => {
+        try {
+          await video.play();
+        } catch (error) {
+          // If autoplay fails, try with muted
           video.muted = true;
-          video.play().catch(() => {
-            // Silent fail for any remaining autoplay issues
-          });
-        });
+          try {
+            await video.play();
+          } catch (secondError) {
+            // Final fallback - show poster image
+            console.warn('Video autoplay not supported');
+          }
+        }
+      };
+      
+      // Use user interaction or timeout for iOS
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+        // For iOS, try playing after a small delay
+        setTimeout(playVideo, 100);
+      } else {
+        playVideo();
       }
     }
   }, [loadVideo]);
