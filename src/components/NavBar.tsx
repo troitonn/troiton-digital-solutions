@@ -35,7 +35,7 @@ const NavBar = () => {
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center group">
           <img
-            src="/lovable-uploads/HOME.jpg"
+            src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png"
             alt="Troiton Logo"
             className="h-14 mr-2"
             loading="eager"
