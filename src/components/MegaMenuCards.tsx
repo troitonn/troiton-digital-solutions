@@ -1,8 +1,8 @@
-import negociosImg from "@/assets/negocios-compressed.jpg";
-import sustentabilidadeImg from "@/assets/sustentabilidade-compressed.jpg";
-import tecnologiaImg from "@/assets/tecnologia-compressed.jpg";
-import analyticsImg from "@/assets/analytics-compressed.jpg";
-import inovacaoImg from "@/assets/inovacao-compressed.jpg";
+import negociosImg from "/lovable-uploads/18314ecc-70d3-488a-8b4a-cb2981c0cca5.png";
+import sustentabilidadeImg from "/lovable-uploads/d98affc2-7384-4c0e-a3c3-e6d4f9ebd973.png";
+import tecnologiaImg from "/lovable-uploads/ae407725-16d6-41d7-b593-3182dfd6c8c7.png";
+import analyticsImg from "/lovable-uploads/56457c2f-2b9b-4b3b-a5c0-a06041fb3de2.png";
+import inovacaoImg from "/lovable-uploads/20a0eef9-dd29-490f-b016-1b9be7fe9c6c.png";
 
 const dropdownData = {
   "Negócios e Produtos": {

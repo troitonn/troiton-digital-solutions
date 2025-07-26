@@ -17,6 +17,12 @@ import Analytics from "./pages/Analytics";
 import Inovacao from "./pages/Inovacao";
 import TecnologiaIA from "./pages/TecnologiaIA";
 import TecnologiaCloud from "./pages/TecnologiaCloud";
+import TecnologiaPowerBI from "./pages/TecnologiaPowerBI";
+import Doacoes from "./pages/Doacoes";
+import Comunidade from "./pages/Comunidade";
+import Indicadores from "./pages/Indicadores";
+import Processos from "./pages/Processos";
+import Performance from "./pages/Performance";
 
 const queryClient = new QueryClient();
 
@@ -35,10 +41,16 @@ const App = () => (
           <Route path="/projetos" element={<Projetos />} />
           <Route path="/consultoria" element={<Consultoria />} />
           <Route path="/sustentabilidade" element={<Sustentabilidade />} />
+          <Route path="/doacoes" element={<Doacoes />} />
+          <Route path="/comunidade" element={<Comunidade />} />
+          <Route path="/indicadores" element={<Indicadores />} />
+          <Route path="/processos" element={<Processos />} />
+          <Route path="/performance" element={<Performance />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/inovacao" element={<Inovacao />} />
           <Route path="/tecnologia/ia" element={<TecnologiaIA />} />
           <Route path="/tecnologia/cloud" element={<TecnologiaCloud />} />
+          <Route path="/tecnologia/powerbi" element={<TecnologiaPowerBI />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
