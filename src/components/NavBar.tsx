@@ -7,7 +7,7 @@ import MegaMenuCards from './MegaMenuCards';
 
 const dropdownItems = [
   { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" },
-  { label: "OPERAÇÕES", category: "Eficiência Operacional", id: "operacoes" },
+  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" },
   { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologia" },
 ];
 
@@ -44,7 +44,7 @@ const NavBar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-10 ml-auto mr-8 relative">
+        <div className="hidden md:flex items-center space-x-8 ml-auto mr-8 relative">
           {dropdownItems.map((item) => (
             <div
               key={item.label}
@@ -52,22 +52,27 @@ const NavBar = () => {
               onMouseEnter={() => setActiveDropdown(item.category)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm flex flex-col items-start leading-tight">
-                <span>{item.label.split(' ')[0]}</span>
-                <span>{item.label.split(' ')[1]}</span>
+              <button className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center">
+                {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
               </button>
               {activeDropdown === item.category && (
-                <div className="fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl bg-white text-black p-4 md:p-6 shadow-2xl rounded-xl z-[9999] border border-gray-200 mx-auto">
+                <div className="fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl bg-white text-black shadow-2xl rounded-xl z-[9999] border border-gray-200">
                   <MegaMenuCards category={item.category} />
                 </div>
               )}
             </div>
           ))}
 
-          <Link to="/sobre" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm">SOBRE</Link>
+          <Link to="/sobre" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center">
+            SOBRE
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </Link>
 
-          <Link to="/vagas" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm">#SEJATROITON+</Link>
+          <Link to="/vagas" className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center">
+            #SEJATROITON+
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </Link>
         </div>
 
         {/* Botão de contato */}

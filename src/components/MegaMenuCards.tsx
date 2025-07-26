@@ -1,34 +1,36 @@
-import indicadoresImg from "@/assets/indicadores-compressed.jpg";
-import performanceImg from "@/assets/performance-compressed.jpg";
-import consultoriaImg from "@/assets/consultoria-optimized.jpg";
-import segurancaImg from "@/assets/seguranca-optimized.jpg";
-import dadosImg from "@/assets/dados-optimized.jpg";
-import plantasImg from "@/assets/plantas-que-crescem-no-solo.jpg";
-import automacaoImg from "@/assets/administradores-de-sistemas-em-centros-de-dados-integrando-ferramentas-de-automacao-impulsionadas-por-ia.jpg";
-import representacaoUX from "@/assets/representacao-da-experiencia-utilizador-e-design-da-interface (1).jpg";
+import negociosImg from "@/assets/negocios-compressed.jpg";
+import sustentabilidadeImg from "@/assets/sustentabilidade-compressed.jpg";
+import tecnologiaImg from "@/assets/tecnologia-compressed.jpg";
+import analyticsImg from "@/assets/analytics-compressed.jpg";
+import inovacaoImg from "@/assets/inovacao-compressed.jpg";
 
 const dropdownData = {
-  "Eficiência Operacional": {
+  "Negócios e Produtos": {
     links: [
-      { title: "Análise de Indicadores", href: "/eficiencia/indicadores" },
-      { title: "Criação de Processos", href: "/eficiencia/processos" },
-      { title: "Gestão de Performance", href: "/eficiencia/performance" },
+      { title: "Apresentação", href: "/apresentacao" },
+      { title: "Estratégia", href: "/estrategia" },
+      { title: "Projetos e Implantação", href: "/projetos" },
+      { title: "Consultoria Estratégica", href: "/consultoria" },
+      { title: "Doações e Patrocínios", href: "/doacoes" },
+      { title: "Comunidade e Sociedade", href: "/comunidade" },
     ],
     visuals: [
-      { title: "Indicadores e KPIs", image: indicadoresImg, href: "/eficiencia/indicadores" },
-      { title: "Performance de Equipes", image: performanceImg, href: "/eficiencia/performance" },
+      { title: "Estratégia Empresarial", image: negociosImg, href: "/estrategia" },
+      { title: "Sustentabilidade", image: sustentabilidadeImg, href: "/sustentabilidade" },
     ]
   },
 
-  "Negócios e Produtos": {
+  "Operações": {
     links: [
-      { title: "Projetos e Implantação", href: "/produtos/projetos" },
-      { title: "Segurança da Informação", href: "/produtos/seguranca" },
-      { title: "Consultoria Estratégica", href: "/produtos/consultoria" },
+      { title: "Análise de Indicadores", href: "/indicadores" },
+      { title: "Criação de Processos", href: "/processos" },
+      { title: "Gestão de Performance", href: "/performance" },
+      { title: "Otimização Operacional", href: "/otimizacao" },
+      { title: "Qualidade e Compliance", href: "/qualidade" },
     ],
     visuals: [
-      { title: "Consultoria Digital", image: consultoriaImg, href: "/produtos/consultoria" },
-      { title: "Segurança e Infraestrutura", image: segurancaImg, href: "/produtos/seguranca" },
+      { title: "Analytics e Dashboards", image: analyticsImg, href: "/analytics" },
+      { title: "Inovação e Processos", image: inovacaoImg, href: "/inovacao" },
     ]
   },
 
@@ -37,10 +39,13 @@ const dropdownData = {
       { title: "Inteligência Artificial", href: "/tecnologia/ia" },
       { title: "Infraestrutura e Cloud", href: "/tecnologia/cloud" },
       { title: "Power BI e Dashboards", href: "/tecnologia/powerbi" },
+      { title: "Desenvolvimento de Software", href: "/tecnologia/desenvolvimento" },
+      { title: "Segurança da Informação", href: "/tecnologia/seguranca" },
+      { title: "Automação de Processos", href: "/tecnologia/automacao" },
     ],
     visuals: [
-      { title: "IA e Automação", image: automacaoImg, href: "/tecnologia/ia" },
-      { title: "Dashboards Automatizados", image: representacaoUX, href: "/tecnologia/powerbi" },
+      { title: "Tecnologia Avançada", image: tecnologiaImg, href: "/tecnologia/ia" },
+      { title: "Inovação Digital", image: inovacaoImg, href: "/tecnologia/cloud" },
     ]
   }
 };
@@ -73,15 +78,26 @@ export default function MegaMenuCards({ category }) {
           <a
             key={idx}
             href={item.href}
-            className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg transition"
+            className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
           >
             <img
               src={item.image}
               alt={item.title}
               className="object-cover w-full h-44 brightness-90 group-hover:brightness-100 transition duration-300"
+              loading="lazy"
+              decoding="async"
+              style={{ willChange: 'transform' }}
             />
-            <div className="absolute bottom-2 left-2 bg-green-600 text-white text-xs font-semibold px-2 py-1 rounded-full shadow">
-              {item.title}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+            <div className="absolute bottom-3 left-3 right-3 flex justify-between items-center">
+              <span className="text-white text-sm font-semibold drop-shadow-md">
+                {item.title}
+              </span>
+              <div className="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center">
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
             </div>
           </a>
         ))}
