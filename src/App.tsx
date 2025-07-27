@@ -18,6 +18,11 @@ import Inovacao from "./pages/Inovacao";
 import TecnologiaIA from "./pages/TecnologiaIA";
 import TecnologiaCloud from "./pages/TecnologiaCloud";
 import TecnologiaPowerBI from "./pages/TecnologiaPowerBI";
+import TecnologiaDesenvolvimento from "./pages/TecnologiaDesenvolvimento";
+import TecnologiaSeguranca from "./pages/TecnologiaSeguranca";
+import TecnologiaAutomacao from "./pages/TecnologiaAutomacao";
+import Otimizacao from "./pages/Otimizacao";
+import Qualidade from "./pages/Qualidade";
 import Doacoes from "./pages/Doacoes";
 import Comunidade from "./pages/Comunidade";
 import Indicadores from "./pages/Indicadores";
@@ -51,6 +56,11 @@ const App = () => (
           <Route path="/tecnologia/ia" element={<TecnologiaIA />} />
           <Route path="/tecnologia/cloud" element={<TecnologiaCloud />} />
           <Route path="/tecnologia/powerbi" element={<TecnologiaPowerBI />} />
+          <Route path="/tecnologia/desenvolvimento" element={<TecnologiaDesenvolvimento />} />
+          <Route path="/tecnologia/seguranca" element={<TecnologiaSeguranca />} />
+          <Route path="/tecnologia/automacao" element={<TecnologiaAutomacao />} />
+          <Route path="/otimizacao" element={<Otimizacao />} />
+          <Route path="/qualidade" element={<Qualidade />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
