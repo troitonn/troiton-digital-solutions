@@ -36,6 +36,7 @@ const dropdownData = {
 
   "Tecnologia": {
     links: [
+      { title: "Estruturas tecnológica", href: "/tecnologias" },
       { title: "Inteligência Artificial", href: "/tecnologia/ia" },
       { title: "Infraestrutura e Cloud", href: "/tecnologia/cloud" },
       { title: "Power BI e Dashboards", href: "/tecnologia/powerbi" },

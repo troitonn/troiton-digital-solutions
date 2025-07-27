@@ -93,7 +93,7 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black/98 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -102,15 +102,15 @@ const NavBar = () => {
             <Link
               key={item.id}
               to={`/${item.id}`}
-              className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide"
+              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
             </Link>
           ))}
 
-          <Link to="/sobre" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">SOBRE</Link>
-          <Link to="/vagas" className="w-full text-center py-3 border-b border-troiton-800/50 text-gray-300 hover:text-troiton-400 uppercase tracking-wide">#SEJATROITON+</Link>
+          <Link to="/sobre" className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide">SOBRE</Link>
+          <Link to="/vagas" className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide">#SEJATROITON+</Link>
           <button
             onClick={() => {
               setIsMobileMenuOpen(false);
