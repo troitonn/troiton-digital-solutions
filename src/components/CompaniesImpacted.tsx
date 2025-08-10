@@ -45,17 +45,20 @@ const CompaniesImpacted = () => {
     image: "/lovable-uploads/5bfc3cea-28a7-4dbe-ac86-88f8cc7af007.png",
     quote: "Talento unico! Especialista atraves de seus servicos trouxe um grande ganho para AMS em processos interno! sem dizer site, apresentaçao da minha Cia. Qualidades sempre com uma combinaçao unica de um olho aguçado para direçao geral mercado e uma compreesao aguçada das necessidades expectativas especificas do cliente. Ele e super talentoso, energetico, disciplinado e divertido!!",
     author: "Antonio Marcos",
-    company: "Socio Proprietario da AMS Negocios e intermediações LTDA"
+    company: "Socio Proprietario da AMS Negocios e intermediações LTDA",
+    link: "https://amsintermedicacao.com.br"
   }, {
     image: "/lovable-uploads/5133ebe4-7afd-45aa-9617-8713e8d841dd.png",
     quote: "Profissional dedicado e comprometido. Entende a necessidade do cliente de forma clara e objetiva. A entrega superou minhas expectativas em todos os projetos que foram desenvolvidos. Super recomendo.",
     author: "Veruska Ferreirinha",
-    company: "Management Partner - Unica Solucoes"
+    company: "Management Partner - Unica Solucoes",
+    link: "https://unica-solucoes.com"
   }, {
     image: "/lovable-uploads/4c5ca2aa-f359-4eaa-8ec4-c721c1a6edd6.png",
     quote: "Alexsandro é um rapaz dedicado e com facilidade de enxergar processos falhos em empresas que necessitam de escalabilidade. Seu trabalho com a Evostack tem sido de grande Valia e recomendamos ele para algumas empresas que precisam aumentar sua eficiência. Ele atua desde processos a gestão.",
     author: "Leticia Fita",
-    company: "CEO - EVOSTACK"
+    company: "CEO - EVOSTACK",
+    link: "https://evostack.com.br"
   }];
 
   return (
@@ -104,8 +107,14 @@ const CompaniesImpacted = () => {
           
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="group">
-                <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <a 
+                key={index} 
+                href={testimonial.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
+                <div className="relative bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl overflow-hidden hover:bg-white/10 transition-all duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
                   <div className="relative h-64">
                     <img 
                       src={testimonial.image} 
@@ -129,7 +138,7 @@ const CompaniesImpacted = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

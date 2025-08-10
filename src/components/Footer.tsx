@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,16 +11,12 @@ const Footer = () => {
               Soluções tecnológicas inovadoras para impulsionar o crescimento do seu negócio.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="bg-gray-800 hover:bg-troiton-600 p-2 rounded-full transition-colors">
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="bg-gray-800 hover:bg-troiton-600 p-2 rounded-full transition-colors">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="bg-gray-800 hover:bg-troiton-600 p-2 rounded-full transition-colors">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="bg-gray-800 hover:bg-troiton-600 p-2 rounded-full transition-colors">
+              <a 
+                href="https://www.linkedin.com/in/alexsandro-braga-7574ba2b2" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-gray-800 hover:bg-troiton-600 p-2 rounded-full transition-colors"
+              >
                 <Linkedin className="h-5 w-5" />
               </a>
             </div>
