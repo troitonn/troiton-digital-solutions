@@ -11,7 +11,6 @@ const dropdownData = {
       { title: "Estratégia", href: "/estrategia" },
       { title: "Projetos e Implantação", href: "/projetos" },
       { title: "Consultoria Estratégica", href: "/consultoria" },
-      { title: "Doações e Patrocínios", href: "/doacoes" },
       { title: "Comunidade e Sociedade", href: "/comunidade" },
     ],
     visuals: [

@@ -12,12 +12,16 @@ const Careers = () => {
       />
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/80 to-black/60"></div>
       
+      {/* Gradient borders to blend with background */}
+      <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black to-transparent z-10"></div>
+      
       {/* Animated Grid Pattern */}
       <div className="absolute inset-0 opacity-20">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwNzRhZTMiIGZpbGwtb3BhY2l0eT0iMC4yIj48Y2lyY2xlIGN4PSI0IiBjeT0iNCIgcj0iMS41Ii8+PC9nPjwvZz48L3N2Zz4=')] animate-pulse"></div>
       </div>
 
-      <div className="relative container mx-auto px-6">
+      <div className="relative container mx-auto px-6 z-20">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
           <div className="text-center mb-12 sm:mb-16">
