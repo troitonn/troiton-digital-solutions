@@ -1,0 +1,33 @@
+# Redirects for Netlify deployment
+/*    /index.html   200
+
+# Technology menu redirects - all go to technologies page
+/tecnologia/ia    /tecnologia/ia   200
+/tecnologia/cloud    /tecnologia/cloud   200
+/tecnologia/powerbi    /tecnologia/powerbi   200
+/tecnologia/desenvolvimento    /tecnologia/desenvolvimento   200
+/tecnologia/seguranca    /tecnologia/seguranca   200
+/tecnologia/automacao    /tecnologia/automacao   200
+
+# Business menu redirects
+/apresentacao    /apresentacao   200
+/estrategia    /estrategia   200
+/projetos    /projetos   200
+/consultoria    /consultoria   200
+/sustentabilidade    /sustentabilidade   200
+/doacoes    /doacoes   200
+/comunidade    /comunidade   200
+
+# Operations menu redirects - all go to home services section
+/otimizacao    /#servicos   302
+/qualidade    /#servicos   302
+/indicadores    /#servicos   302
+/processos    /#servicos   302
+/performance    /#servicos   302
+
+# Main pages
+/sobre    /sobre   200
+/vagas    /vagas   200
+/tecnologias    /tecnologias   200
+/analytics    /analytics   200
+/inovacao    /inovacao   200

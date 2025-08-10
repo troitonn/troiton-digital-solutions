@@ -22,11 +22,11 @@ const dropdownData = {
 
   "Operações": {
     links: [
-      { title: "Análise de Indicadores", href: "/indicadores" },
-      { title: "Criação de Processos", href: "/processos" },
-      { title: "Gestão de Performance", href: "/performance" },
-      { title: "Otimização Operacional", href: "/otimizacao" },
-      { title: "Qualidade e Compliance", href: "/qualidade" },
+      { title: "Análise de Indicadores", href: "/#servicos" },
+      { title: "Criação de Processos", href: "/#servicos" },
+      { title: "Gestão de Performance", href: "/#servicos" },
+      { title: "Otimização Operacional", href: "/#servicos" },
+      { title: "Qualidade e Compliance", href: "/#servicos" },
     ],
     visuals: [
       { title: "Analytics e Dashboards", image: analyticsImg, href: "/analytics" },

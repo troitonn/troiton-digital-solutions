@@ -37,10 +37,19 @@ const Hero = () => {
         }
       };
       
-      // Use user interaction or timeout for iOS
+      // Enhanced iOS support with immediate attempt
       if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
-        // For iOS, try playing after a small delay
-        setTimeout(playVideo, 100);
+        // For iOS, ensure muted and try multiple times
+        video.muted = true;
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        
+        // Try immediate play
+        playVideo();
+        // Also try after short delay
+        setTimeout(playVideo, 50);
+        setTimeout(playVideo, 500);
       } else {
         playVideo();
       }
@@ -70,10 +79,14 @@ const Hero = () => {
           playsInline
           autoPlay
           loop
-          preload="metadata"
+          preload="auto"
           poster={fallbackImage}
           className="absolute inset-0 w-full h-full object-cover"
           crossOrigin="anonymous"
+          webkit-playsinline="true"
+          x5-playsinline="true"
+          x5-video-player-type="h5"
+          x5-video-orientation="portraint"
         >
           <source src={troitonAuroraVideo} type="video/mp4" />
           Seu navegador não suporta vídeos em HTML5.
