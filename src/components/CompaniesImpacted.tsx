@@ -55,7 +55,7 @@ const CompaniesImpacted = () => {
     link: "https://unica-solucoes.com"
   }, {
     image: "/lovable-uploads/4c5ca2aa-f359-4eaa-8ec4-c721c1a6edd6.png",
-    quote: "Alexsandro é um rapaz dedicado e com facilidade de enxergar processos falhos em empresas que necessitam de escalabilidade. Seu trabalho com a Evostack tem sido de grande Valia e recomendamos ele para algumas empresas que precisam aumentar sua eficiência. Ele atua desde processos a gestão.",
+    quote: "Facilidade de enxergar processos falhos em empresas que necessitam de escalabilidade. Seu trabalho com a Evostack tem sido de grande Valia e recomendamos ele para algumas empresas que precisam aumentar sua eficiência. Ele atua desde processos a gestão.",
     author: "Leticia Fita",
     company: "CEO - EVOSTACK",
     link: "https://evostack.com.br"
