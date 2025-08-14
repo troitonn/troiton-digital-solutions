@@ -15,8 +15,12 @@ const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [isSejaTroitonOpen, setIsSejaTroitonOpen] = useState(false);
   const location = useLocation();
+
+  // Scroll automático para o topo ao mudar de rota
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -24,10 +28,7 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-    setIsSejaTroitonOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setIsMobileMenuOpen(false), [location.pathname]);
 
   return (
     <nav
@@ -83,19 +84,13 @@ const NavBar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
-          {/* SEJATROITON+ Desktop */}
-          <button
-            onClick={() => setIsSejaTroitonOpen(!isSejaTroitonOpen)}
+          <Link
+            to="/careers"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             #SEJATROITON+
-          </button>
-          {isSejaTroitonOpen && (
-            <div className="absolute top-12 right-0 w-80 bg-black text-white p-4 rounded-lg shadow-lg z-50">
-              {/* Conteúdo da seção SejaTroiton */}
-              <p>Bem-vindo ao Seja Troiton! Aqui você encontra tudo sobre carreiras e oportunidades.</p>
-            </div>
-          )}
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+          </Link>
         </div>
 
         {/* Botão de contato */}
@@ -113,11 +108,11 @@ const NavBar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu com animação */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 bg-black/95 z-40 pt-20 px-4 md:hidden transform transition-all duration-300 ease-in-out origin-top-right",
+          isMobileMenuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
@@ -134,25 +129,19 @@ const NavBar = () => {
 
           <Link
             to="/sobre"
-            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
             onClick={() => setIsMobileMenuOpen(false)}
+            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
           >
             SOBRE NÓS
           </Link>
 
-          {/* SEJATROITON+ Mobile */}
-          <button
-            onClick={() => setIsSejaTroitonOpen(!isSejaTroitonOpen)}
+          <Link
+            to="/careers"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
           >
             #SEJATROITON+
-          </button>
-          {isSejaTroitonOpen && (
-            <div className="bg-gray-900 text-white p-4 rounded-lg w-full">
-              {/* Conteúdo da seção SejaTroiton */}
-              <p>Bem-vindo ao Seja Troiton! Aqui você encontra tudo sobre carreiras e oportunidades.</p>
-            </div>
-          )}
+          </Link>
 
           <button
             onClick={() => {
