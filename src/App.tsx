@@ -3,6 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+// Páginas
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Technologies from "./pages/Technologies";
@@ -28,8 +30,9 @@ import Indicadores from "./pages/Indicadores";
 import Processos from "./pages/Processos";
 import Performance from "./pages/Performance";
 
-// NOVO import do Careers
+// Componentes
 import Careers from "./components/Careers";
+import NavBar from "./components/NavBar";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +42,10 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        {/* Navbar sempre visível */}
+        <NavBar />
+        
+        {/* Rotas */}
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tecnologias" element={<Technologies />} />
@@ -64,7 +71,7 @@ const App = () => (
           <Route path="/otimizacao" element={<Otimizacao />} />
           <Route path="/qualidade" element={<Qualidade />} />
 
-          {/* ROTA PARA CAREERS */}
+          {/* Careers */}
           <Route path="/careers" element={<Careers />} />
 
           {/* Catch-all */}
