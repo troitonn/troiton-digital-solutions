@@ -1,9 +1,9 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Technologies from "./pages/Technologies";
@@ -29,6 +29,11 @@ import Indicadores from "./pages/Indicadores";
 import Processos from "./pages/Processos";
 import Performance from "./pages/Performance";
 
+// Novas páginas para os links do NavBar
+import Produtos from "./pages/Produtos";
+import Operacoes from "./pages/Operacoes";
+import Vagas from "./pages/Vagas";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -39,7 +44,13 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/tecnologias" element={<Technologies />} />
+
+          {/* Rotas do MegaMenu */}
+          <Route path="/produtos" element={<Produtos />} />
+          <Route path="/operacoes" element={<Operacoes />} />
+          <Route path="/tecnologia" element={<Technologies />} />
+
+          {/* Rotas gerais */}
           <Route path="/sobre" element={<About />} />
           <Route path="/apresentacao" element={<Apresentacao />} />
           <Route path="/estrategia" element={<Estrategia />} />
@@ -61,7 +72,11 @@ const App = () => (
           <Route path="/tecnologia/automacao" element={<TecnologiaAutomacao />} />
           <Route path="/otimizacao" element={<Otimizacao />} />
           <Route path="/qualidade" element={<Qualidade />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* Rota #SEJATROITON+ */}
+          <Route path="/vagas" element={<Vagas />} />
+
+          {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
