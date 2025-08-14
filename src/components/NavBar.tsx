@@ -1,4 +1,3 @@
-// components/NavBar.tsx
 import { useState, useEffect, lazy, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
@@ -18,14 +17,12 @@ const NavBar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
-  // Detecta scroll para adicionar fundo
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Fecha menu mobile ao mudar de rota
   useEffect(() => setIsMobileMenuOpen(false), [location.pathname]);
 
   return (
@@ -38,7 +35,6 @@ const NavBar = () => {
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
         <Link to="/" className="flex items-center group z-50">
           <img
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png"
