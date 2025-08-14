@@ -9,14 +9,13 @@ const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 const dropdownItems = [
   { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologias" },
   { label: "PROCESSOS", category: "Processos", id: "processos" },
-  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" }, // opcional
-  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" }, // opcional
 ];
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [isSejaTroitonOpen, setIsSejaTroitonOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -25,7 +24,10 @@ const NavBar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => setIsMobileMenuOpen(false), [location.pathname]);
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsSejaTroitonOpen(false);
+  }, [location.pathname]);
 
   return (
     <nav
@@ -81,13 +83,19 @@ const NavBar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
-          <Link
-            to="/careers"
+          {/* SEJATROITON+ Desktop */}
+          <button
+            onClick={() => setIsSejaTroitonOpen(!isSejaTroitonOpen)}
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             #SEJATROITON+
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </Link>
+          </button>
+          {isSejaTroitonOpen && (
+            <div className="absolute top-12 right-0 w-80 bg-black text-white p-4 rounded-lg shadow-lg z-50">
+              {/* Conteúdo da seção SejaTroiton */}
+              <p>Bem-vindo ao Seja Troiton! Aqui você encontra tudo sobre carreiras e oportunidades.</p>
+            </div>
+          )}
         </div>
 
         {/* Botão de contato */}
@@ -108,7 +116,7 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black/95 z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -117,7 +125,7 @@ const NavBar = () => {
             <Link
               key={item.id}
               to={`/${item.id}`}
-              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+              className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
@@ -126,26 +134,32 @@ const NavBar = () => {
 
           <Link
             to="/sobre"
+            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             SOBRE NÓS
           </Link>
 
-          <Link
-            to="/careers"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+          {/* SEJATROITON+ Mobile */}
+          <button
+            onClick={() => setIsSejaTroitonOpen(!isSejaTroitonOpen)}
+            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
           >
             #SEJATROITON+
-          </Link>
+          </button>
+          {isSejaTroitonOpen && (
+            <div className="bg-gray-900 text-white p-4 rounded-lg w-full">
+              {/* Conteúdo da seção SejaTroiton */}
+              <p>Bem-vindo ao Seja Troiton! Aqui você encontra tudo sobre carreiras e oportunidades.</p>
+            </div>
+          )}
 
           <button
             onClick={() => {
               setIsMobileMenuOpen(false);
               document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors uppercase tracking-wide"
+            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full uppercase tracking-wide"
           >
             FALE CONOSCO
           </button>
