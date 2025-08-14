@@ -1,9 +1,11 @@
 // components/NavBar.tsx
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import MegaMenuCards from './MegaMenuCards';
+
+// Lazy load do MegaMenuCards
+const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
   { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" },
@@ -17,6 +19,9 @@ const NavBar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
+  // Detecta se está em mobile para remover efeitos pesados
+  const isMobile = window.innerWidth < 768;
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
@@ -29,19 +34,18 @@ const NavBar = () => {
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
-        // Mobile sempre escuro, desktop muda com scroll
         isScrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-troiton-800/50 py-3"
+          ? "bg-black/80 " + (isMobile ? "" : "backdrop-blur-md border-b border-troiton-800/50 py-3")
           : "bg-black/80 md:bg-transparent py-3 md:py-6"
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link to="/" className="flex items-center group">
           <img
-            src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png"
+            src="/lovable-uploads/logo-troiton.webp" // Versão WebP otimizada
             alt="Troiton Logo"
             className="h-14 mr-2"
-            loading="eager"
+            loading="lazy"
             decoding="async"
           />
         </Link>
@@ -61,7 +65,9 @@ const NavBar = () => {
               </button>
               {activeDropdown === item.category && (
                 <div className="fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl bg-white text-black shadow-2xl rounded-xl z-[9999] border border-gray-200">
-                  <MegaMenuCards category={item.category} />
+                  <Suspense fallback={<div className="p-8 text-center">Carregando...</div>}>
+                    <MegaMenuCards category={item.category} />
+                  </Suspense>
                 </div>
               )}
             </div>
@@ -96,7 +102,7 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black/95 z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out", // removi blur
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
