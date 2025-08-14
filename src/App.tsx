@@ -4,34 +4,35 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import Technologies from "./pages/Technologies";
-import About from "./pages/About";
-import Apresentacao from "./pages/Apresentacao";
-import Estrategia from "./pages/Estrategia";
-import Projetos from "./pages/Projetos";
-import Consultoria from "./pages/Consultoria";
-import Sustentabilidade from "./pages/Sustentabilidade";
-import Analytics from "./pages/Analytics";
-import Inovacao from "./pages/Inovacao";
-import TecnologiaIA from "./pages/TecnologiaIA";
-import TecnologiaCloud from "./pages/TecnologiaCloud";
-import TecnologiaPowerBI from "./pages/TecnologiaPowerBI";
-import TecnologiaDesenvolvimento from "./pages/TecnologiaDesenvolvimento";
-import TecnologiaSeguranca from "./pages/TecnologiaSeguranca";
-import TecnologiaAutomacao from "./pages/TecnologiaAutomacao";
-import Otimizacao from "./pages/Otimizacao";
-import Qualidade from "./pages/Qualidade";
-import Doacoes from "./pages/Doacoes";
-import Comunidade from "./pages/Comunidade";
-import Indicadores from "./pages/Indicadores";
-import Processos from "./pages/Processos";
-import Performance from "./pages/Performance";
+// Páginas principais
+import Index from "@/pages/Index";
+import NotFound from "@/pages/NotFound";
+import Technologies from "@/pages/Technologies";
+import About from "@/pages/About";
+import Apresentacao from "@/pages/Apresentacao";
+import Estrategia from "@/pages/Estrategia";
+import Projetos from "@/pages/Projetos";
+import Consultoria from "@/pages/Consultoria";
+import Sustentabilidade from "@/pages/Sustentabilidade";
+import Analytics from "@/pages/Analytics";
+import Inovacao from "@/pages/Inovacao";
+import TecnologiaIA from "@/pages/TecnologiaIA";
+import TecnologiaCloud from "@/pages/TecnologiaCloud";
+import TecnologiaPowerBI from "@/pages/TecnologiaPowerBI";
+import TecnologiaDesenvolvimento from "@/pages/TecnologiaDesenvolvimento";
+import TecnologiaSeguranca from "@/pages/TecnologiaSeguranca";
+import TecnologiaAutomacao from "@/pages/TecnologiaAutomacao";
+import Otimizacao from "@/pages/Otimizacao";
+import Qualidade from "@/pages/Qualidade";
+import Doacoes from "@/pages/Doacoes";
+import Comunidade from "@/pages/Comunidade";
+import Indicadores from "@/pages/Indicadores";
+import Processos from "@/pages/Processos";
+import Performance from "@/pages/Performance";
 
 // Novos caminhos corretos
-import Careers from "./components/Careers"; // Vagas
-import AboutPage from "./pages/About";      // Produtos / Operacoes
+import Careers from "@/components/Careers"; // Vagas
+import AboutPage from "@/pages/About";      // Produtos / Operacoes
 
 const queryClient = new QueryClient();
 
@@ -44,7 +45,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
 
-          {/* MegaMenu ajustado */}
+          {/* MegaMenu */}
           <Route path="/produtos" element={<AboutPage />} />
           <Route path="/operacoes" element={<AboutPage />} />
           <Route path="/tecnologia" element={<Technologies />} />
