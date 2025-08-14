@@ -80,7 +80,7 @@ const NavBar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
-          {/* Atualizado para direcionar ao Careers */}
+          {/* Link atualizado para Careers */}
           <Link
             to="/careers"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
