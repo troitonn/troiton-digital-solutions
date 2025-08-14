@@ -7,8 +7,9 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologias" },
-  { label: "PROCESSOS", category: "Processos", id: "processos" },
+  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" },
+  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" },
+  { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologia" },
 ];
 
 const NavBar = () => {
@@ -17,17 +18,14 @@ const NavBar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
-  // Scroll automático para o topo ao mudar de rota
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
-
+  // Detecta scroll para adicionar fundo
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Fecha menu mobile ao mudar de rota
   useEffect(() => setIsMobileMenuOpen(false), [location.pathname]);
 
   return (
@@ -35,12 +33,13 @@ const NavBar = () => {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
         isScrolled
-          ? "bg-black/80 backdrop-blur-md border-b border-troiton-800/50 py-3"
-          : "bg-black/80 md:bg-transparent py-3 md:py-6"
+          ? "bg-black/90 backdrop-blur-md border-b border-troiton-800/50 py-3"
+          : "bg-black/90 md:bg-transparent py-3 md:py-6"
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link to="/" className="flex items-center group">
+        {/* Logo */}
+        <Link to="/" className="flex items-center group z-50">
           <img
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png"
             alt="Troiton Logo"
@@ -51,7 +50,7 @@ const NavBar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-8 ml-auto mr-8 relative">
+        <div className="hidden md:flex items-center space-x-8 ml-auto mr-8 relative z-50">
           {dropdownItems.map((item) => (
             <div
               key={item.label}
@@ -80,7 +79,7 @@ const NavBar = () => {
             to="/sobre"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
-            SOBRE NÓS
+            SOBRE
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
@@ -103,16 +102,16 @@ const NavBar = () => {
         </button>
 
         {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="md:hidden text-white z-50" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu com animação */}
+      {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 z-40 pt-20 px-4 md:hidden transform transition-all duration-300 ease-in-out origin-top-right",
-          isMobileMenuOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-28 md:pt-32 px-4 transform transition-transform duration-300 ease-in-out",
+          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
@@ -120,7 +119,7 @@ const NavBar = () => {
             <Link
               key={item.id}
               to={`/${item.id}`}
-              className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
+              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
@@ -130,15 +129,15 @@ const NavBar = () => {
           <Link
             to="/sobre"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
+            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
-            SOBRE NÓS
+            SOBRE
           </Link>
 
           <Link
             to="/careers"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg uppercase tracking-wide"
+            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             #SEJATROITON+
           </Link>
@@ -148,7 +147,7 @@ const NavBar = () => {
               setIsMobileMenuOpen(false);
               document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full uppercase tracking-wide"
+            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors uppercase tracking-wide"
           >
             FALE CONOSCO
           </button>
