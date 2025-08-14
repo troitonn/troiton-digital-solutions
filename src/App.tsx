@@ -30,7 +30,7 @@ import Indicadores from "@/pages/Indicadores";
 import Processos from "@/pages/Processos";
 import Performance from "@/pages/Performance";
 
-// Novos caminhos corretos
+// Componentes específicos
 import Careers from "@/components/Careers"; // Vagas
 import AboutPage from "@/pages/About";      // Produtos / Operacoes
 
