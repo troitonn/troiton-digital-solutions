@@ -35,15 +35,10 @@ const About = () => {
 
   return (
     <section id="sobre" className="relative py-20 overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${aboutImage})` }}
-      />
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${aboutImage})` }} />
       <div className="absolute inset-0 bg-black/70"></div>
 
       <div className="relative container mx-auto px-6 z-20">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
             Sobre a Troiton
