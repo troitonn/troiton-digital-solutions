@@ -29,9 +29,9 @@ import Indicadores from "./pages/Indicadores";
 import Processos from "./pages/Processos";
 import Performance from "./pages/Performance";
 
-import Produtos from "./pages/Produtos";
-import Operacoes from "./pages/Operacoes";
-import Vagas from "./pages/Vagas";
+// Novos caminhos corretos
+import Careers from "./components/Careers"; // Vagas
+import AboutPage from "./pages/About";      // Produtos / Operacoes
 
 const queryClient = new QueryClient();
 
@@ -44,12 +44,12 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
 
-          {/* MegaMenu */}
-          <Route path="/produtos" element={<Produtos />} />
-          <Route path="/operacoes" element={<Operacoes />} />
+          {/* MegaMenu ajustado */}
+          <Route path="/produtos" element={<AboutPage />} />
+          <Route path="/operacoes" element={<AboutPage />} />
           <Route path="/tecnologia" element={<Technologies />} />
 
-          {/* Gerais */}
+          {/* Rotas gerais */}
           <Route path="/sobre" element={<About />} />
           <Route path="/apresentacao" element={<Apresentacao />} />
           <Route path="/estrategia" element={<Estrategia />} />
@@ -73,7 +73,7 @@ const App = () => (
           <Route path="/qualidade" element={<Qualidade />} />
 
           {/* SEJATROITON+ */}
-          <Route path="/vagas" element={<Vagas />} />
+          <Route path="/vagas" element={<Careers />} />
 
           {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
