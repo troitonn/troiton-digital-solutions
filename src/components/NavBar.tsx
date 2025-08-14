@@ -7,9 +7,8 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" },
-  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" },
-  { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologia" },
+  { label: "TECNOLOGIA", category: "Tecnologia", id: "technologies" },
+  { label: "PROCESSOS", category: "Processos", id: "processos" },
 ];
 
 const NavBar = () => {
@@ -73,10 +72,10 @@ const NavBar = () => {
           ))}
 
           <Link
-            to="/sobre"
+            to="/about"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
-            SOBRE
+            SOBRE NÓS
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
@@ -112,29 +111,34 @@ const NavBar = () => {
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg bg-black h-full w-full p-4">
-          {dropdownItems.map((item) => (
-            <Link
-              key={item.id}
-              to={`/${item.id}`}
-              className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          <Link
+            to="/technologies"
+            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            TECNOLOGIA
+          </Link>
 
           <Link
-            to="/sobre"
-            onClick={() => setIsMobileMenuOpen(false)}
+            to="/processos"
             className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
-            SOBRE
+            PROCESSOS
+          </Link>
+
+          <Link
+            to="/about"
+            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            SOBRE NÓS
           </Link>
 
           <Link
             to="/careers"
-            onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            onClick={() => setIsMobileMenuOpen(false)}
           >
             #SEJATROITON+
           </Link>
