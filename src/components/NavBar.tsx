@@ -7,9 +7,10 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" },
-  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" },
-  { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologia" },
+  { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologias" },
+  { label: "PROCESSOS", category: "Processos", id: "processos" },
+  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" }, // opcional
+  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" }, // opcional
 ];
 
 const NavBar = () => {
@@ -76,12 +77,12 @@ const NavBar = () => {
             to="/sobre"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
-            SOBRE
+            SOBRE NÓS
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
           <Link
-            to="/vagas"
+            to="/careers"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             #SEJATROITON+
@@ -128,11 +129,11 @@ const NavBar = () => {
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
-            SOBRE
+            SOBRE NÓS
           </Link>
 
           <Link
-            to="/vagas"
+            to="/careers"
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
