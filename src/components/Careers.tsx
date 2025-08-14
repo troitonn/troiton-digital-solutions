@@ -1,10 +1,16 @@
+import { useEffect } from 'react';
 import { ArrowRight, Rocket, Users, TrendingUp, Shield, Code, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import careersImage from '@/assets/careers-professional-team.jpg';
 
 const Careers = () => {
+  useEffect(() => {
+    // Scroll automático até o início da seção
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
-    <section className="relative pt-28 md:pt-32 overflow-hidden">
+    <section id="vagas" className="relative py-32 md:py-36 overflow-hidden">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
