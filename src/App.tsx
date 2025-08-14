@@ -29,7 +29,6 @@ import Indicadores from "./pages/Indicadores";
 import Processos from "./pages/Processos";
 import Performance from "./pages/Performance";
 
-// Novas páginas para os links do NavBar
 import Produtos from "./pages/Produtos";
 import Operacoes from "./pages/Operacoes";
 import Vagas from "./pages/Vagas";
@@ -45,12 +44,12 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
 
-          {/* Rotas do MegaMenu */}
+          {/* MegaMenu */}
           <Route path="/produtos" element={<Produtos />} />
           <Route path="/operacoes" element={<Operacoes />} />
           <Route path="/tecnologia" element={<Technologies />} />
 
-          {/* Rotas gerais */}
+          {/* Gerais */}
           <Route path="/sobre" element={<About />} />
           <Route path="/apresentacao" element={<Apresentacao />} />
           <Route path="/estrategia" element={<Estrategia />} />
@@ -73,7 +72,7 @@ const App = () => (
           <Route path="/otimizacao" element={<Otimizacao />} />
           <Route path="/qualidade" element={<Qualidade />} />
 
-          {/* Rota #SEJATROITON+ */}
+          {/* SEJATROITON+ */}
           <Route path="/vagas" element={<Vagas />} />
 
           {/* Catch-all */}
