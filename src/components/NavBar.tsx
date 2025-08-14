@@ -7,8 +7,9 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "TECNOLOGIA", category: "Tecnologia", id: "technologies" },
-  { label: "PROCESSOS", category: "Processos", id: "processos" },
+  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" },
+  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" },
+  { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologia" },
 ];
 
 const NavBar = () => {
@@ -72,15 +73,15 @@ const NavBar = () => {
           ))}
 
           <Link
-            to="/about"
+            to="/sobre"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
-            SOBRE NÓS
+            SOBRE
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
           <Link
-            to="/careers"
+            to="/vagas"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             #SEJATROITON+
@@ -106,39 +107,34 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex flex-col space-y-6 items-center text-lg bg-black h-full w-full p-4">
+        <div className="flex flex-col space-y-6 items-center text-lg">
+          {dropdownItems.map((item) => (
+            <Link
+              key={item.id}
+              to={`/${item.id}`}
+              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item.label}
+            </Link>
+          ))}
+
           <Link
-            to="/technologies"
-            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            to="/sobre"
             onClick={() => setIsMobileMenuOpen(false)}
+            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
-            TECNOLOGIA
+            SOBRE
           </Link>
 
           <Link
-            to="/processos"
-            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            to="/vagas"
             onClick={() => setIsMobileMenuOpen(false)}
-          >
-            PROCESSOS
-          </Link>
-
-          <Link
-            to="/about"
-            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            SOBRE NÓS
-          </Link>
-
-          <Link
-            to="/careers"
-            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
-            onClick={() => setIsMobileMenuOpen(false)}
+            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             #SEJATROITON+
           </Link>
