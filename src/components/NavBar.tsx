@@ -80,8 +80,9 @@ const NavBar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
+          {/* Atualizado para direcionar ao Careers */}
           <Link
-            to="/vagas"
+            to="/careers"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             #SEJATROITON+
@@ -107,7 +108,7 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black z-40 pt-20 px-4 md:hidden transform transition-transform duration-300 ease-in-out",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -132,7 +133,7 @@ const NavBar = () => {
           </Link>
 
           <Link
-            to="/vagas"
+            to="/careers"
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
