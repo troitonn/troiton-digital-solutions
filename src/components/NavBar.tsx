@@ -29,9 +29,10 @@ const NavBar = () => {
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
+        // Mobile sempre escuro, desktop muda com scroll
         isScrolled
           ? "bg-black/80 backdrop-blur-md border-b border-troiton-800/50 py-3"
-          : "bg-white text-black md:bg-transparent md:text-white py-3 md:py-6"
+          : "bg-black/80 md:bg-transparent py-3 md:py-6"
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -87,7 +88,7 @@ const NavBar = () => {
         </button>
 
         {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-current" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="md:hidden text-white" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
