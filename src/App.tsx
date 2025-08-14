@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -28,6 +27,9 @@ import Comunidade from "./pages/Comunidade";
 import Indicadores from "./pages/Indicadores";
 import Processos from "./pages/Processos";
 import Performance from "./pages/Performance";
+
+// NOVO import do Careers
+import Careers from "./components/Careers";
 
 const queryClient = new QueryClient();
 
@@ -61,7 +63,11 @@ const App = () => (
           <Route path="/tecnologia/automacao" element={<TecnologiaAutomacao />} />
           <Route path="/otimizacao" element={<Otimizacao />} />
           <Route path="/qualidade" element={<Qualidade />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+
+          {/* ROTA PARA CAREERS */}
+          <Route path="/careers" element={<Careers />} />
+
+          {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
