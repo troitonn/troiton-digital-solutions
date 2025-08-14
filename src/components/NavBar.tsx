@@ -80,7 +80,6 @@ const NavBar = () => {
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
-          {/* Link atualizado para Careers */}
           <Link
             to="/careers"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
@@ -112,12 +111,12 @@ const NavBar = () => {
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex flex-col space-y-6 items-center text-lg">
+        <div className="flex flex-col space-y-6 items-center text-lg bg-black h-full w-full p-4">
           {dropdownItems.map((item) => (
             <Link
               key={item.id}
               to={`/${item.id}`}
-              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+              className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {item.label}
@@ -127,7 +126,7 @@ const NavBar = () => {
           <Link
             to="/sobre"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             SOBRE
           </Link>
@@ -135,7 +134,7 @@ const NavBar = () => {
           <Link
             to="/careers"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+            className="w-full text-center py-4 border-b border-troiton-800 text-white hover:text-troiton-400 hover:bg-troiton-900 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             #SEJATROITON+
           </Link>
