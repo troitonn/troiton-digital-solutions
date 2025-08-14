@@ -1,8 +1,17 @@
+import { useEffect } from 'react';
 import { ArrowRight, Rocket, Users, TrendingUp, Shield, Code, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import careersImage from '@/assets/careers-professional-team.jpg';
 
 const Careers = () => {
+  // Scroll automático ao carregar a página
+  useEffect(() => {
+    const element = document.getElementById('vagas');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, []);
+
   return (
     <section id="vagas" className="relative py-20 overflow-hidden">
       {/* Background Image */}
@@ -54,36 +63,13 @@ const Careers = () => {
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {[
-                {
-                  icon: <TrendingUp className="w-6 h-6" />,
-                  title: "Projetos desafiadores",
-                  description: "com impacto real"
-                },
-                {
-                  icon: <Users className="w-6 h-6" />,
-                  title: "Cultura colaborativa",
-                  description: "e horizontal"
-                },
-                {
-                  icon: <Code className="w-6 h-6" />,
-                  title: "Desenvolvimento contínuo",
-                  description: "e espaço para inovar"
-                },
-                {
-                  icon: <Shield className="w-6 h-6" />,
-                  title: "Ambiente que valoriza",
-                  description: "autonomia e responsabilidade"
-                },
-                {
-                  icon: <Zap className="w-6 h-6" />,
-                  title: "Tecnologia, segurança",
-                  description: "e transformação no centro de tudo"
-                }
+                { icon: <TrendingUp className="w-6 h-6" />, title: "Projetos desafiadores", description: "com impacto real" },
+                { icon: <Users className="w-6 h-6" />, title: "Cultura colaborativa", description: "e horizontal" },
+                { icon: <Code className="w-6 h-6" />, title: "Desenvolvimento contínuo", description: "e espaço para inovar" },
+                { icon: <Shield className="w-6 h-6" />, title: "Ambiente que valoriza", description: "autonomia e responsabilidade" },
+                { icon: <Zap className="w-6 h-6" />, title: "Tecnologia, segurança", description: "e transformação no centro de tudo" }
               ].map((item, index) => (
-                <div 
-                  key={index}
-                  className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105"
-                >
+                <div key={index} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:bg-white/10 transition-all duration-300 hover:scale-105">
                   <div className="w-10 h-10 sm:w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-3 sm:mb-4">
                     <div className="text-primary">{item.icon}</div>
                   </div>
