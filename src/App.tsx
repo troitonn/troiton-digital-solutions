@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Páginas
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Tecnologia from "./pages/Tecnologia"; // antes Technologies
+import Tecnologia from "./pages/Tecnologia"; 
 import About from "./pages/About";
 import Apresentacao from "./pages/Apresentacao";
 import Estrategia from "./pages/Estrategia";
@@ -27,7 +27,7 @@ import Qualidade from "./pages/Qualidade";
 import Doacoes from "./pages/Doacoes";
 import Comunidade from "./pages/Comunidade";
 import Indicadores from "./pages/Indicadores";
-import Processos from "./pages/Processos"; // rota de Operações
+import Processos from "./pages/Processos"; // Operações
 import Performance from "./pages/Performance";
 
 // Componentes
@@ -42,15 +42,13 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        {/* Navbar sempre visível */}
         <NavBar />
 
-        {/* Rotas */}
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/tecnologia" element={<Tecnologia />} /> {/* antes /technologies */}
+          <Route path="/tecnologia" element={<Tecnologia />} />
           <Route path="/about" element={<About />} />
-          <Route path="/operacoes" element={<Processos />} /> {/* antes /processos */}
+          <Route path="/operacoes" element={<Processos />} /> 
           <Route path="/apresentacao" element={<Apresentacao />} />
           <Route path="/estrategia" element={<Estrategia />} />
           <Route path="/projetos" element={<Projetos />} />
@@ -71,10 +69,8 @@ const App = () => (
           <Route path="/otimizacao" element={<Otimizacao />} />
           <Route path="/qualidade" element={<Qualidade />} />
 
-          {/* Careers */}
           <Route path="/careers" element={<Careers />} />
 
-          {/* Catch-all */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
