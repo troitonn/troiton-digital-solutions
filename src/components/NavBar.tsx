@@ -114,7 +114,7 @@ const NavBar = () => {
           {dropdownItems.map((item) => (
             <Link
               key={item.path}
-              to={item.path}
+              to="#contato"
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
             >
@@ -123,7 +123,7 @@ const NavBar = () => {
           ))}
 
           <Link
-            to="/sobre"
+            to="#contato"
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
@@ -131,7 +131,7 @@ const NavBar = () => {
           </Link>
 
           <Link
-            to="/careers"
+            to="#contato"
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
