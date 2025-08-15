@@ -25,6 +25,11 @@ const NavBar = () => {
 
   useEffect(() => setIsMobileMenuOpen(false), [location.pathname]);
 
+  const handleScrollToContato = () => {
+    setIsMobileMenuOpen(false);
+    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav
       className={cn(
@@ -71,15 +76,13 @@ const NavBar = () => {
             </div>
           ))}
 
-          {/* Corrigido: SOBRE direciona para a seção #contato */}
-          <Link
-            to="#contato"
-            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
+          <button
+            onClick={handleScrollToContato}
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             SOBRE
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </Link>
+          </button>
 
           <Link
             to="/careers"
@@ -88,16 +91,15 @@ const NavBar = () => {
             #SEJATROITON+
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
-        </div>
 
-        {/* Botão desktop FALE CONOSCO */}
-        <button
-          onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-          className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm"
-        >
-          <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-          <span className="relative">FALE CONOSCO</span>
-        </button>
+          <button
+            onClick={handleScrollToContato}
+            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm"
+          >
+            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
+            <span className="relative">FALE CONOSCO</span>
+          </button>
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button className="md:hidden text-white z-50" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -124,17 +126,12 @@ const NavBar = () => {
             </Link>
           ))}
 
-          {/* Corrigido: SOBRE mobile também vai para #contato */}
-          <Link
-            to="#contato"
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-            }}
+          <button
+            onClick={handleScrollToContato}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             SOBRE
-          </Link>
+          </button>
 
           <Link
             to="/careers"
@@ -144,13 +141,12 @@ const NavBar = () => {
             #SEJATROITON+
           </Link>
 
-          <Link
-            to="#contato"
-            onClick={() => setIsMobileMenuOpen(false)}
+          <button
+            onClick={handleScrollToContato}
             className="w-full text-center bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium transition-colors uppercase tracking-wide"
           >
             FALE CONOSCO
-          </Link>
+          </button>
         </div>
       </div>
     </nav>
