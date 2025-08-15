@@ -4,11 +4,9 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { CheckCircle, Award, Users, Target, TrendingUp, Shield, ArrowRight, Star, Clock, BarChart3 } from 'lucide-react';
 import auroraVideo from "@/assets/TroitonAurora.mp4";
-
 const Processos = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
@@ -17,33 +15,23 @@ const Processos = () => {
     }, {
       threshold: 0.1
     });
-
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
-  return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+  return <div className="min-h-screen bg-black text-white overflow-hidden">
       <NavBar />
       
       {/* Hero Section with Aurora Video Background */}
       <section className="relative min-h-screen flex items-center justify-center pt-20">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-full object-cover"
-          >
+          <video autoPlay muted loop playsInline className="w-full h-full object-cover">
             <source src={auroraVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/70"></div>
@@ -73,10 +61,9 @@ const Processos = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <button 
-                onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-10 py-4 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300"
-              >
+              <button onClick={() => document.getElementById('contato')?.scrollIntoView({
+              behavior: 'smooth'
+            })} className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-10 py-4 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300">
                 <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-80 group-hover:h-80 opacity-10"></span>
                 <span className="relative inline-flex items-center">
                   Iniciar Transformação
@@ -86,9 +73,7 @@ const Processos = () => {
               
               <div className="flex items-center text-gray-300">
                 <div className="flex -space-x-2 mr-3">
-                  {[1,2,3,4].map((i) => (
-                    <div key={i} className="w-8 h-8 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-full border-2 border-black"></div>
-                  ))}
+                  {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-full border-2 border-black"></div>)}
                 </div>
                 <span className="text-sm">+500 empresas transformadas</span>
               </div>
@@ -97,11 +82,11 @@ const Processos = () => {
             {/* Trust Indicators */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-70">
               <div className="text-center">
-                <div className="text-3xl font-bold text-troiton-400">98%</div>
+                <div className="text-3xl font-bold text-troiton-400">90%</div>
                 <div className="text-sm text-gray-400">Taxa de Sucesso</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">15+</div>
+                <div className="text-3xl font-bold text-blue-400">5+</div>
                 <div className="text-sm text-gray-400">Anos de Experiência</div>
               </div>
               <div className="text-center">
@@ -341,10 +326,9 @@ const Processos = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <button
-                    onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-12 py-4 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300"
-                  >
+                  <button onClick={() => document.getElementById('contato')?.scrollIntoView({
+                  behavior: 'smooth'
+                })} className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-12 py-4 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300">
                     <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-80 group-hover:h-80 opacity-10"></span>
                     <span className="relative inline-flex items-center">
                       Iniciar Projeto
@@ -365,8 +349,6 @@ const Processos = () => {
       
       <Footer />
       <WhatsAppButton />
-    </div>
-  );
+    </div>;
 };
-
 export default Processos;
