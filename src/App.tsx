@@ -44,12 +44,12 @@ const App = () => (
       <BrowserRouter>
         {/* Navbar sempre visível */}
         <NavBar />
-        
+
         {/* Rotas */}
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/tecnologias" element={<Technologies />} />
-          <Route path="/sobre" element={<About />} />
+          <Route path="/technologies" element={<Technologies />} />
+          <Route path="/about" element={<About />} />
           <Route path="/apresentacao" element={<Apresentacao />} />
           <Route path="/estrategia" element={<Estrategia />} />
           <Route path="/projetos" element={<Projetos />} />
