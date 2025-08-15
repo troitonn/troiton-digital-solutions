@@ -53,7 +53,8 @@ const Processos = () => {
             </h1>
             
             <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Ajudamos sua empresa a documentar e organizar processos, identificando oportunidades de melhoria e padronização.
+              Soluções empresariais baseadas em metodologias comprovadas para otimização de processos organizacionais. 
+              Aplicamos frameworks reconhecidos globalmente para transformação digital e excelência operacional.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
@@ -63,20 +64,20 @@ const Processos = () => {
             {/* Trust Indicators */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-70">
               <div className="text-center">
-                <div className="text-3xl font-bold text-troiton-400">2+</div>
-                <div className="text-sm text-gray-400">Anos de Experiência</div>
+                <div className="text-3xl font-bold text-troiton-400">5+</div>
+                <div className="text-sm text-gray-400">Anos de Mercado</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">10+</div>
-                <div className="text-sm text-gray-400">Projetos Concluídos</div>
+                <div className="text-3xl font-bold text-blue-400">ISO 9001</div>
+                <div className="text-sm text-gray-400">Certificação</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400">100%</div>
-                <div className="text-sm text-gray-400">Foco no Cliente</div>
+                <div className="text-3xl font-bold text-purple-400">PMI</div>
+                <div className="text-sm text-gray-400">Metodologia</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400">48h</div>
-                <div className="text-sm text-gray-400">Primeira Resposta</div>
+                <div className="text-3xl font-bold text-green-400">Six Sigma</div>
+                <div className="text-sm text-gray-400">Qualidade</div>
               </div>
             </div>
           </div>
@@ -180,12 +181,17 @@ const Processos = () => {
                       </div>
                     </div>
 
-                    {/* Certificações */}
+                    {/* Certificações e Credenciais */}
                     <div className="mt-8 pt-6 border-t border-white/10">
-                      <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
-                        
-                        
-                        
+                      <div className="grid grid-cols-2 gap-4 text-sm text-gray-400">
+                        <div className="flex items-center justify-center p-2 bg-white/5 rounded">
+                          <Shield className="w-4 h-4 mr-2" />
+                          <span>COBIT 5 Framework</span>
+                        </div>
+                        <div className="flex items-center justify-center p-2 bg-white/5 rounded">
+                          <Award className="w-4 h-4 mr-2" />
+                          <span>ITIL v4 Foundation</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -200,7 +206,7 @@ const Processos = () => {
                   Nossa <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Metodologia</span>
                 </h2>
                 <p className="text-gray-400 max-w-3xl mx-auto text-lg">
-                  Processo estruturado em 3 etapas fundamentais para garantir sucesso
+                  Framework baseado em BPMN 2.0 e metodologias ágeis reconhecidas pela indústria global
                 </p>
               </div>
 
@@ -209,11 +215,11 @@ const Processos = () => {
                   <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-500/30 transition-colors">
                     <Target className="w-8 h-8 text-blue-400" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-blue-300">Mapeamento</h3>
-                  <p className="text-blue-100 mb-4">Identificação e documentação detalhada de todos os processos atuais da organização.</p>
+                  <h3 className="text-2xl font-bold mb-4 text-blue-300">Discovery & Assessment</h3>
+                  <p className="text-blue-100 mb-4">Análise detalhada dos processos atuais utilizando ferramentas de business process mapping e stakeholder interviews.</p>
                   <div className="text-sm text-blue-300 opacity-75">
                     <Clock className="w-4 h-4 inline mr-1" />
-                    2-4 semanas
+                    2-4 semanas • BPMN 2.0
                   </div>
                 </div>
 
@@ -221,11 +227,11 @@ const Processos = () => {
                   <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-500/30 transition-colors">
                     <TrendingUp className="w-8 h-8 text-green-400" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-green-300">Otimização</h3>
-                  <p className="text-green-100 mb-4">Análise crítica e redesenho estratégico para eliminar gargalos e ineficiências.</p>
+                  <h3 className="text-2xl font-bold mb-4 text-green-300">Design & Optimization</h3>
+                  <p className="text-green-100 mb-4">Redesenho estratégico aplicando lean principles e six sigma metodologies para eliminar waste e maximizar value stream.</p>
                   <div className="text-sm text-green-300 opacity-75">
                     <Clock className="w-4 h-4 inline mr-1" />
-                    3-6 semanas
+                    3-6 semanas • Lean Six Sigma
                   </div>
                 </div>
 
@@ -233,11 +239,11 @@ const Processos = () => {
                   <div className="w-16 h-16 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-purple-500/30 transition-colors">
                     <ArrowRight className="w-8 h-8 text-purple-400" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 text-purple-300">Automatização</h3>
-                  <p className="text-purple-100 mb-4">Implementação de ferramentas e tecnologias para automatizar tarefas repetitivas.</p>
+                  <h3 className="text-2xl font-bold mb-4 text-purple-300">Implementation & Automation</h3>
+                  <p className="text-purple-100 mb-4">Deploy de soluções digitais e change management para garantir adoption efetiva das melhorias implementadas.</p>
                   <div className="text-sm text-purple-300 opacity-75">
                     <Clock className="w-4 h-4 inline mr-1" />
-                    4-8 semanas
+                    4-8 semanas • RPA/Digital
                   </div>
                 </div>
               </div>
