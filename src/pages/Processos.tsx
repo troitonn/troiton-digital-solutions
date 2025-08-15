@@ -55,10 +55,7 @@ const Processos = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Processos Eficientes</span>
             </h1>
             
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Desenvolvemos processos padronizados que otimizam operações, eliminam desperdícios 
-              e garantem qualidade consistente. Transforme sua organização com nossa metodologia BPM comprovada.
-            </p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">Desenvolvemos processos padronizados que otimizam operações, eliminam desperdícios e garantem qualidade consistente.</p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               <button onClick={() => document.getElementById('contato')?.scrollIntoView({
@@ -75,7 +72,7 @@ const Processos = () => {
                 <div className="flex -space-x-2 mr-3">
                   {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-full border-2 border-black"></div>)}
                 </div>
-                <span className="text-sm">+500 empresas transformadas</span>
+                <span className="text-sm">+50 empresas transformadas</span>
               </div>
             </div>
 
@@ -90,7 +87,7 @@ const Processos = () => {
                 <div className="text-sm text-gray-400">Anos de Experiência</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400">500+</div>
+                <div className="text-3xl font-bold text-purple-400">50+</div>
                 <div className="text-sm text-gray-400">Projetos Entregues</div>
               </div>
               <div className="text-center">
@@ -202,18 +199,9 @@ const Processos = () => {
                     {/* Certificações */}
                     <div className="mt-8 pt-6 border-t border-white/10">
                       <div className="flex items-center justify-center space-x-4 text-sm text-gray-400">
-                        <div className="flex items-center">
-                          <Award className="w-4 h-4 mr-1" />
-                          ISO 9001
-                        </div>
-                        <div className="flex items-center">
-                          <Star className="w-4 h-4 mr-1" />
-                          BPMN 2.0
-                        </div>
-                        <div className="flex items-center">
-                          <CheckCircle className="w-4 h-4 mr-1" />
-                          Six Sigma
-                        </div>
+                        
+                        
+                        
                       </div>
                     </div>
                   </div>
@@ -225,7 +213,7 @@ const Processos = () => {
             <section className="mb-20">
               <div className="text-center mb-16">
                 <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
-                  Nossa <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Metodologia BPM</span>
+                  Nossa <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Metodologia</span>
                 </h2>
                 <p className="text-gray-400 max-w-3xl mx-auto text-lg">
                   Processo estruturado em 3 etapas fundamentais para garantir sucesso
