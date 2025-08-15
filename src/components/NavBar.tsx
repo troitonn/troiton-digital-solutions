@@ -6,9 +6,9 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", id: "produtos" },
-  { label: "OPERAÇÕES", category: "Operações", id: "operacoes" },
-  { label: "TECNOLOGIA", category: "Tecnologia", id: "tecnologia" },
+  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", path: "/about" },
+  { label: "OPERAÇÕES", category: "Operações", path: "/technologies" },
+  { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" }, // ajuste se necessário
 ];
 
 const NavBar = () => {
@@ -55,7 +55,7 @@ const NavBar = () => {
               onMouseLeave={() => setActiveDropdown(null)}
             >
               <Link
-                to={`/${item.id}`}
+                to={item.path}
                 className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
               >
                 {item.label}
@@ -113,8 +113,8 @@ const NavBar = () => {
         <div className="flex flex-col space-y-6 items-center text-lg">
           {dropdownItems.map((item) => (
             <Link
-              key={item.id}
-              to={`/${item.id}`}
+              key={item.path}
+              to={item.path}
               className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
               onClick={() => setIsMobileMenuOpen(false)}
             >
