@@ -44,10 +44,7 @@ const Processos = () => {
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="inline-flex items-center bg-troiton-900/50 border border-troiton-700/50 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-medium mb-8 text-troiton-400">
-              <Award className="w-4 h-4 mr-2" />
-              Certificação ISO 9001 • BPM Nivel 5
-            </div>
+            
             
             <h1 className="text-4xl lg:text-7xl font-bold mb-8 leading-tight">
               <span className="text-white">Criação de</span>
@@ -60,12 +57,7 @@ const Processos = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
               
               
-              <div className="flex items-center text-gray-300">
-                <div className="flex -space-x-2 mr-3">
-                  {[1, 2, 3, 4].map(i => <div key={i} className="w-8 h-8 bg-gradient-to-r from-troiton-500 to-blue-500 rounded-full border-2 border-black"></div>)}
-                </div>
-                <span className="text-sm">+50 empresas transformadas</span>
-              </div>
+              
             </div>
 
             {/* Trust Indicators */}
