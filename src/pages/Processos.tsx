@@ -52,31 +52,31 @@ const Processos = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">Processos Eficientes</span>
             </h1>
             
-            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">Desenvolvemos processos padronizados que otimizam operações, eliminam desperdícios e garantem qualidade consistente.</p>
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">
+              Ajudamos sua empresa a documentar e organizar processos, identificando oportunidades de melhoria e padronização.
+            </p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              
-              
               
             </div>
 
             {/* Trust Indicators */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 opacity-70">
               <div className="text-center">
-                <div className="text-3xl font-bold text-troiton-400">90%</div>
-                <div className="text-sm text-gray-400">Taxa de Sucesso</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-400">5+</div>
+                <div className="text-3xl font-bold text-troiton-400">2+</div>
                 <div className="text-sm text-gray-400">Anos de Experiência</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-purple-400">50+</div>
-                <div className="text-sm text-gray-400">Projetos Entregues</div>
+                <div className="text-3xl font-bold text-blue-400">10+</div>
+                <div className="text-sm text-gray-400">Projetos Concluídos</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-green-400">24h</div>
-                <div className="text-sm text-gray-400">Tempo de Resposta</div>
+                <div className="text-3xl font-bold text-purple-400">100%</div>
+                <div className="text-sm text-gray-400">Foco no Cliente</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-green-400">48h</div>
+                <div className="text-sm text-gray-400">Primeira Resposta</div>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ const Processos = () => {
                     Por que <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">criar processos?</span>
                   </h2>
                   <p className="text-gray-400 max-w-3xl mx-auto text-lg">
-                    Nossa metodologia comprovada transforma operações e gera resultados mensuráveis
+                    Experiência em documentação e melhoria de processos empresariais
                   </p>
                 </div>
 
@@ -149,34 +149,34 @@ const Processos = () => {
                     <div className="space-y-6">
                       <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl">
                         <div>
-                          <span className="text-gray-300 text-sm">Redução de Erros</span>
-                          <div className="text-xs text-gray-500 mt-1">Validado em +200 projetos</div>
+                          <span className="text-gray-300 text-sm">Organização Melhorada</span>
+                          <div className="text-xs text-gray-500 mt-1">Clientes reportam melhora</div>
                         </div>
-                        <span className="text-3xl font-bold text-red-400">-70%</span>
+                        <span className="text-3xl font-bold text-green-400">80%</span>
                       </div>
                       
                       <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl">
                         <div>
-                          <span className="text-gray-300 text-sm">Aumento de Produtividade</span>
-                          <div className="text-xs text-gray-500 mt-1">Média dos últimos 3 anos</div>
+                          <span className="text-gray-300 text-sm">Documentação Completa</span>
+                          <div className="text-xs text-gray-500 mt-1">Entrega de manuais</div>
                         </div>
-                        <span className="text-3xl font-bold text-green-400">+45%</span>
+                        <span className="text-3xl font-bold text-blue-400">100%</span>
                       </div>
                       
                       <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl">
                         <div>
-                          <span className="text-gray-300 text-sm">Tempo de Treinamento</span>
-                          <div className="text-xs text-gray-500 mt-1">Com nossa documentação</div>
+                          <span className="text-gray-300 text-sm">Suporte Pós-Entrega</span>
+                          <div className="text-xs text-gray-500 mt-1">Período de adaptação</div>
                         </div>
-                        <span className="text-3xl font-bold text-blue-400">-60%</span>
+                        <span className="text-3xl font-bold text-purple-400">30 dias</span>
                       </div>
                       
                       <div className="flex justify-between items-center p-4 bg-white/5 rounded-xl">
                         <div>
-                          <span className="text-gray-300 text-sm">Satisfação da Equipe</span>
-                          <div className="text-xs text-gray-500 mt-1">Pesquisa pós-implementação</div>
+                          <span className="text-gray-300 text-sm">Satisfação dos Clientes</span>
+                          <div className="text-xs text-gray-500 mt-1">Feedback positivo</div>
                         </div>
-                        <span className="text-3xl font-bold text-purple-400">+35%</span>
+                        <span className="text-3xl font-bold text-troiton-400">90%</span>
                       </div>
                     </div>
 
@@ -293,8 +293,8 @@ const Processos = () => {
                   Vamos <span className="text-transparent bg-clip-text bg-gradient-to-r from-troiton-400 to-blue-400">organizar</span> seus processos?
                 </h3>
                 <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                  Entre em contato e descubra como nossos processos podem transformar sua operação 
-                  e gerar resultados mensuráveis para sua empresa.
+                  Entre em contato e vamos conversar sobre como podemos ajudar a organizar e documentar 
+                  os processos da sua empresa.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
