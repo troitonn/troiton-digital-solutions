@@ -71,8 +71,10 @@ const NavBar = () => {
             </div>
           ))}
 
+          {/* Corrigido: SOBRE direciona para a seção #contato */}
           <Link
-            to="/sobre"
+            to="#contato"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             SOBRE
@@ -114,7 +116,7 @@ const NavBar = () => {
           {dropdownItems.map((item) => (
             <Link
               key={item.path}
-              to="#contato"
+              to={item.path}
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
             >
@@ -122,16 +124,20 @@ const NavBar = () => {
             </Link>
           ))}
 
+          {/* Corrigido: SOBRE mobile também vai para #contato */}
           <Link
             to="#contato"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             SOBRE
           </Link>
 
           <Link
-            to="#contato"
+            to="/careers"
             onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
