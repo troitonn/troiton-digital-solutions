@@ -6,7 +6,6 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "OPERAÇÕES", category: "Operações", path: "/operacoes" },
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
@@ -31,15 +30,20 @@ const NavBar = () => {
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleScrollToOperacoes = () => {
+    setIsMobileMenuOpen(false);
+    document.getElementById('operacoes')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
         isMobileMenuOpen
-          ? "bg-black py-3 md:py-6" // Menu móvel aberto: fundo preto fixo
+          ? "bg-black py-3 md:py-6"
           : isScrolled
           ? "bg-black/90 backdrop-blur-md border-b border-troiton-800/50 py-3"
-          : "bg-transparent md:bg-transparent py-3 md:py-6" // Menu móvel fechado: topo transparente
+          : "bg-transparent md:bg-transparent py-3 md:py-6"
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
@@ -56,6 +60,13 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8 ml-auto mr-8 relative z-50">
+          <button
+            onClick={handleScrollToOperacoes}
+            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
+          >
+            OPERAÇÕES
+          </button>
+
           {dropdownItems.map((item) => (
             <div
               key={item.label}
@@ -90,7 +101,6 @@ const NavBar = () => {
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             SOBRE
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
           <Link
@@ -98,15 +108,13 @@ const NavBar = () => {
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             #SEJATROITON+
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
           <button
             onClick={handleScrollToContato}
             className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm"
           >
-            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-            <span className="relative">FALE CONOSCO</span>
+            FALE CONOSCO
           </button>
         </div>
 
@@ -127,6 +135,13 @@ const NavBar = () => {
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
+          <button
+            onClick={handleScrollToOperacoes}
+            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+          >
+            OPERAÇÕES
+          </button>
+
           {dropdownItems.map((item) => (
             <Link
               key={item.path}
