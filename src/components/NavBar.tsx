@@ -6,14 +6,13 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "OPERAÇÕES", category: "Operações", path: "/services" }, // Alterado para navegar à rota /services
+  { label: "OPERAÇÕES", category: "Operações", path: "/operacoes" }, // Atualizado
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   const isHome = location.pathname === '/';
