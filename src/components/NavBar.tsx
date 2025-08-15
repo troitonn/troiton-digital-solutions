@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
@@ -6,13 +6,14 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "OPERAÇÕES", category: "Operações", path: "#operacoes" }, // 🔹 Scroll suave
+  { label: "OPERAÇÕES", category: "Operações", path: "/services" }, // Alterado para navegar à rota /services
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   const isHome = location.pathname === '/';
@@ -28,11 +29,7 @@ const NavBar = () => {
   const handleScrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      console.warn(`Elemento com id="${id}" não encontrado`);
-    }
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const handleScrollToContato = () => handleScrollToSection('contato');
