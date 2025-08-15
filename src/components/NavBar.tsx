@@ -16,6 +16,8 @@ const NavBar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
+  const isHome = location.pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
@@ -29,18 +31,19 @@ const NavBar = () => {
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const isHome = location.pathname === '/';
-
   return (
     <nav
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300 ease-in-out",
-        isScrolled
+        isMobileMenuOpen
+          ? "bg-black py-3 md:py-6" // Menu móvel aberto: fundo preto fixo
+          : isScrolled
           ? "bg-black/90 backdrop-blur-md border-b border-troiton-800/50 py-3"
-          : "bg-black/90 md:bg-transparent py-3 md:py-6"
+          : "bg-transparent md:bg-transparent py-3 md:py-6" // Menu móvel fechado: topo transparente
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
+        {/* Logo */}
         <Link to="/" className="flex items-center group z-50">
           <img
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png"
@@ -108,7 +111,10 @@ const NavBar = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-white z-50" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button
+          className="md:hidden text-white z-50"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -116,8 +122,8 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black z-50 pt-28 md:pt-32 px-4 transform transition-transform duration-300 ease-in-out",
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          "fixed inset-0 z-50 pt-28 md:pt-32 px-4 transform transition-transform duration-300 ease-in-out",
+          isMobileMenuOpen ? "translate-x-0 bg-black" : "translate-x-full bg-black/0"
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
