@@ -6,7 +6,6 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", path: "/about" },
   { label: "OPERAÇÕES", category: "Operações", path: "/operacoes" },
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
@@ -76,13 +75,13 @@ const NavBar = () => {
             </div>
           ))}
 
-          <button
-            onClick={handleScrollToContato}
+          <Link
+            to="/about"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             SOBRE
             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-          </button>
+          </Link>
 
           <Link
             to="/careers"
@@ -126,12 +125,13 @@ const NavBar = () => {
             </Link>
           ))}
 
-          <button
-            onClick={handleScrollToContato}
+          <Link
+            to="/about"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
           >
             SOBRE
-          </button>
+          </Link>
 
           <Link
             to="/careers"
