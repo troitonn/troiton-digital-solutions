@@ -7,7 +7,7 @@ const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
   { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", path: "/about" },
-  { label: "OPERAÇÕES", category: "Operações", path: "/operacoes" }, // atualizado
+  { label: "OPERAÇÕES", category: "Operações", path: "/operacoes" },
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
@@ -35,7 +35,6 @@ const NavBar = () => {
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
         <Link to="/" className="flex items-center group z-50">
           <img
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png"
@@ -89,7 +88,6 @@ const NavBar = () => {
           </Link>
         </div>
 
-        {/* Botão de contato */}
         <button
           onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
           className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm"
@@ -98,7 +96,6 @@ const NavBar = () => {
           <span className="relative">FALE CONOSCO</span>
         </button>
 
-        {/* Mobile Menu Toggle */}
         <button className="md:hidden text-white z-50" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
