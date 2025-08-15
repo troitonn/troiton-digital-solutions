@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Páginas
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Tecnologia from "./pages/Tecnologia"; 
+import Technologies from "./pages/Technologies"; // <-- arquivo real
 import About from "./pages/About";
 import Apresentacao from "./pages/Apresentacao";
 import Estrategia from "./pages/Estrategia";
@@ -27,7 +27,7 @@ import Qualidade from "./pages/Qualidade";
 import Doacoes from "./pages/Doacoes";
 import Comunidade from "./pages/Comunidade";
 import Indicadores from "./pages/Indicadores";
-import Processos from "./pages/Processos"; // Operações
+import Processos from "./pages/Processos"; // rota de Operações
 import Performance from "./pages/Performance";
 
 // Componentes
@@ -46,9 +46,9 @@ const App = () => (
 
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/tecnologia" element={<Tecnologia />} />
+          <Route path="/tecnologia" element={<Technologies />} /> {/* corresponde a Technologies.tsx */}
           <Route path="/about" element={<About />} />
-          <Route path="/operacoes" element={<Processos />} /> 
+          <Route path="/operacoes" element={<Processos />} /> {/* corresponde a Processos.tsx */}
           <Route path="/apresentacao" element={<Apresentacao />} />
           <Route path="/estrategia" element={<Estrategia />} />
           <Route path="/projetos" element={<Projetos />} />
