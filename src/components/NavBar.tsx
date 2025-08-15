@@ -29,6 +29,8 @@ const NavBar = () => {
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const isHome = location.pathname === '/';
+
   return (
     <nav
       className={cn(
@@ -66,7 +68,12 @@ const NavBar = () => {
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
               </Link>
               {activeDropdown === item.category && (
-                <div className="fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl bg-white text-black shadow-2xl rounded-xl z-[9999] border border-gray-200">
+                <div
+                  className={cn(
+                    "fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl shadow-2xl rounded-xl z-[9999] border border-gray-200",
+                    isHome ? "bg-transparent border-none text-white" : "bg-white text-black"
+                  )}
+                >
                   <Suspense fallback={<div className="p-6 text-center">Carregando...</div>}>
                     <MegaMenuCards category={item.category} />
                   </Suspense>
@@ -109,7 +116,7 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/80 backdrop-blur-md z-40 pt-28 md:pt-32 px-4 transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black z-50 pt-28 md:pt-32 px-4 transform transition-transform duration-300 ease-in-out",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
