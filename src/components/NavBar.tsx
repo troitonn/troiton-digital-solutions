@@ -6,7 +6,7 @@ import { Link, useLocation } from 'react-router-dom';
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "OPERAÇÕES", category: "Operações", path: "#operacoes" }, // scroll na mesma página
+  { label: "OPERAÇÕES", category: "Operações", scrollId: "operacoes" }, // scroll na mesma página
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
@@ -60,10 +60,10 @@ const NavBar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8 ml-auto mr-8 relative z-50">
           {dropdownItems.map((item) =>
-            item.path.startsWith('#') ? (
+            'scrollId' in item ? (
               <button
                 key={item.label}
-                onClick={() => handleScrollToSection(item.path.replace('#', ''))}
+                onClick={() => handleScrollToSection(item.scrollId)}
                 className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
               >
                 {item.label}
@@ -124,10 +124,10 @@ const NavBar = () => {
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
           {dropdownItems.map((item) =>
-            item.path.startsWith('#') ? (
+            'scrollId' in item ? (
               <button
                 key={item.label}
-                onClick={() => handleScrollToSection(item.path.replace('#', ''))}
+                onClick={() => handleScrollToSection(item.scrollId)}
                 className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
               >
                 {item.label}
