@@ -8,7 +8,7 @@ const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 const dropdownItems = [
   { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", path: "/about" },
   { label: "OPERAÇÕES", category: "Operações", path: "/technologies" },
-  { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" }, // ajuste se necessário
+  { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
 const NavBar = () => {
@@ -35,6 +35,7 @@ const NavBar = () => {
       )}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
+        {/* Logo */}
         <Link to="/" className="flex items-center group z-50">
           <img
             src="/lovable-uploads/8c305a3c-3e8f-4fc6-ad19-b4636b961ab1.png"
