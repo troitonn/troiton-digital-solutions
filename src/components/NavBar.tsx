@@ -2,12 +2,11 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
-import { HashLink } from 'react-router-hash-link';
 
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
-  { label: "OPERAÇÕES", category: "Operações", path: "/#operacoes" },
+  { label: "OPERAÇÕES", category: "Operações", path: "#operacoes" }, // scroll na mesma página
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
@@ -16,6 +15,7 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
+
   const isHome = location.pathname === '/';
 
   useEffect(() => {
@@ -26,10 +26,13 @@ const NavBar = () => {
 
   useEffect(() => setIsMobileMenuOpen(false), [location.pathname]);
 
-  const handleScrollToContato = () => {
+  const handleScrollToSection = (id: string) => {
     setIsMobileMenuOpen(false);
-    document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  const handleScrollToContato = () => handleScrollToSection('contato');
 
   return (
     <nav
@@ -57,43 +60,24 @@ const NavBar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8 ml-auto mr-8 relative z-50">
           {dropdownItems.map((item) =>
-            item.label === "OPERAÇÕES" ? (
-              <HashLink
+            item.path.startsWith('#') ? (
+              <button
                 key={item.label}
-                smooth
+                onClick={() => handleScrollToSection(item.path.replace('#', ''))}
+                className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
+              >
+                {item.label}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+              </button>
+            ) : (
+              <Link
+                key={item.label}
                 to={item.path}
                 className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-              </HashLink>
-            ) : (
-              <div
-                key={item.label}
-                className="relative"
-                onMouseEnter={() => setActiveDropdown(item.category)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <Link
-                  to={item.path}
-                  className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
-                >
-                  {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-                </Link>
-                {activeDropdown === item.category && (
-                  <div
-                    className={cn(
-                      "fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl shadow-2xl rounded-xl z-[9999] border border-gray-200",
-                      isHome ? "bg-transparent border-none text-white" : "bg-white text-black"
-                    )}
-                  >
-                    <Suspense fallback={<div className="p-6 text-center">Carregando...</div>}>
-                      <MegaMenuCards category={item.category} />
-                    </Suspense>
-                  </div>
-                )}
-              </div>
+              </Link>
             )
           )}
 
@@ -140,19 +124,17 @@ const NavBar = () => {
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
           {dropdownItems.map((item) =>
-            item.label === "OPERAÇÕES" ? (
-              <HashLink
+            item.path.startsWith('#') ? (
+              <button
                 key={item.label}
-                smooth
-                to={item.path}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => handleScrollToSection(item.path.replace('#', ''))}
                 className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
               >
                 {item.label}
-              </HashLink>
+              </button>
             ) : (
               <Link
-                key={item.path}
+                key={item.label}
                 to={item.path}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
