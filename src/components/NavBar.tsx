@@ -7,7 +7,7 @@ const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
   { label: "NEGÓCIOS E PRODUTOS", category: "Negócios e Produtos", path: "/about" },
-  { label: "OPERAÇÕES", category: "Operações", path: "/technologies" },
+  { label: "OPERAÇÕES", category: "Operações", path: "/operacoes" }, // atualizado
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
