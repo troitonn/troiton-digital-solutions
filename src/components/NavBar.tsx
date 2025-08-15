@@ -2,10 +2,12 @@ import { useState, useEffect, lazy, Suspense } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const MegaMenuCards = lazy(() => import('./MegaMenuCards'));
 
 const dropdownItems = [
+  { label: "OPERAÇÕES", category: "Operações", path: "/#operacoes" },
   { label: "TECNOLOGIA", category: "Tecnologia", path: "/tecnologia" },
 ];
 
@@ -14,7 +16,6 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
-
   const isHome = location.pathname === '/';
 
   useEffect(() => {
@@ -28,11 +29,6 @@ const NavBar = () => {
   const handleScrollToContato = () => {
     setIsMobileMenuOpen(false);
     document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  const handleScrollToOperacoes = () => {
-    setIsMobileMenuOpen(false);
-    document.getElementById('operacoes')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -60,47 +56,53 @@ const NavBar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8 ml-auto mr-8 relative z-50">
-          <button
-            onClick={handleScrollToOperacoes}
-            className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
-          >
-            OPERAÇÕES
-          </button>
-
-          {dropdownItems.map((item) => (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => setActiveDropdown(item.category)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <Link
+          {dropdownItems.map((item) =>
+            item.label === "OPERAÇÕES" ? (
+              <HashLink
+                key={item.label}
+                smooth
                 to={item.path}
                 className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
               >
                 {item.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
-              </Link>
-              {activeDropdown === item.category && (
-                <div
-                  className={cn(
-                    "fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl shadow-2xl rounded-xl z-[9999] border border-gray-200",
-                    isHome ? "bg-transparent border-none text-white" : "bg-white text-black"
-                  )}
+              </HashLink>
+            ) : (
+              <div
+                key={item.label}
+                className="relative"
+                onMouseEnter={() => setActiveDropdown(item.category)}
+                onMouseLeave={() => setActiveDropdown(null)}
+              >
+                <Link
+                  to={item.path}
+                  className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
                 >
-                  <Suspense fallback={<div className="p-6 text-center">Carregando...</div>}>
-                    <MegaMenuCards category={item.category} />
-                  </Suspense>
-                </div>
-              )}
-            </div>
-          ))}
+                  {item.label}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
+                </Link>
+                {activeDropdown === item.category && (
+                  <div
+                    className={cn(
+                      "fixed left-1/2 transform -translate-x-1/2 top-20 w-[95vw] max-w-6xl shadow-2xl rounded-xl z-[9999] border border-gray-200",
+                      isHome ? "bg-transparent border-none text-white" : "bg-white text-black"
+                    )}
+                  >
+                    <Suspense fallback={<div className="p-6 text-center">Carregando...</div>}>
+                      <MegaMenuCards category={item.category} />
+                    </Suspense>
+                  </div>
+                )}
+              </div>
+            )
+          )}
 
           <Link
             to="/about"
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             SOBRE
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
           <Link
@@ -108,13 +110,15 @@ const NavBar = () => {
             className="text-gray-300 hover:text-troiton-400 font-medium transition-colors relative group uppercase tracking-wide text-sm h-12 flex items-center"
           >
             #SEJATROITON+
+            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-troiton-500 transition-all group-hover:w-full"></span>
           </Link>
 
           <button
             onClick={handleScrollToContato}
             className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm"
           >
-            FALE CONOSCO
+            <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
+            <span className="relative">FALE CONOSCO</span>
           </button>
         </div>
 
@@ -135,23 +139,28 @@ const NavBar = () => {
         )}
       >
         <div className="flex flex-col space-y-6 items-center text-lg">
-          <button
-            onClick={handleScrollToOperacoes}
-            className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
-          >
-            OPERAÇÕES
-          </button>
-
-          {dropdownItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {dropdownItems.map((item) =>
+            item.label === "OPERAÇÕES" ? (
+              <HashLink
+                key={item.label}
+                smooth
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+              >
+                {item.label}
+              </HashLink>
+            ) : (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
+              >
+                {item.label}
+              </Link>
+            )
+          )}
 
           <Link
             to="/about"
