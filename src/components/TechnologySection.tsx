@@ -34,9 +34,9 @@ export const TechnologySection = ({ technologies }: TechnologySectionProps) => {
 
   return (
     <section
-      id="operacoes" // ✅ ID usado para scroll suave do NavBar
+      id="operacoes" // 🔹 ID usado para scroll suave
       ref={sectionRef}
-      className="mb-16"
+      className="mb-16 scroll-mt-28" // 🔹 Compensa o menu fixo
     >
       <div className="relative">
         <div className="absolute inset-0 bg-gradient-to-r from-troiton-600/20 to-transparent opacity-30 rounded-2xl blur-xl -z-10"></div>
