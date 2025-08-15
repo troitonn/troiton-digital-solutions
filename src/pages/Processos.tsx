@@ -58,15 +58,7 @@ const Processos = () => {
             <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-12 leading-relaxed">Desenvolvemos processos padronizados que otimizam operações, eliminam desperdícios e garantem qualidade consistente.</p>
 
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-              <button onClick={() => document.getElementById('contato')?.scrollIntoView({
-              behavior: 'smooth'
-            })} className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-10 py-4 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300">
-                <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-80 group-hover:h-80 opacity-10"></span>
-                <span className="relative inline-flex items-center">
-                  Iniciar Transformação
-                  <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                </span>
-              </button>
+              
               
               <div className="flex items-center text-gray-300">
                 <div className="flex -space-x-2 mr-3">
@@ -314,15 +306,7 @@ const Processos = () => {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <button onClick={() => document.getElementById('contato')?.scrollIntoView({
-                  behavior: 'smooth'
-                })} className="bg-gradient-to-r from-troiton-600 to-blue-600 hover:from-troiton-500 hover:to-blue-500 text-white px-12 py-4 rounded-full font-medium text-lg group relative overflow-hidden shadow-2xl hover:shadow-troiton-500/25 transition-all duration-300">
-                    <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-80 group-hover:h-80 opacity-10"></span>
-                    <span className="relative inline-flex items-center">
-                      Iniciar Projeto
-                      <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
-                    </span>
-                  </button>
+                  
                   
                   <div className="text-gray-400 text-sm">
                     <span className="block">Consultoria gratuita</span>
