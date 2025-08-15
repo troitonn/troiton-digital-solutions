@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // Páginas
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Technologies from "./pages/Technologies";
+import Tecnologia from "./pages/Tecnologia"; // antes Technologies
 import About from "./pages/About";
 import Apresentacao from "./pages/Apresentacao";
 import Estrategia from "./pages/Estrategia";
@@ -27,7 +27,7 @@ import Qualidade from "./pages/Qualidade";
 import Doacoes from "./pages/Doacoes";
 import Comunidade from "./pages/Comunidade";
 import Indicadores from "./pages/Indicadores";
-import Processos from "./pages/Processos";
+import Processos from "./pages/Processos"; // rota de Operações
 import Performance from "./pages/Performance";
 
 // Componentes
@@ -48,8 +48,9 @@ const App = () => (
         {/* Rotas */}
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/technologies" element={<Technologies />} />
+          <Route path="/tecnologia" element={<Tecnologia />} /> {/* antes /technologies */}
           <Route path="/about" element={<About />} />
+          <Route path="/operacoes" element={<Processos />} /> {/* antes /processos */}
           <Route path="/apresentacao" element={<Apresentacao />} />
           <Route path="/estrategia" element={<Estrategia />} />
           <Route path="/projetos" element={<Projetos />} />
@@ -58,7 +59,6 @@ const App = () => (
           <Route path="/doacoes" element={<Doacoes />} />
           <Route path="/comunidade" element={<Comunidade />} />
           <Route path="/indicadores" element={<Indicadores />} />
-          <Route path="/processos" element={<Processos />} />
           <Route path="/performance" element={<Performance />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/inovacao" element={<Inovacao />} />
