@@ -88,6 +88,7 @@ const NavBar = () => {
           </Link>
         </div>
 
+        {/* Botão desktop FALE CONOSCO */}
         <button
           onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
           className="hidden md:block bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-8 py-3 rounded-md font-medium transition-colors relative group overflow-hidden uppercase tracking-wide text-sm"
@@ -96,6 +97,7 @@ const NavBar = () => {
           <span className="relative">FALE CONOSCO</span>
         </button>
 
+        {/* Mobile Menu Toggle */}
         <button className="md:hidden text-white z-50" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -104,7 +106,7 @@ const NavBar = () => {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 backdrop-blur-md z-40 pt-28 md:pt-32 px-4 transform transition-transform duration-300 ease-in-out",
+          "fixed inset-0 bg-black/80 backdrop-blur-md z-40 pt-28 md:pt-32 px-4 transform transition-transform duration-300 ease-in-out",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
@@ -113,8 +115,8 @@ const NavBar = () => {
             <Link
               key={item.path}
               to={item.path}
-              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
               onClick={() => setIsMobileMenuOpen(false)}
+              className="w-full text-center py-4 border-b border-troiton-800/30 text-white hover:text-troiton-400 hover:bg-troiton-900/30 rounded-lg transition-all duration-200 uppercase tracking-wide"
             >
               {item.label}
             </Link>
@@ -136,15 +138,13 @@ const NavBar = () => {
             #SEJATROITON+
           </Link>
 
-          <button
-            onClick={() => {
-              setIsMobileMenuOpen(false);
-              document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium w-full transition-colors uppercase tracking-wide"
+          <Link
+            to="#contato"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="w-full text-center bg-gradient-to-r from-troiton-600 to-troiton-500 hover:from-troiton-500 hover:to-troiton-400 text-white px-6 py-3 rounded-md font-medium transition-colors uppercase tracking-wide"
           >
             FALE CONOSCO
-          </button>
+          </Link>
         </div>
       </div>
     </nav>
